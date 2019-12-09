@@ -10,7 +10,7 @@ document.getElementById("n9").addEventListener("click",n9);
 document.getElementById("n0").addEventListener("click",n0);
 
 function n1() {
-	let actual = document.getElementById('resultado').innerHTML;
+	let actual = document.getElementById('resultado').value;
 	let sumado = document.getElementById("n1").innerHTML;
 	document.getElementById('resultado').innerHTML = actual + sumado
 }
