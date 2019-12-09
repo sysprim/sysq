@@ -1,0 +1,32 @@
+a.btn-app,
+button.btn-app {
+    display: block;
+    border-radius: 2px !important;
+    position: relative;
+    padding: 15px 5px !important;
+    margin: 1rem 0 0 0;
+    // min-width: 40px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #26a69a;
+    font-size: 40px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    -webkit-transition: background-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
+    cursor: pointer;
+
+
+
+    & > i {
+        font-size: 46px;
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    &:hover {
+        background-color: #2bbbad;
+    }
+}

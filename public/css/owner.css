@@ -1,0 +1,75 @@
+.bordered {
+  border: solid 1px #fff;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato-Regular.ttf");
+}
+@font-face {
+  font-family: "Audiowide";
+  src: url("../fonts/Audiowide-Regular.ttf");
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/Nunito-Regular.ttf");
+}
+@font-face {
+  font-family: "BlackOps";
+  src: url("../fonts/BlackOpsOne-Regular.ttf");
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu-Regular.ttf");
+}
+.font-lato {
+  font-family: "Lato";
+}
+
+.font-audiowide {
+  font-family: "Audiowide" !important;
+}
+
+.font-nunito {
+  font-family: "Nunito";
+}
+
+.font-blackops {
+  font-family: "BlackOps" !important;
+}
+
+.font-ubuntu {
+  font-family: "Ubuntu" !important;
+}
+
+a.btn-app,
+button.btn-app {
+  display: block;
+  border-radius: 2px !important;
+  position: relative;
+  padding: 15px 5px !important;
+  margin: 1rem 0 0 0;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #26a69a;
+  font-size: 40px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+  cursor: pointer;
+}
+a.btn-app > i,
+button.btn-app > i {
+  font-size: 46px;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+a.btn-app:hover,
+button.btn-app:hover {
+  background-color: #2bbbad;
+}
+
+/*# sourceMappingURL=owner.css.map */

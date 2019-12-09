@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Audiowide';
+    src: url('../fonts/Audiowide-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('../fonts/Nunito-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'BlackOps';
+    src: url('../fonts/BlackOpsOne-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Regular.ttf');
+}
+
+.font-lato {
+    font-family: 'Lato';
+}
+
+.font-audiowide {
+    font-family: 'Audiowide' !important;
+}
+
+.font-nunito {
+    font-family: 'Nunito';
+}
+
+.font-blackops {
+    font-family: 'BlackOps' !important;
+}
+
+.font-ubuntu {
+    font-family: 'Ubuntu' !important;
+}
