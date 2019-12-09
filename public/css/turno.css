@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: 'Ubuntu' !important;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+header,
+main,
+footer {
+    padding-right: 300px !important;
+}
+
+.time {
+    font-size: 50px;
+}
+
+.time:after {
+    font-size: 20px;;
+}
+
+.date {
+    margin: 0;
+    padding: 0;
+
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.date-year {
+    margin: 0;
+    padding: 0;
+    font-size: 50px;
+    font-weight: 800;
+}
