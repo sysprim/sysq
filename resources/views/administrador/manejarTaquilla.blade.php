@@ -22,8 +22,9 @@
             <div class="nav-wrapper">
                     <a href="{{ route('index')  }}" class="brand-logo font-audiowide left deep-purple-text text-darken-2">SysQ</a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
+                                <li><a href="{{ route('panel') }}" class="black-text tooltipped" data-position="bottom" data-tooltip="Panel"><i class="icon-account_circle"></i></a></li>
                             <li><a href="#" class="black-text tooltipped" data-position="bottom" data-tooltip="Turnos"><i class="icon-slow_motion_video"></i></a></li>
-                            <li><a href="#" class="black-text tooltipped" data-position="bottom" data-tooltip="Usuarios"><i class="icon-supervisor_account"></i></a></li>
+                            <li><a href="{{ route('config')}}" class="black-text tooltipped" data-position="bottom" data-tooltip="Usuarios"><i class="icon-supervisor_account"></i></a></li>
                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="black-text tooltipped" data-position="bottom" data-tooltip="Cerrar Sesión"><i class="icon-exit_to_app"></i></a>
                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf

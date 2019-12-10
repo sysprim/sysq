@@ -19,8 +19,8 @@
     <header>
         <nav class="white container-fluid">
             <div class="nav-wrapper">
-                <a href="{{ route('home') }}" class="black-text"><i class="small icon-account_circle " title="Entrar" style="display:inline-block"></i></a>
-                <a href="{{ route('index') }}" class="brand-logo font-audiowide right deep-purple-text text-darken-2">SysQ</a>
+                <a href="{{ route('home') }}" class="black-text tooltipped" data-position="bottom" data-tooltip="Entrar al Sistema"><i class="small icon-account_circle"  style="display:inline-block"></i></a>
+                <a href="{{ route('index') }}" class="brand-logo font-audiowide right deep-purple-text text-darken-2 tooltipped" data-position="bottom" data-tooltip="Inicio" >SysQ</a>
             </div>
         </nav>
     </header>
@@ -120,5 +120,7 @@
     <script src="{{ asset('js/aos.js')              }}"></script>
     <script src="{{ asset('js/owner.js')            }}"></script>
     <script src="{{ asset('js/home.js')             }}"></script>
+    <script src="{{ asset('js/inicializar.js')             }}"></script>
+
 </body>
 </html>

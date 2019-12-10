@@ -19,4 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/panelAdministrador', 'AdministradorController@index')->name('panel');
+Route::get('/Panel', 'AdministradorController@index')->name('panel');
+
+Route::get('/config', 'UserController@index')->name('config');
+Route::get('/detalle/{id}', 'UserController@detalle')->name('detalle');
