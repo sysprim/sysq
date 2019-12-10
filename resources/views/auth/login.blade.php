@@ -25,15 +25,15 @@
                         </div>
 
                         <div class="row">
-                            <div class="col s3 right offset-s5" style="margin-bottom:20px;">
+                            <div class="col s3 right " style="margin-bottom:20px;">
                                 <button type="submit" class="btn red">
                                     {{ __('Entrar') }}
                                 </button>
                             </div>
 
-                                <div class="left col s4 m4"">
+                                <div class="left col s8 m8">
                                     @if (Route::has('password.request'))
-                                        <a style="margin-left:3px;" class="black-text" href="{{ route('password.request') }}">
+                                        <a style="margin-left:15px;" class="black-text" href="{{ route('password.request') }}">
                                             {{ __('Olvidaste tu contraseña?') }}
                                         </a>
                                      @endif
