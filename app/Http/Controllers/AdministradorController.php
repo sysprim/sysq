@@ -16,4 +16,9 @@ class AdministradorController extends Controller
 
        return view('administrador.manejarTaquilla');
    }
+
+   public function turno(){
+   	
+   		return view('turno.TurnoEspera');
+   }
 }

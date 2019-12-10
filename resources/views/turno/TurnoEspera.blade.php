@@ -24,21 +24,17 @@
 <body class="grey lighten-3 font-nunito">
     <!-- Header -->
     <header>
-        <nav class="white container-fluid">
-            <div class="nav-wrapper">
-                <a href="{{ route('index') }}" class="brand-logo font-audiowide right deep-purple-text text-darken-2">SysQ</a>
-            </div>
-        </nav>
+        
         <div id="slide-out" class="sidenav sidenav-fixed">
             <div class="row">
                 <div class="col s6">
-                    Hola
+                    
                 </div>
                 <div class="col s6">
-                    Hola
+                    
                 </div>
             </div>
-            <div class="divider"></div>
+
             <div class="row">
                 <div class="col s6 center-align pink bordered">
                     <h4>Turno</h4>

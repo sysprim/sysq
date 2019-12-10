@@ -20,6 +20,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/Panel', 'AdministradorController@index')->name('panel');
+Route::get('/Turno', 'AdministradorController@turno')->name('turno');
 
 Route::get('/config', 'UserController@index')->name('config');
-Route::get('/detalle/{id}', 'UserController@detalle')->name('detalle');
+
+Route::get('/detalle/{id}' ,'UserController@detalle')->name('detalle');
+Route::get('/Eliminar/{id}','UserController@delete')->name('eliminar');
+

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('css/owner.css') }}">
     <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
 </head>
+
 <body class="grey lighten-3 font-nunito">
     <!-- Header -->
     <header>
@@ -24,7 +25,7 @@
                     <a href="{{ route('index')  }}" class="brand-logo font-audiowide left deep-purple-text text-darken-2">SysQ</a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                                 <li><a href="{{ route('panel') }}" class="black-text tooltipped" data-position="bottom" data-tooltip="Panel"><i class="icon-account_circle"></i></a></li>
-                            <li><a href="#" class="black-text tooltipped" data-position="bottom" data-tooltip="Turnos"><i class="icon-slow_motion_video"></i></a></li>
+                            <li><a href="{{route('turno')}}" class="black-text tooltipped" data-position="bottom" data-tooltip="Turnos"><i class="icon-slow_motion_video"></i></a></li>
                             <li><a href="{{ route('config')}}" class="black-text tooltipped" data-position="bottom" data-tooltip="Usuarios"><i class="icon-supervisor_account"></i></a></li>
                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="black-text tooltipped" data-position="bottom" data-tooltip="Cerrar Sesión"><i class="icon-exit_to_app"></i></a>
                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -120,7 +121,7 @@
                 <div class="col s12">
                     <div class="collection with-header">
                         <div class="collection-header"><h5>Mi Fila (Todos)</h5></div>
-                        {{-- No BOOOOORRRRRARR --}}
+
                         <a href="#modal1" class="collection-item avatar modal-trigger">
                             <i class="circle blue fas fa-user"></i>
                             <span class="title">A002</span><br>
