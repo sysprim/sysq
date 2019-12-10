@@ -86,7 +86,7 @@
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
-                                <button type="button"  class="btn-app red white-text">
+                                <button type="button" id="borrar"  class="btn-app red white-text">
                                     <i class="fas fa-backspace"></i>
                                 </button>
                             </div>
@@ -101,7 +101,7 @@
                                 </button>
                             </div>
                             <div class="col s12 animated bounceIn">
-                                <button type="button" class="btn-app green white-text">
+                                <button type="submit" class="btn-app green white-text">
                                     <i class="fas fa-ticket-alt"></i>
                                 </button>
                             </div>
