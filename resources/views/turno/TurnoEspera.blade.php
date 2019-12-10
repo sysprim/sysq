@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owner.css') }}">
     <link rel="stylesheet" href="{{ asset('css/turno.css') }}">
+    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
 
     
 </head>
