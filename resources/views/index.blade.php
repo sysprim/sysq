@@ -38,50 +38,50 @@
                     <form action="" method="post" class="card grey lighten-5 hoverable">
                         <div class="card-content row ">
                             <div class="input-field col s12">
-                                <input type="number" id="resultado" min="1" name="" id="ci" style="height:80px; font-size:40px">
+                                <input type="number" id="inputext" min="1" name="" id="ci" style="height:80px; font-size:40px">
                             </div>
                             <div class="col s4 animated bounceIn">
-                                <button type="button" id="n1" class="btn-app white black-text" value='1'>
+                                <button type="button" class=" btnNumber btn-app white black-text" value="1">
                                     <span>1</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
-                                <button type="button" id="n2" class="btn-app white black-text">
+                                <button type="button" class=" btnNumber btn-app white black-text" value="2">
                                     <span>2</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
-                                <button type="button" id="n3" class="btn-app white black-text">
+                                <button type="button" class=" btnNumber btn-app white black-text" value="3">
                                     <span>3</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
-                                <button type="button" id="n4" class="btn-app white black-text">
+                                <button type="button" class=" btnNumber btn-app white black-text" value="4">
                                     <span>4</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
-                                <button type="button" id="n5" class="btn-app white black-text">
+                                <button type="button" class=" btnNumber btn-app white black-text" value="5">
                                     <span>5</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
-                                <button type="button" id="n6" class="btn-app white black-text">
+                                <button type="button" class=" btnNumber btn-app white black-text" value="6">
                                     <span>6</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
-                                <button type="button" id="n7" class="btn-app white black-text">
+                                <button type="button" class=" btnNumber btn-app white black-text" value="7">
                                     <span>7</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
-                                <button type="button" id="n8" class="btn-app white black-text">
+                                <button type="button" class=" btnNumber btn-app white black-text" value="8">
                                     <span>8</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
-                                <button type="button" id="n9" class="btn-app white black-text">
+                                <button type="button" class=" btnNumber btn-app white black-text" value="9">
                                     <span>9</span>
                                 </button>
                             </div>
@@ -91,7 +91,7 @@
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
-                                <button type="button" id="n0" class="btn-app white black-text">
+                                <button type="button" class=" btnNumber btn-app white black-text" value="0">
                                     <span>0</span>
                                 </button>
                             </div>
