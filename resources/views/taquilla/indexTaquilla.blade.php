@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('css/icons/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owner.css') }}">
+    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
 
 </head>
 
