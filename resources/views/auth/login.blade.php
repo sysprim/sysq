@@ -16,11 +16,25 @@
                             <div class="input-field col s12">
                                 <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo') }}</label>
+
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+
                             </div>                         
 
                             <div class="input-field col s12">
                                 <input id="password" type="password" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
+
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                                
                             </div>
                         </div>
 

@@ -39,7 +39,7 @@ class UserController extends Controller
 
         $user->update();
 
-        return redirect()->route('config')->with(['message'=>'Usuario Actualizado']);
+        return redirect()->route('config');
 
     }
 

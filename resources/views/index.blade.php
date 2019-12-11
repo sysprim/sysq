@@ -39,7 +39,7 @@
                     <form action="" method="post" class="card grey lighten-5 hoverable">
                         <div class="card-content row ">
                             <div class="input-field col s12">
-                                <input type="text" pattern="[0-9]+" title="Solo puedes usar números" id="inputext" minlength="5" maxlength="8" name="" style="height:80px; font-size:40px">
+                                <input type="text" pattern="[0-9]+" title="Solo puedes usar números" id="ci" minlength="5" maxlength="8" name="ci" style="height:80px; font-size:40px">
                             </div>
                             <div class="col s4 animated bounceIn">
                                 <button type="button" class="waves-effect btnNumber btn-app white black-text" value="1">

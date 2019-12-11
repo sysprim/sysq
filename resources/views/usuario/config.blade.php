@@ -1,33 +1,21 @@
+@extends('layouts.app')
 
 @section('content')
-<body class="grey lighten-3 font-nunito">
-    <!-- Header -->
-    <header>
-        <nav class="white container-fluid">
-            <div class="nav-wrapper">
-                    <a href="{{ route('index')  }}" class="brand-logo font-audiowide left deep-purple-text text-darken-2">SysQ</a>
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><a href="{{ route('panel') }}" class="black-text tooltipped" data-position="bottom" data-tooltip="Panel"><i class="icon-account_circle"></i></a></li>
-                            <li><a href="{{route('turno')}}" class="black-text tooltipped" data-position="bottom" data-tooltip="Turnos"><i class="icon-slow_motion_video"></i></a></li>
-                            <li><a href="#" class="black-text tooltipped" data-position="bottom" data-tooltip="Usuarios"><i class="icon-supervisor_account"></i></a></li>
-                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="black-text tooltipped" data-position="bottom" data-tooltip="Cerrar Sesión"><i class="icon-exit_to_app"></i></a>
-                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                             </form>
-                            </li>
-                            {{-- <li><a href="collapsible.html">JavaScript</a></li> --}}
-                        </ul>
-            </div>
-        </nav>
-    </header>
 
+<body class="grey lighten-3 font-nunito">
     <main>
         <div class="container-fluid" style="margin-top:20px;">
             
             <div class="row">
                 <div class="col s12">
+                            <ul class="tabs">
+                                <li class="tab col s12 m6"><a href="#usuario" style="color:blue">Usuarios</a></li>
+                                <li class="tab col s12 m6"><a href="#test2" style="color:blue">Taquillas</a></li>
+                            </ul>                
+                    
+
                     <div class="collection with-header">
-                        <div class="collection-header"><h5>Usuarios Registrados</h5></div>
+                        <div class="collection-header" id="usuario"><h5>Usuarios Registrados</h5></div>
                         
                         <table class="white centered highlight responsive-table" id="Material">
                                 <thead>
@@ -49,7 +37,7 @@
                                 @else @foreach ($users as $user)
                                 
                                 <tbody> 
-                                          
+                                          <input type="hidden" value="{{$user->id}}"  id="user" >
                                    <tr>
                                         <td>{{ $user->name }} </td>
                                         <td>{{ $user->email }}</td>
@@ -59,19 +47,27 @@
                                             <a href="{{ route('detalle', ['id' => $user->id]) }}" class="btn btn-small btn-floating blue waves-effect effect-light"><i class="icon-pageview"></i></a>
                                         </td>
                                         <td>
-                                            <a href="{{ route('eliminar', ['id' => $user->id]) }}" class="btn btn-small btn-floating red waves-effect effect-light"><i class="icon-delete"></i></a>
+                                             <a href="#" id="delete" class="btn btn-small btn-floating red waves-effect effect-light"><i class="icon-delete"></i></a>
+                                           <!--  <a href="{{ route('eliminar', ['id' => $user->id]) }}" class="btn btn-small btn-floating red waves-effect effect-light"><i class="icon-delete"></i></a> -->
                                         </td>
                                     </tr> 
                                      
                                      @endforeach 
                                      @endif  
                                 </tbody>
-                            </table>
-                        
-                                              
-                    </div>
+                            </table>                                   
+                    </div>                   
                 </div>
             </div>
         </div>
     </main>
-    @endsection
+
+   <!--  <style>
+        .tabs .tab a:focus, .tabs .tab a:focus.active{
+            background: #039be5;
+            opacity: 0.7;
+            color: #fff;
+            border: none;
+        }
+    </style> -->
+ @endsection

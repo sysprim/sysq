@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 @section('content')
     <main>
         <div class="container-fluid" style="margin-top:20px;">
@@ -12,7 +14,8 @@
                     <div class="card-body">
                         <form method="POST" action="{{-- route('update')--}}" enctype="multipart/form-data" aria-label="Configuración de mi cuenta">
                             @csrf
-    
+                            
+                            <input type="hidden ">
                             <div class="row" style="margin-top:20px;" >
                                 <div class="form-group col s8 offset-s1">
                                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
@@ -55,6 +58,8 @@
                                         <button type="submit" class="btn blue">
                                             Guardar
                                         </button>
+
+                                         <a href="#" id="delete" class="btn btn-small btn-floating red waves-effect effect-light"><i class="icon-delete"></i></a>
                                     </div>
                                 </div>
                             </form>
@@ -64,7 +69,6 @@
             </div>
         </div>
     </main>
-
-    @endsection
+@endsection
 </body>
 </html>

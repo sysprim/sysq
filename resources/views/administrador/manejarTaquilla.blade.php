@@ -43,19 +43,19 @@
                         </div>
                         <div class="col s12 m4 animated bounceIn">
                             <a href="" class="btn-app white black-text">
-                                <i class="fas fa-bullhorn"></i>
+                                <i class="fas fa-bullhorn blue-text"></i>
                                 <span style="font-size: 16px;">Llamar de Nuevo</span>
                             </a>
                         </div>
                         <div class="col s12 m4 animated bounceIn">
-                            <a href="" class="btn-app white black-text">
-                                <i class="fas fa-play"></i>
+                            <a href="" class="btn-app white black-text ">
+                                <i class="fas fa-play blue-text"></i>
                                 <span style="font-size: 16px;">Iniciar Atención</span>
                             </a>
                         </div>
                         <div class="col s12 m4 animated bounceIn">
                             <a href="" class="btn-app white black-text">
-                                <i class="fas fa-user-times"></i>
+                                <i class="fas fa-user-times red-text"></i>
                                 <span style="font-size: 16px;">No se presentó</span>
                             </a>
                         </div>

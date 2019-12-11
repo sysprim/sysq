@@ -25,5 +25,5 @@ Route::get('/Turno', 'AdministradorController@turno')->name('turno');
 Route::get('/config', 'UserController@index')->name('config');
 
 Route::get('/detalle/{id}' ,'UserController@detalle')->name('detalle');
-Route::get('/Eliminar/{id}','UserController@delete')->name('eliminar');
+Route::get('/User/Eliminar/{id}','UserController@delete')->name('eliminar');
 
