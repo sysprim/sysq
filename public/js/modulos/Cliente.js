@@ -3,11 +3,11 @@ $(document).ready(function () {
 
     function search(){
 
-      var ci = $('inputext').val();
+      var ci = $('ci').val();
 
         $.ajax({
           url: url,
-          type: 'POST',
+          type: 'GET',
           dataType: 'json',
           data: {ci:ci},
          beforeSend:function(){

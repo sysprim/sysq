@@ -36,10 +36,13 @@
             <div ></div>
             <div class="row">
                 <div class="col s12 m8 offset-m2 l6 offset-l3">
-                    <form action="" method="post" class="card grey lighten-5 hoverable">
+                    <form action="{{ route('registrar.cliente') }}" method="post" class="card grey lighten-5 hoverable">
+
+                         @csrf
+
                         <div class="card-content row ">
                             <div class="input-field col s12">
-                                <input type="text" pattern="[0-9]+" title="Solo puedes usar números" id="ci" minlength="5" maxlength="8" name="ci" style="height:80px; font-size:40px">
+                                <input type="text" pattern="[0-9]+" title="Solo puedes usar números" id="ci" minlength="5" maxlength="8" name="ci" style="height:80px; font-size:40px" onblur="buscar()" required >
                             </div>
                             <div class="col s4 animated bounceIn">
                                 <button type="button" class="waves-effect btnNumber btn-app white black-text" value="1">
@@ -130,6 +133,7 @@
     <script src="{{ asset('js/owner.js')            }}"></script>
     <script src="{{ asset('js/home.js')             }}"></script>
     <script src="{{ asset('js/inicializar.js')      }}"></script>
+    <script src="{{ asset('js/modulos/Cliente.js')      }}"></script>
 
 </body>
 </html>

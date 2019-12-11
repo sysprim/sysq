@@ -27,3 +27,6 @@ Route::get('/config', 'UserController@index')->name('config');
 Route::get('/detalle/{id}' ,'UserController@detalle')->name('detalle');
 Route::get('/User/Eliminar/{id}','UserController@delete')->name('eliminar');
 
+Route::post('/cliente/registrar', 'ClienteController@save')->name('registrar.cliente');
+
+
