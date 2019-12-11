@@ -26,32 +26,24 @@
     <header>
         
         <div id="slide-out" class="sidenav sidenav-fixed">
-            <div class="row">
-                <div class="col s6">
-                    
-                </div>
-                <div class="col s6">
-                    
-                </div>
-            </div>
 
             <div class="row">
-                <div class="col s6 center-align pink bordered">
+                <div class="col s6 center-align blue bordered">
                     <h4>Turno</h4>
                 </div>
-                <div class="col s6 center-align pink bordered">
+                <div class="col s6 center-align blue bordered">
                     <h4>Taquilla</h4>
                 </div>
-                <div class="col s6 center-align orange bordered">
+                <div class="col s6 center-align grey bordered">
                     <h4>A001</h4>
                 </div>
-                <div class="col s6 center-align orange bordered">
+                <div class="col s6 center-align grey bordered">
                     <h4>1</h4>
                 </div>
-                <div class="col s6 center-align orange bordered">
+                <div class="col s6 center-align grey bordered">
                     <h4>S001</h4>
                 </div>
-                <div class="col s6 center-align orange bordered">
+                <div class="col s6 center-align grey bordered">
                     <h4>2</h4>
                 </div>
             </div>
@@ -61,12 +53,14 @@
     </header>
 
     <main>
-        <div class="container-fluid">
-            
+        <div class="row">
+            <div class="video-container">
+                <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
     </main>
 
-    <footer class="page-footer white black-text">
+    <footer class="page-footer blue black-text">
         <div class="container-fluid">
             <div class="row">
                 <div class="col s12">
