@@ -30,3 +30,4 @@ Route::get('/User/Eliminar/{id}','UserController@delete')->name('eliminar');
 Route::post('/cliente/registrar', 'ClienteController@save')->name('registrar.cliente');
 
 
+
