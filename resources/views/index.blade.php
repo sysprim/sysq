@@ -129,7 +129,7 @@
     <script src="{{ asset('js/aos.js')              }}"></script>
     <script src="{{ asset('js/owner.js')            }}"></script>
     <script src="{{ asset('js/home.js')             }}"></script>
-    <script src="{{ asset('js/inicializar.js')             }}"></script>
+    <script src="{{ asset('js/inicializar.js')      }}"></script>
 
 </body>
 </html>

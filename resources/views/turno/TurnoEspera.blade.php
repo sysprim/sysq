@@ -55,7 +55,7 @@
                     <h4>2</h4>
                 </div>
             </div>
-            
+
         </div>
         <!-- <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="icon-close"></i></a> -->
     </header>
@@ -70,7 +70,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col s12">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto minima saepe quisquam ducimus possimus soluta, incidunt ea quo corrupti illo?
+                    Cintillo de Noticia
                 </div>
             </div>
             <div class="row">

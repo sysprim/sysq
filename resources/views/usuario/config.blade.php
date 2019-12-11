@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SysQ - Sistema para Colas</title>
-    <!-- CSS files -->
-    
-    <link rel="stylesheet" href="{{ asset('css/materialize.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/material-components.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/material-gradient.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/icons/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/all.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/owner.css') }}">
-    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
-</head>
+
+@section('content')
 <body class="grey lighten-3 font-nunito">
     <!-- Header -->
     <header>
@@ -90,12 +74,4 @@
             </div>
         </div>
     </main>
-
-
-    <!-- JavaScript files -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script src="js/sweetalert.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/owner.js"></script>
-    <script src="js/inicializar.js"></script>
+    @endsection
