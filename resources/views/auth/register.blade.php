@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card" style="margin-top:20px;">
                 <div class="card-header">
-                    <span class="card-title">Registrar</span>
+                    <span class="card-title">Registrar Usuario</span>
                 </div>
 
                 <div class="card-body">

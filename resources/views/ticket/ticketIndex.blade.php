@@ -1,4 +1,4 @@
-@extends('layouts.navbarSencilla')
+@extends('layouts.simpleNav')
 
 <body class="grey lighten-3 font-nunito">
 

@@ -4,14 +4,13 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientesTable extends Migration
+class CreateClientsTable extends Migration
 {
-
     public function up()
     {
-        Schema::create('clientes', function (Blueprint $table) {
+        Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('ci_cliente')->unique();
+            $table->integer('ci_client')->unique();
             $table->timestamps();
         });
     }
@@ -19,6 +18,6 @@ class CreateClientesTable extends Migration
    
     public function down()
     {
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('clients');
     }
 }

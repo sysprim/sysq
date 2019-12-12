@@ -36,13 +36,14 @@
             <div ></div>
             <div class="row">
                 <div class="col s12 m8 offset-m2 l6 offset-l3">
-                    <form action="{{ route('registrar.cliente') }}" method="post" class="card grey lighten-5 hoverable">
+                    <form action="{{ route('save.client') }}" method="post" class="card grey lighten-5 hoverable">
 
                          @csrf
 
                         <div class="card-content row ">
                             <div class="input-field col s12">
-                                <input type="text" pattern="[0-9]+" title="Solo puedes usar números" id="ci" minlength="5" maxlength="8" name="ci" style="height:80px; font-size:40px" onblur="buscar()" required >
+                                <input autofocus type="text" pattern="[0-9]+" title="Solo puedes usar números" id="ci" minlength="5" maxlength="8" name="ci" style="height:80px; font-size:40px" required >
+                                <span id="mcedula"></span>
                             </div>
                             <div class="col s4 animated bounceIn">
                                 <button type="button" class="waves-effect btnNumber btn-app white black-text" value="1">
@@ -50,7 +51,7 @@
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
-                                <button type="button" class="waves-effect btnNumber btn-app white black-text" value="2">
+                                <button autofocus type="button" class="waves-effect btnNumber btn-app white black-text" value="2">
                                     <span>2</span>
                                 </button>
                             </div>
@@ -132,8 +133,8 @@
     <script src="{{ asset('js/aos.js')              }}"></script>
     <script src="{{ asset('js/owner.js')            }}"></script>
     <script src="{{ asset('js/home.js')             }}"></script>
-    <script src="{{ asset('js/inicializar.js')      }}"></script>
-    <script src="{{ asset('js/modulos/Cliente.js')      }}"></script>
+    <script src="{{ asset('js/initialize.js')      }}"></script>
+    <script src="{{ asset('js/data/cliente.js')      }}"></script>
 
 </body>
 </html>

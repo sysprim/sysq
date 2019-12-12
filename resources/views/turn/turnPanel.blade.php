@@ -28,22 +28,22 @@
         <div id="slide-out" class="sidenav sidenav-fixed">
 
             <div class="row">
-                <div class="col s6 center-align blue bordered">
+                <div class="col s6 center-align blue">
                     <h4>Turno</h4>
                 </div>
-                <div class="col s6 center-align blue bordered">
+                <div class="col s6 center-align blue">
                     <h4>Taquilla</h4>
                 </div>
-                <div class="col s6 center-align grey bordered">
+                <div class="col s6 center-align grey lighten-2">
                     <h4>A001</h4>
                 </div>
-                <div class="col s6 center-align grey bordered">
+                <div class="col s6 center-align grey lighten-2">
                     <h4>1</h4>
                 </div>
-                <div class="col s6 center-align grey bordered">
+                <div class="col s6 center-align grey lighten-2">
                     <h4>S001</h4>
                 </div>
-                <div class="col s6 center-align grey bordered">
+                <div class="col s6 center-align grey lighten-2">
                     <h4>2</h4>
                 </div>
             </div>
@@ -53,9 +53,9 @@
     </header>
 
     <main>
-        <div class="row">
+        <div class="row"style="margin:0;">
             <div class="video-container">
-                <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
+                <iframe width="853" height="480" src="chale" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </main>
@@ -69,10 +69,22 @@
             </div>
             <div class="row">
                 <div class="col s6">
-                    <span class="time">10:20</span><span>AM</span>
+                    <div class="date">
+                        <span><i class="icon-date_range     "></i></span>
+                        <span id="weekDay"  class="weekDay  "></span><span>,</span> 
+                        <span id="day"      class="day      "></span> <span>de</span>
+                        <span id="month"    class="month    "></span><span > del</span>
+                        <span id="year"     class="year     "></span>
+                    </div>               
                 </div>
+
                 <div class="col s6">
-                    <p class="date-year truncate">12/12/2019</p>
+                    <div class="clock">
+                        <span><i class="icon-alarm "></i></span>
+                        <span id="hours"    class="hours "></span><span>:</span>
+                        <span id="minutes"  class="minutes "></span><span>:</span>
+                        <span id="seconds"  class="seconds "></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -84,6 +96,7 @@
     <script src="{{ asset('js/materialize.min.js') }}"></script>
     <script src="{{ asset('js/sweetalert.min.js') }}"></script>
     <script src="{{ asset('js/aos.js') }}"></script>
+    <script src="{{ asset('js/data/turn.js') }}"></script>
     <script src="{{ asset('js/owner.js') }}"></script>
 
     <style>

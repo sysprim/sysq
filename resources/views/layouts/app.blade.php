@@ -23,7 +23,7 @@
     <script src="{{ asset('js/sweetalert.min.js') }}"></script>
     <script src="{{ asset('js/aos.js') }}"></script>
     <script src="{{ asset('js/owner.js') }}"></script>
-    <script src="{{ asset('js/inicializar.js') }}"></script>
+    <script src="{{ asset('js/initialize.js') }}"></script>
 
 </head>
 
@@ -35,8 +35,8 @@
                     <a href="{{ route('index')  }}" class="brand-logo font-audiowide left deep-purple-text text-darken-2">SysQ</a>
                         @if(Auth::check())
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
-                                <li><a href="{{ route('panel') }}" class="black-text tooltipped" data-position="bottom" data-tooltip="Panel"><i class="icon-account_circle"></i></a></li>
-                            <li><a href="{{route('turno')}}" class="black-text tooltipped" data-position="bottom" data-tooltip="Turnos"><i class="icon-slow_motion_video"></i></a></li>
+                            <li><a href="{{ route('panel') }}" class="black-text tooltipped" data-position="bottom" data-tooltip="Panel"><i class="icon-account_circle"></i></a></li>
+                            <li><a href="{{ route('turn')}}" class="black-text tooltipped" data-position="bottom" data-tooltip="Turnos"><i class="icon-slow_motion_video"></i></a></li>
                             <li><a href="{{ route('config')}}" class="black-text tooltipped" data-position="bottom" data-tooltip="Configuración"><i class="icon-settings"></i></a></li>
                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="black-text tooltipped" data-position="bottom" data-tooltip="Cerrar Sesión"><i class="icon-exit_to_app"></i></a>
                            

@@ -23,7 +23,7 @@
     <script src="{{ asset('js/sweetalert.min.js') }}"></script>
     <script src="{{ asset('js/aos.js') }}"></script>
     <script src="{{ asset('js/owner.js') }}"></script>
-    <script src="{{ asset('js/inicializar.js') }}"></script>
+    <script src="{{ asset('js/initialize.js') }}"></script>
 
 </head>
 

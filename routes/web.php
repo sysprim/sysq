@@ -19,15 +19,26 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/Panel', 'AdministradorController@index')->name('panel');
-Route::get('/Turno', 'AdministradorController@turno')->name('turno');
+//Administrator
 
-Route::get('/config', 'UserController@index')->name('config');
+Route::get('/Panel' , 'AdministratorController@index'   )->name('panel');
+Route::get('/Turn'  , 'AdministratorController@turn'    )->name('turn'); 
+Route::get('/Config', 'AdministratorController@config'  )->name('config');
 
-Route::get('/detalle/{id}' ,'UserController@detalle')->name('detalle');
-Route::get('/User/Eliminar/{id}','UserController@delete')->name('eliminar');
+//User
+Route::get('/User/Detail/{id}'  ,'UserController@detail')->name('detail.user'); 
+Route::get('/User/Delete/{id}',  'UserController@delete')->name('delete.user'); 
+Route::post('/User/Password',  'UserController@passwordUpdate')->name('password.user');
+Route::post('/User/Update', 'UserController@update')->name('user.update'); 
 
-Route::post('/cliente/registrar', 'ClienteController@save')->name('registrar.cliente');
+//Ticket
+
+
+//Client
+
+Route::post('/Client/Save', 'ClientController@save')->name('save.client');
+
+//Turn
 
 
 
