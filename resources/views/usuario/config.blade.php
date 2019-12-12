@@ -5,6 +5,13 @@
 <body class="grey lighten-3 font-nunito">
     <main>
         <div class="container-fluid" style="margin-top:20px;">
+
+            <div class="row">
+                <div class="col s12 m12">
+                    <a href="" class="btn blue tooltipped" data-position="bottom" data-tooltip="Registrar Usuario" >Registrar Usuario<i class="icon-assignment"></i></a>
+                    <a href="" class="btn blue tooltipped" data-position="bottom" data-tooltip="Registrar Taquilla" >Registrar Taquilla<i class="icon-assignment_ind"></i></a>
+                </div>
+            </div>
             
             <div class="row">
                 <div class="col s12">
@@ -101,10 +108,10 @@
                                      @endif  
                                 </tbody>
                             </table>                                   
-                        </div>
                     </div>                   
                 </div>
             </div>
+        </div>
         </div>
     </main>
 
