@@ -26,8 +26,8 @@ footer {
 .date {
     margin: 0;
     padding: 0;
-    -webkit-text-stroke: 1px black;
-    color: #ff9800 ;
+    -webkit-text-stroke: 0.5px black;
+    color: white ;
     font-size: 30px;
     font-weight: bolder;
 }
@@ -39,6 +39,6 @@ footer {
     padding: 0;
     font-size: 30px;
     font-weight: 800;
-    -webkit-text-stroke: 1px black;
-    color: #ff9800 ;
+    -webkit-text-stroke: 0.5px black;
+    color: white ;
 }

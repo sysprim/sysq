@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card" style="margin-top:20px;">
                 <div class="card-header">
                     <span class="card-title">Registrar Taquillas</span>
@@ -15,7 +15,8 @@
 
                         <div class="row" style="margin-top:20px;">                         
                             <div class="input-field col m8">
-                                <label for="name_ticket" class="col m4 col-form-label text-md-right">Nombre Taquilla</label>
+                                <i class="icon-looks_one prefix"></i> 
+                                <label for="name_ticket" class="col-form-label text-md-right">Nombre Taquilla</label>
                                 <input id="name_ticket" type="text" class="form-control @error('name_ticket') is-invalid @enderror" name="name_ticket" value="{{ old('name') }}" required autocomplete="name_ticket" autofocus>
 
                                 @error('name_ticket')
@@ -26,10 +27,10 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            
+                        <div class="row">                        
                             <div class=" input-field col m8">
-                                <label for="description_ticket" class="col m4 col-form-label text-md-right">Descripción</label>
+                                <i class="icon-picture_in_picture prefix"></i>  
+                                <label for="description_ticket" class="col-form-label text-md-right">Descripción</label>
                                 <input id="description_ticket" type="text" class="form-control @error('description_ticket') is-invalid @enderror" name="description_ticket" value="{{ old('description_ticket') }}" required autocomplete="email">
 
                                 @error('description_ticket')
