@@ -29,12 +29,14 @@ Route::get('/Config', 'AdministratorController@config'  )->name('config');
 Route::get('/User/Detail/{id}'  ,'UserController@detail')       ->name('detail.user'); 
 Route::post('/User/Delete',  'UserController@delete')           ->name('delete.user'); 
 Route::post('/User/Password',  'UserController@passwordUpdate') ->name('password.user');
-Route::post('/User/Update', 'UserController@update')            ->name('user.update'); 
+Route::post('/User/Update', 'UserController@update')            ->name('update.user'); //cambio
 
 //Ticket
-Route::get('/Register' , 'TicketController@register'   )->name('register.ticket');
-Route::post('/Save' , 'TicketController@save'   )       ->name('save.ticket');
-
+Route::get('/Ticket/Register' , 'TicketController@register'   ) ->name('register.ticket');
+Route::post('/Ticket/Save' , 'TicketController@save'   )        ->name('save.ticket');
+Route::get('/Ticket/Detail/{id}'  ,'TicketController@detail')   ->name('detail.ticket');
+Route::post('/Ticket/Update', 'TicketController@update')        ->name('update.ticket'); 
+Route::post('/Ticket/Delete',  'TicketController@delete')        ->name('delete.ticket'); 
 
 //Client
 

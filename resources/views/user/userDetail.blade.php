@@ -5,6 +5,15 @@
 <script src="{{ asset('js/data/user.js') }}"></script>
 
     <main>
+        <div class="row" style="margin-top:10px;">
+            <div class="col s12 m12 ">
+                <div class="breadcrumb-nav col s12">
+                    <a href="{{ route('panel') }}" class="breadcrumb black-text">Panel</a>
+                    <a href="{{ route('config') }}" class="breadcrumb black-text">Configuración</a>
+                </div>
+            </div>
+        </div>
+
         <div class="container-fluid" style="margin-top:20px;">            
             <div class="row">
                 <div class="col s12 m8 offset-m2">

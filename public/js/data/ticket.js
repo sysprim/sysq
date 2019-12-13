@@ -2,97 +2,16 @@ const url = "http://localhost/sysq/public/";
 
 $(document).ready(function(){
 
-    $('#delete').click(function(e) {
-
-        var id = $('#id').val();
-
-        swal({
-            title: "¿Quiere eliminar al usuario",
-            text: "¿Esta seguro que desea eliminar al usuario? Si lo hace, no podrá revertir los cambios.",
-            icon: "error",
-            buttons: {
-                confirm: {
-                    text: "Eliminar",
-                    value: true,
-                    visible: true,
-                    className: "red"
-
-                },
-                cancel: {
-                    text: "Cancelar",
-                    value: false,
-                    visible: true,
-                    className: "grey lighten-2"
-                }
-            }
-        }).then(function(value){
-            if(value == true){
-                $.ajax({
-                    method: "POST",
-                    datatype: "JSON",
-                    data: {id:id, "_token": $("meta[name='csrf-token']").attr("content")},
-                    url: url + "User/Delete",
-
-                    beforeSend: function(){
-                        console.log("Sending data...");
-                    },
-
-                    success: function(data) {
-                        console.log(data);
-                        swal({
-                            text: "Se ha eliminado el usuario exitosamente.",
-                            icon: "success",
-                            button: {
-                                text: "Entendido",
-                                className: "green"
-                            },
-                            timer: 3000
-        
-                        }).then(redirect => {
-                            location.href = url + "Config";
-                        })
-                    },
-
-                    error: function(err) {
-        
-                        console.log(err);
-                        swal({
-                            title: "¡Oh no!",
-                            text: "Ha ocurrido un error inesperado, refresca la página e intentalo de nuevo.",
-                            icon: "error",
-                            button: {
-                                text: "Aceptar",
-                                visible: true,
-                                value: true,
-                                className: "green",
-                                closeModal: true
-                            }
-                        });
-                    }
-                })}else {
-                    swal({
-                        text: "El usuario no ha sido eliminado",
-                        icon: "info",
-                        button: {
-                            text: "Aceptar",
-                            className: "green"
-                        }
-                    });
-            
-            }
-        });
-    });
-
     $('#update').click(function (e) { 
         e.preventDefault();
 
         var id = $('#id').val();
-        var name = $('#name').val();
-        var email = $('#email').val();
+        var name = $('#name_ticket').val();
+        var description = $('#description_ticket').val();
 
         swal({
-            title: "¿Quiere modificar la información de al Usuario " + name + "?",
-            text: "¿Esta seguro que desea modificar al usuario? Si lo hace, no podrá revertir los cambios.",
+            title: "¿Quiere modificar la información de la taquilla " + name + "?",
+            text: "¿Esta seguro que desea modificar a la taquilla? Si lo hace, no podrá revertir los cambios.",
             icon: "error",
             buttons: {
                 confirm: {
@@ -118,10 +37,10 @@ $(document).ready(function(){
                     datatype: "JSON",
                     data: { id: id,
                             name : name,
-                            email: email,
+                            description: description,
                             "_token": $("meta[name='csrf-token']").attr("content")},  
 
-                    url: url + "User/Update",
+                    url: url + "Ticket/Update",
                     
                     beforeSend: function(){
                         console.log("Sending data...");
@@ -131,7 +50,7 @@ $(document).ready(function(){
                         console.log(data);
                         swal({
                             title: "¡Bien hecho!",
-                            text: "Se ha actualizado al usuario " +  name + " exitosamente.",
+                            text: "Se ha actualizado la taquilla " +  name + " exitosamente.",
                             icon: "success",
                             button: {
                                 text: "Aceptar",
@@ -165,7 +84,7 @@ $(document).ready(function(){
                 })}else {
 
                 swal({
-                    text: "La informacion del usuario no ha sido modificada.",
+                    text: "La informacion de la taquilla no ha sido modificada.",
                     icon: "info",
                     button: {
                         text: "Aceptar",
@@ -174,5 +93,85 @@ $(document).ready(function(){
                 });
             }
         });      
+    });
+
+    $('#delete').click(function(e) {
+
+        var id = $('#id').val();
+
+        swal({
+            title: "¿Quiere eliminar al usuario",
+            text: "¿Esta seguro que desea eliminar al usuario? Si lo hace, no podrá revertir los cambios.",
+            icon: "error",
+            buttons: {
+                confirm: {
+                    text: "Eliminar",
+                    value: true,
+                    visible: true,
+                    className: "red"
+
+                },
+                cancel: {
+                    text: "Cancelar",
+                    value: false,
+                    visible: true,
+                    className: "grey lighten-2"
+                }
+            }
+        }).then(function(value){
+            if(value == true){
+                $.ajax({
+                    method: "POST",
+                    datatype: "JSON",
+                    data: {id:id, "_token": $("meta[name='csrf-token']").attr("content")},
+                    url: url + "Ticket/Delete",
+
+                    beforeSend: function(){
+                        console.log("Sending data...");
+                    },
+                    
+                    success: function(data) {
+                        console.log(data);
+                        swal({
+                            text: "Se ha eliminado el usuario exitosamente.",
+                            icon: "success",
+                            button: {
+                                text: "Entendido",
+                                className: "green"
+                            },
+                            timer: 3000
+        
+                        }).then(redirect => {
+                            location.href = url + "Config";
+                        })
+                    },
+                    error: function(err) {
+        
+                        console.log(err);
+                        swal({
+                            title: "¡Oh no!",
+                            text: "Ha ocurrido un error inesperado, refresca la página e intentalo de nuevo.",
+                            icon: "error",
+                            button: {
+                                text: "Aceptar",
+                                visible: true,
+                                value: true,
+                                className: "green",
+                                closeModal: true
+                            }
+                        });
+                    }
+                })}else {
+                    
+                    swal({
+                        text: "El usuario no ha sido eliminado",
+                        icon: "info",
+                        button: {
+                            text: "Aceptar",
+                            className: "green"
+                        }
+                });
+            }
+        });
     });
 });

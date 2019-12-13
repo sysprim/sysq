@@ -128,7 +128,7 @@
                                         <td>{{ $ticket->name_ticket }} </td>
                                         <td>{{ $ticket->description_ticket }}</td>                                       
                                         <td>                                          
-                                        <a href="#{{-- route('detail.user', ['id' => $user->id]) --}}" class="btn btn-small btn-floating blue waves-effect effect-light"><i class="icon-pageview"></i></a>
+                                        <a href="{{ route('detail.ticket', ['id' => $ticket->id]) }}" class="btn btn-small btn-floating blue waves-effect effect-light"><i class="icon-pageview"></i></a>
                                         </td>
                                     </tr> 
                                  
