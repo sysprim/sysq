@@ -13,9 +13,10 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                            <div class="input-field col s12">
+                            <div class="input-field col s12 m12">
+                                <i class="icon-markunread prefix"></i>
                                 <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo') }}</label>
+                                <label for="email" class="col-form-label text-md-right">{{ __('Correo') }}</label>
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
@@ -25,9 +26,10 @@
 
                             </div>                         
 
-                            <div class="input-field col s12">
+                            <div class="input-field col s12 m12">
+                                <i class="icon-lock_outline prefix"></i>
                                 <input id="password" type="password" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
+                                <label for="password" class="col-form-label text-md-right">{{ __('Contraseña') }}</label>
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">

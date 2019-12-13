@@ -21,8 +21,8 @@
 
                         <div class="row">
                             <div class="input-field col 12 m6" style="margin-top: 20px;">
+                                <i class="icon-markunread prefix"></i>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
                                  <label for="email" class="col-md-4 col-form-label text-md-right">Correo Agregado</label>
 
                                 @error('email')

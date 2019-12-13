@@ -27,12 +27,12 @@ Route::get('/Config', 'AdministratorController@config'  )->name('config');
 
 //User
 Route::get('/User/Detail/{id}'  ,'UserController@detail')->name('detail.user'); 
-Route::get('/User/Delete/{id}',  'UserController@delete')->name('delete.user'); 
+Route::post('/User/Delete',  'UserController@delete')->name('delete.user'); 
 Route::post('/User/Password',  'UserController@passwordUpdate')->name('password.user');
 Route::post('/User/Update', 'UserController@update')->name('user.update'); 
 
 //Ticket
-
+Route::get('/Save' , 'TicketController@register'   )->name('save.ticket');
 
 //Client
 

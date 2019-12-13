@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="col s12 m4">
-                                <a href="#" class="btn-app green">Taquillas<i class="icon-assignment_ind"></i></a>
+                                <a href="{{ route('save.ticket') }}" class="btn-app green">Taquillas<i class="icon-assignment_ind"></i></a>
                             </div>
 
                             <div class="col s12 m4">
@@ -47,7 +47,6 @@
                                         <th>Nombre</th>
                                         <th>Email</th>
                                         <th>Detalles</th>
-                                        <th>Eliminar</th>
                                     </tr>
                                 </thead>
         
@@ -69,10 +68,6 @@
                                         <td>                                          
                                             <a href="{{ route('detail.user', ['id' => $user->id]) }}" class="btn btn-small btn-floating blue waves-effect effect-light"><i class="icon-pageview"></i></a>
                                         </td>
-                                        <td>
-                                             <a href="#" id="delete" class="btn btn-small btn-floating red waves-effect effect-light"><i class="icon-delete"></i></a>
-                                           <!--  <a href="{{ route('delete.user', ['id' => $user->id]) }}" class="btn btn-small btn-floating red waves-effect effect-light"><i class="icon-delete"></i></a> -->
-                                        </td>
                                     </tr> 
                                      
                                      @endforeach 
@@ -93,12 +88,4 @@
     </div>
 </main>
 
-   <!--  <style>
-        .tabs .tab a:focus, .tabs .tab a:focus.active{
-            background: #039be5;
-            opacity: 0.7;
-            color: #fff;
-            border: none;
-        }
-    </style> -->
  @endsection

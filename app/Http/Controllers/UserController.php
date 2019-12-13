@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
-use Hash;
-use Validator;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -41,7 +41,7 @@ class UserController extends Controller
 
     public function passwordUpdate(Request $request){
 
-        $id = $request->id;
+        $id = $request->input('id');
 
         $rules = $this->validate($request,['mypassword'=>'required',
                                               'password'  =>'requiered|confirmed|min:6|max:18']);
@@ -77,7 +77,9 @@ class UserController extends Controller
             ]);
     }
 
-    public function delete($id){
+    public function delete(Request $request){
+
+        $id = $request->input('id');
 
         $user = User::find($id);
         $user->delete();

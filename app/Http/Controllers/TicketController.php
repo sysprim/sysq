@@ -15,4 +15,8 @@ class TicketController extends Controller
     public function index(){
 
     }
+
+    public function register(){
+        return view('ticket.ticketRegister');
+    }
 }
