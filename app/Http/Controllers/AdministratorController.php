@@ -20,16 +20,20 @@ class AdministratorController extends Controller
         $ticketFirst = DB::table('tickets')->first();
         $ticketAll = Ticket::all();
 
-       return view('administrator.panel', ['ticketfirst'=>$ticketFirst,
+       return view('administrator.panel', ['ticketFirst'=>$ticketFirst,
                                            'ticketAll'  =>$ticketAll
                                             ]);
    }
 
    public function selectedPanel($id){
 
+          $ticketAll = Ticket::all();
+          $ticketFirst = null;
           $ticket = Ticket::find($id);
 
-          return view('administrator.panel',['ticket_select', ])
+          return view('administrator.panel',['ticket' => $ticket,
+                                             'ticketAll'    => $ticketAll,
+                                             'ticketFirst'  => $ticketFirst  ]);
    }
 
    public function turn(){

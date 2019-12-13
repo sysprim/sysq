@@ -21,9 +21,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Administrator
 
-Route::get('/Panel' , 'AdministratorController@index'   )->name('panel');
-Route::get('/Turn'  , 'AdministratorController@turn'    )->name('turn'); 
-Route::get('/Config', 'AdministratorController@config'  )->name('config');
+Route::get('/Panel' , 'AdministratorController@index'   )           ->name('panel');
+Route::get('/Panel/{id}' , 'AdministratorController@selectedPanel') ->name('panel.select');
+Route::get('/Turn'  , 'AdministratorController@turn'    )           ->name('turn'); 
+Route::get('/Config', 'AdministratorController@config'  )           ->name('config');
 
 //User
 Route::get('/User/Detail/{id}'  ,'UserController@detail')       ->name('detail.user'); 
