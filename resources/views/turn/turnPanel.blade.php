@@ -60,11 +60,14 @@
         </div>
     </main>
 
-    <footer class="page-footer blue black-text">
+    <footer class="page-footer blue">
         <div class="container-fluid">
             <div class="row">
-                <div class="col s12">
-                    Cintillo de Noticia
+                <div class="col s12 m11">
+                   <span class="black-text">Cintillo de Noticia</span> 
+                </div>
+                <div class="col s12 m1 right">
+                    <a href="{{ route('panel') }}" class="clock turn-panel tooltipped" data-position="bottom" data-tooltip="Panel"><i class="icon-account_circle"></i></a>
                 </div>
             </div>
             <div class="row">

@@ -22,13 +22,16 @@ class TicketController extends Controller
 
     public function save(Request $request){    
 
-        $validate = $this->validate($request, ['name_ticket'=>'required',
+        $validate = $this->validate($request, [ 'number_ticket'=>'required|integer',
+                                                'name_ticket'  =>'required',                                             
                                                 ]);
         
         $ticket = new Ticket();
+        $number         = $request->input('number_ticket');
         $name           = $request->input('name_ticket');
         $description    = $request->input('description_ticket');
 
+        $ticket->number_ticket      = $number;
         $ticket->name_ticket        = $name;
         $ticket->description_ticket = $description;
 
@@ -50,17 +53,21 @@ class TicketController extends Controller
 
         $ticket = Ticket::find($id);
 
-        $validate = $this->validate($request, ['name_ticket'=> 'required']);
+        $validate = $this->validate($request, [ 'number_ticket'=>'required|integer',
+                                                'name_ticket'  =>'required',                                             
+                                                ]);
 
-        $name       = $request->input('name_ticket');
-        $description= $request->input('description_ticket');
+        $number         = $request->input('number_ticket');
+        $name           = $request->input('name_ticket');
+        $description    = $request->input('description_ticket');
 
-        $ticket->name_ticket = $name;
+        $ticket->number_ticket      = $number;
+        $ticket->name_ticket        = $name;
         $ticket->description_ticket = $description;
 
         $ticket->update();
 
-        //return redirect()->route('config')->with(['message'=>'Taquilla Actualizada']);
+        return redirect()->route('config')->with(['message'=>'Taquilla Actualizada']);
 
     }
 

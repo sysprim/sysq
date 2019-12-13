@@ -6,6 +6,7 @@ $(document).ready(function(){
         e.preventDefault();
 
         var id = $('#id').val();
+        var number = $('#number_ticket').val();
         var name = $('#name_ticket').val();
         var description = $('#description_ticket').val();
 
@@ -38,6 +39,7 @@ $(document).ready(function(){
                     data: { id: id,
                             name : name,
                             description: description,
+                            number: number,
                             "_token": $("meta[name='csrf-token']").attr("content")},  
 
                     url: url + "Ticket/Update",

@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="row" style="margin-top:10px;">
+        <div class="col s12 m12 ">
+                <div class="breadcrumb-nav col s12">
+                    <a href="{{ route('panel') }}" class="breadcrumb black-text">Panel</a>
+                    <a href="{{ route('config') }}" class="breadcrumb black-text">Configuración</a>
+                </div>
+        </div>
+    </div>
+    
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Ticket;
+use Illuminate\Support\Facades\DB;
 
 class AdministratorController extends Controller
 {
@@ -16,7 +17,19 @@ class AdministratorController extends Controller
 
    public function index(){
 
-       return view('administrator.panel');
+        $ticketFirst = DB::table('tickets')->first();
+        $ticketAll = Ticket::all();
+
+       return view('administrator.panel', ['ticketfirst'=>$ticketFirst,
+                                           'ticketAll'  =>$ticketAll
+                                            ]);
+   }
+
+   public function selectedPanel($id){
+
+          $ticket = Ticket::find($id);
+
+          return view('administrator.panel',['ticket_select', ])
    }
 
    public function turn(){

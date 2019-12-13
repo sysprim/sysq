@@ -42,3 +42,8 @@ footer {
     -webkit-text-stroke: 0.5px black;
     color: white ;
 }
+
+.turn-panel:hover{
+    color: black;
+    -webkit-text-stroke: 0.5px white;
+}

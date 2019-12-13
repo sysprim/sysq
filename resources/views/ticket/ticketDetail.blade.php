@@ -27,6 +27,20 @@
                         @csrf
                     <input type="hidden" name="id" id="id" value="{{ $ticket->id }}">
 
+                    <div class="row" style="margin-top:20px;">                         
+                            <div class="input-field col m8">
+                                <i class="icon-looks_one prefix"></i> 
+                                <label for="number_ticket" class="col-form-label text-md-right">Número de Taquilla</label>
+                                <input id="number_ticket" type="number" class="form-control @error('number_ticket') is-invalid @enderror" name="number_ticket" value="{{ $ticket->number_ticket }}" required autocomplete="number_ticket" autofocus>
+
+                                @error('number_ticket')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="row" style="margin-top:20px;">                         
                             <div class="input-field col m8">
                                 <i class="icon-looks_one prefix"></i> 
