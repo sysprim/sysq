@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{route('save.ticket')}} ">
                         @csrf
 
                         <div class="row" style="margin-top:20px;">                         
@@ -31,7 +31,7 @@
                             <div class=" input-field col m8">
                                 <i class="icon-picture_in_picture prefix"></i>  
                                 <label for="description_ticket" class="col-form-label text-md-right">Descripción</label>
-                                <input id="description_ticket" type="text" class="form-control @error('description_ticket') is-invalid @enderror" name="description_ticket" value="{{ old('description_ticket') }}" required autocomplete="email">
+                                <input id="description_ticket" type="text" class="form-control @error('description_ticket') is-invalid @enderror" name="description_ticket" value="{{ old('description_ticket') }}" autocomplete="description_ticket">
 
                                 @error('description_ticket')
                                     <span class="invalid-feedback" role="alert">

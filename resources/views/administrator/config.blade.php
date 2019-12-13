@@ -8,6 +8,12 @@
             <div class="row">
                 <div class="col s12">
 
+                        <div class="row">
+                                <div class="col s12 m12">
+                                    <h4 class="title">Bienvenido {{Auth::user()->name. " || ". Auth::user()->email }}</h4>
+                                </div>
+                            </div>
+
                     @if(session('message'))
                         <div class="alert alert-success">
                             {{ session('message')}}
@@ -28,7 +34,7 @@
                             </div>
 
                             <div class="col s12 m4">
-                                <a href="{{ route('save.ticket') }}" class="btn-app green">Taquillas<i class="icon-assignment_ind"></i></a>
+                                <a href="{{ route('register.ticket') }}" class="btn-app green">Taquillas<i class="icon-assignment_ind"></i></a>
                             </div>
 
                             <div class="col s12 m4">
@@ -39,8 +45,17 @@
                     
                                        
                     <div class="collection with-header" id="usuario" style="margin:0">
-                        <div class="collection-header"><h5>Usuarios Registrados</h5></div>
-                        
+                        <div class="collection-header">
+                            <div class="row" style="margin:0;">
+                                    <div class="col s12 m1 right">
+                                        <i class="icon-account_circle medium blue-text" style="text-aling:center"></i>
+                                    </div>
+
+                                    <div class="centered col s12 m11">
+                                        <h5 style="margin-left:15px;margin-top:15px;">  Usuarios Registrados</h5></div>
+                                    </div>
+                                </div>
+
                         <table class="white centered highlight responsive-table">
                                 <thead>
                                     <tr>
@@ -78,9 +93,49 @@
                 
 
                 <div class="collection with-header" id="taquilla" style="margin:0">
-                        <div class="collection-header"><h5>hola</h5></div>
-                        
-                                                 
+                        <div class="collection-header">
+                            <div class="row" style="margin:0;">
+
+                                <div class="col s12 m1 right">
+                                    <i class="icon-assignment medium blue-text" style="text-aling:center"></i>
+                                </div>
+
+                                <div class="centered col s12 m11">
+                                    <h5 style="margin-left:15px;margin-top:15px;">  Taquillas Registradas</h5></div>
+                                </div>
+                            </div>
+                            
+                            <table class="white centered highlight responsive-table">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Descripción</th>
+                                        <th>Detalles</th>
+                                    </tr>
+                                </thead>
+    
+                                @if(empty($tickets))
+                                <tbody>
+                                    <tr>
+                                        <td colspan="5"><p>No hay datos registrados</p></td>
+                                    </tr>
+                                </tbody>
+
+                                @else @foreach ($tickets as $ticket)
+                            
+                                <tbody>                                       
+                                    <tr>
+                                        <td>{{ $ticket->name_ticket }} </td>
+                                        <td>{{ $ticket->description_ticket }}</td>                                       
+                                        <td>                                          
+                                        <a href="#{{-- route('detail.user', ['id' => $user->id]) --}}" class="btn btn-small btn-floating blue waves-effect effect-light"><i class="icon-pageview"></i></a>
+                                        </td>
+                                    </tr> 
+                                 
+                                    @endforeach 
+                                    @endif  
+                                </tbody>
+                            </table>                                             
                     </div>                   
                 </div>
             </div>

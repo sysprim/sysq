@@ -26,13 +26,15 @@ Route::get('/Turn'  , 'AdministratorController@turn'    )->name('turn');
 Route::get('/Config', 'AdministratorController@config'  )->name('config');
 
 //User
-Route::get('/User/Detail/{id}'  ,'UserController@detail')->name('detail.user'); 
-Route::post('/User/Delete',  'UserController@delete')->name('delete.user'); 
-Route::post('/User/Password',  'UserController@passwordUpdate')->name('password.user');
-Route::post('/User/Update', 'UserController@update')->name('user.update'); 
+Route::get('/User/Detail/{id}'  ,'UserController@detail')       ->name('detail.user'); 
+Route::post('/User/Delete',  'UserController@delete')           ->name('delete.user'); 
+Route::post('/User/Password',  'UserController@passwordUpdate') ->name('password.user');
+Route::post('/User/Update', 'UserController@update')            ->name('user.update'); 
 
 //Ticket
-Route::get('/Save' , 'TicketController@register'   )->name('save.ticket');
+Route::get('/Register' , 'TicketController@register'   )->name('register.ticket');
+Route::post('/Save' , 'TicketController@save'   )       ->name('save.ticket');
+
 
 //Client
 

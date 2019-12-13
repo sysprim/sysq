@@ -5,9 +5,8 @@
 <script src="{{ asset('js/data/user.js') }}"></script>
 
     <main>
-        <div class="container-fluid" style="margin-top:20px;">
+        <div class="container-fluid" style="margin-top:20px;">            
             <div class="row">
-
                 <div class="col s12 m8 offset-m2">
 
                     <ul id="tabs-swipe-demo" class="tabs">
@@ -20,7 +19,7 @@
                         <span class="card-title">  Detalles</span>
 
                         @if($user->id == Auth::user()->id)
-                            <button type="button" id="delete" class="btn btn-small btn-floating red waves-effect effect-light right" disabled><i class="icon-delete"></i></button>
+                            <button type="button" id="delete" data-position="bottom" data-tooltip="Panel" class="tooltipped btn btn-small btn-floating red waves-effect effect-light right" disabled><i class="icon-delete"></i></button>
                         @else
                             <button type="button" id="delete" class="btn btn-small btn-floating red waves-effect effect-light right"><i class="icon-delete"></i></button>
                         @endif

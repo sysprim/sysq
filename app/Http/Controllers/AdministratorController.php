@@ -26,8 +26,10 @@ class AdministratorController extends Controller
 
    public function config (){
 
-    $user = User::all();
+    $ticket = Ticket::all();
+    $user   = User::all();
 
-    return view('administrator.config', ['users'=>$user]);
+    return view('administrator.config', ['users' =>$user,
+                                         'tickets'=> $ticket]);
 }
 }
