@@ -17,6 +17,6 @@ class ClientController extends Controller
         $cliente->ci_client = $ci;
         $cliente->save();
 
-        return view('ticket.ticketIndex', ['ci'=>$ci]);
+        return redirect()->route('index.turn',['ci' => $ci]);
     }
 }

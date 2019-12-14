@@ -38,7 +38,7 @@ class AdministratorController extends Controller
           // $ticketFirst = null;
           $ticket = Ticket::find($id);
 
-          $turns    = Turn::where('ticket_id', $id)->get();
+          $turns    = Turn::where(['ticket_id'=> $id, 'turn_status'=>'En Espera'])->get();
           // $client   = Client::where('id', $turns->client_id)->get();
           
           return view('administrator.panel',['ticket'       => $ticket,

@@ -9,13 +9,14 @@ use App\Ticket;
 class TurnController extends Controller
 {
 
-    public function __construct()
-    {
-         $this->middleware('auth');
-    }
 
+    public function index($ci){
 
-    public function index(){
+        $ci = $ci;
+
+        $tickets = Ticket::all();
+        
+        return view('turn.turnSelect', ['tickets'=>$tickets]);
    	
     }
     

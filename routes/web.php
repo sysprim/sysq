@@ -37,13 +37,14 @@ Route::get('/Ticket/Register' , 'TicketController@register'   ) ->name('register
 Route::post('/Ticket/Save' , 'TicketController@save'   )        ->name('save.ticket');
 Route::get('/Ticket/Detail/{id}'  ,'TicketController@detail')   ->name('detail.ticket');
 Route::post('/Ticket/Update', 'TicketController@update')        ->name('update.ticket'); 
-Route::post('/Ticket/Delete',  'TicketController@delete')        ->name('delete.ticket'); 
+Route::post('/Ticket/Delete',  'TicketController@delete')       ->name('delete.ticket'); 
 
 //Client
 
-Route::post('/Client/Save', 'ClientController@save')->name('save.client');
+Route::post('/Client/Save', 'ClientController@save')  ->name('save.client');
 
 //Turn
+Route::get('/Turn/Index/{ci}'  ,'TurnController@index')->name('index.turn');
 
 
 

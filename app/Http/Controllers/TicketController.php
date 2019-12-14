@@ -22,7 +22,7 @@ class TicketController extends Controller
 
     public function save(Request $request){    
 
-        $validate = $this->validate($request, [ 'number_ticket'=>'required|integer',
+        $validate = $this->validate($request, [ 'number_ticket'=>'required|integer|unique',
                                                 'name_ticket'  =>'required',                                             
                                                 ]);
         
@@ -53,7 +53,7 @@ class TicketController extends Controller
 
         $ticket = Ticket::find($id);
 
-        $validate = $this->validate($request, [ 'number_ticket'=>'required|integer',
+        $validate = $this->validate($request, [ 'number_ticket'=>'required|unique',
                                                 'name_ticket'  =>'required',                                             
                                                 ]);
 
@@ -67,7 +67,7 @@ class TicketController extends Controller
 
         $ticket->update();
 
-        return redirect()->route('config')->with(['message'=>'Taquilla Actualizada']);
+        // return redirect()->route('config')->with(['message'=>'Taquilla Actualizada']);
 
     }
 
