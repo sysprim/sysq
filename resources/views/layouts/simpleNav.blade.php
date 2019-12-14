@@ -31,7 +31,7 @@
      <header>
         <nav class="white container-fluid">
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo font-audiowide left deep-purple-text text-darken-2">SysQ</a>
+                <a href="{{route('index')}}" class="brand-logo font-audiowide left deep-purple-text text-darken-2">SysQ</a>
             </div>
         </nav>
     </header>

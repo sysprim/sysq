@@ -16,8 +16,17 @@ class TurnController extends Controller
 
         $tickets = Ticket::all();
         
-        return view('turn.turnSelect', ['tickets'=>$tickets]);
+        return view('turn.turnSelect', ['ci'     =>$ci,
+                                        'tickets'=>$tickets]);
    	
+    }
+
+    public function turnTicket($ci, $id){
+        
+        $ci = $ci;
+        $id = $id;
+
+        return view('turn.turnType', ['ci'=> $ci, 'id'=>$id]);
     }
     
 }

@@ -14,11 +14,7 @@
                                 </div>
                             </div>
 
-                    @if(session('message'))
-                        <div class="alert alert-success">
-                            {{ session('message')}}
-                        </div>
-                    @endif
+                    @include('includes.message')
 
                     <ul id="tabs-swipe-demo" class="tabs">
                         <li class="tab col s12 m4"><a href="#usuario"  style="color:#0288d1">Usuarios</a></li>
