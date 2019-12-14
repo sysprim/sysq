@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Administrator
 
-Route::get('/Panel' , 'AdministratorController@index'   )           ->name('panel');
+Route::get('/Panel' , 'AdministratorController@panel'   )           ->name('panel');
 Route::get('/Panel/{id}' , 'AdministratorController@selectedPanel') ->name('panel.select');
 Route::get('/Turn'  , 'AdministratorController@turn'    )           ->name('turn'); 
 Route::get('/Config', 'AdministratorController@config'  )           ->name('config');
@@ -44,6 +44,7 @@ Route::post('/Ticket/Delete',  'TicketController@delete')        ->name('delete.
 Route::post('/Client/Save', 'ClientController@save')->name('save.client');
 
 //Turn
+
 
 
 

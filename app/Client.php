@@ -8,7 +8,7 @@ class Client extends Model
 {
     protected $table='clients';
 
-    public function turn(){
+    public function turns(){
 
     	return $this->hasMany('App\Turn');
 

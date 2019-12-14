@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Ticket;
+use App\Turn;
+use App\Client;
 use Illuminate\Support\Facades\DB;
 
 class AdministratorController extends Controller
@@ -15,25 +17,34 @@ class AdministratorController extends Controller
          $this->middleware('auth');
     }
 
-   public function index(){
+   public function panel(){
 
-        $ticketFirst = DB::table('tickets')->first();
+     //    $ticketFirst = DB::table('tickets')->first();
         $ticketAll = Ticket::all();
+        $ticket = null;
 
-       return view('administrator.panel', ['ticketFirst'=>$ticketFirst,
-                                           'ticketAll'  =>$ticketAll
+     //    $turns= Turn::where('ticket_id', $ticketFirst->id)->get();
+
+
+       return view('administrator.panel', [
+                                           'ticketAll'  =>$ticketAll,
+                                           'ticket'     =>$ticket
                                             ]);
    }
 
    public function selectedPanel($id){
 
           $ticketAll = Ticket::all();
-          $ticketFirst = null;
+          // $ticketFirst = null;
           $ticket = Ticket::find($id);
 
-          return view('administrator.panel',['ticket' => $ticket,
-                                             'ticketAll'    => $ticketAll,
-                                             'ticketFirst'  => $ticketFirst  ]);
+          $turns    = Turn::where('ticket_id', $id)->get();
+          // $client   = Client::where('id', $turns->client_id)->get();
+          
+          return view('administrator.panel',['ticket'       => $ticket,
+                                             'turns'        => $turns ,
+                                             'ticketAll'    => $ticketAll
+                                               ]);
    }
 
    public function turn(){
@@ -43,8 +54,8 @@ class AdministratorController extends Controller
 
    public function config (){
 
-    $ticket = Ticket::all();
-    $user   = User::all();
+          $ticket = Ticket::all();
+          $user   = User::all();
 
     return view('administrator.config', ['users' =>$user,
                                          'tickets'=> $ticket]);

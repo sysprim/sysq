@@ -15,7 +15,7 @@
             </div>
             <div class="divider"></div>
           
-        @if($ticketFirst)
+        {{-- @if($ticketFirst)
             <div class="row">
                 <div class="col s12 m3 blue center-align" style="border: solid 1px #cccccc">
                     <h6 class="white-text">Taquilla</h6>
@@ -71,32 +71,25 @@
                                 <div class="collection with-header">
                                     <div class="collection-header"><h5>Mi Fila (Todos)</h5></div>
             
-                                    <a href="#modal1" class="collection-item avatar modal-trigger">
-                                        <i class="circle blue fas fa-user"></i>
-                                        <span class="title">A002</span><br>
-                                        <span class="title">282886639</span>
-                                    </a>
-                                    <a href="" class="collection-item avatar">
-                                        <i class="circle blue fas fa-user"></i>
-                                        <span class="title">A002</span><br>
-                                        <span class="title">282886639</span>
-                                    </a>
-                                    <a href="" class="collection-item avatar">
-                                        <i class="circle blue fas fa-user"></i>
-                                        <span class="title">A002</span><br>
-                                        <span class="title">282886639</span>
-                                    </a>
-                                    <a href="" class="collection-item avatar">
-                                        <i class="circle blue fas fa-user"></i>
-                                        <span class="title">A002</span><br>
-                                        <span class="title">282886639</span>
-                                    </a>
+                                    @if($turns)
+                                            @foreach ($turns as $turn)
+                                                <a href="#modal1" class="collection-item avatar modal-trigger">
+                                                    <i class="circle blue fas fa-user"></i>
+                                                    <span class="title">{{ $turn->random_code }}</span><br>
+                                                    <span class="title">{{ $turn->client_id}}</span>
+                                                </a>
+                                            @endforeach                                      
+                                        @else
+                                            <div>
+
+                                            </div>
+                                        @endif
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-        @elseif($ticket)
+        @if($ticket)
             <div class="row">
                     <div class="col s12 m3 blue center-align" style="border: solid 1px #cccccc">
                         <h6 class="white-text">Taquilla</h6>
@@ -150,28 +143,25 @@
                             <div class="row">
                                 <div class="col s12">
                                     <div class="collection with-header">
-                                        <div class="collection-header"><h5>Mi Fila (Todos)</h5></div>
-                
-                                        <a href="#modal1" class="collection-item avatar modal-trigger">
-                                            <i class="circle blue fas fa-user"></i>
-                                            <span class="title">A002</span><br>
-                                            <span class="title">282886639</span>
-                                        </a>
-                                        <a href="" class="collection-item avatar">
-                                            <i class="circle blue fas fa-user"></i>
-                                            <span class="title">A002</span><br>
-                                            <span class="title">282886639</span>
-                                        </a>
-                                        <a href="" class="collection-item avatar">
-                                            <i class="circle blue fas fa-user"></i>
-                                            <span class="title">A002</span><br>
-                                            <span class="title">282886639</span>
-                                        </a>
-                                        <a href="" class="collection-item avatar">
-                                            <i class="circle blue fas fa-user"></i>
-                                            <span class="title">A002</span><br>
-                                            <span class="title">282886639</span>
-                                        </a>
+                                        <div class="collection-header"><h5>Mi Fila</h5></div>
+                                        @if($turns)
+                                            @foreach ($turns as $turn)
+                                            
+                                                <a href="#ticket" class="collection-item avatar modal-trigger">
+                                                    @if($turn->turn_type == "Normal")
+                                                    <i class="circle blue fas fa-user tooltipped" data-position="bottom" data-tooltip="Normal"></i>
+                                                    @else
+                                                    <i class="circle red fas fa-user tooltipped" data-position="bottom" data-tooltip="Preferencial"></i>
+                                                    @endif
+                                                    <span class="title">{{ $turn->random_code }}</span><br>
+                                                    <span class="title">{{ $turn->client_id}}</span>
+                                                </a>
+                                            @endforeach                                      
+                                        @else
+                                            <div>
+
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -251,7 +241,7 @@
         </div>
     </div>
             <!-- Modal va en una seccion aparte, solo que aqui esta la prueba -->
-            <div id="modal1" class="modal">
+            <div id="ticket" class="modal">
                 <div class="modal-content blue-text center-align">
                     <div class="row">
                         <div class="col s12 center-align">

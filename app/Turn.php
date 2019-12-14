@@ -6,15 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Turn extends Model
 {
-    public function client(){
+    protected $table = 'turns';
 
-    	return $this->belongsTo('App\Client');
+    public function clients(){
+
+    	return $this->belongsTo('App\Client', 'client_id');
 
     }
 
-    public function turn(){
+    public function tickets(){
 
-    	return $this->belongsTo('App\Ticket');
+    	return $this->belongsTo('App\Ticket', 'ticket_id');
 
     }
 }

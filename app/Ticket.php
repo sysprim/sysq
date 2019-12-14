@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model
 {
-    public function turn(){
+    protected $table = 'tickets';
+    
+    public function turns(){
 
-    	return $this->hasMany('App\Turn');
+    	return $this->hasMany('App\Turn', 'id');
 
     }
 }

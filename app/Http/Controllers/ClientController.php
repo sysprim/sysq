@@ -9,7 +9,7 @@ class ClientController extends Controller
 {
     public function save(Request $request){
 
-        $validate = $this->validate($request, [ 'ci' => 'required']);
+        $validate = $this->validate($request, [ 'ci' => 'required|min:6']);
 
         $ci = $request->input('ci');
 
