@@ -32,7 +32,7 @@
     <!-- Header -->
     <header>
         <nav class="white container-fluid">
-            <div class="nav-wrapper">
+            <div class="nav-wrapper responsive">
                     <a href="{{ route('index')  }}" class="brand-logo font-audiowide left deep-purple-text text-darken-2">SysQ</a>
                         @if(Auth::check())
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -50,6 +50,7 @@
                          @endif
                     </div>
                 </nav>
+                
         </header>
 
         <main class="py-4">

@@ -2,8 +2,9 @@
 @extends('layouts.app')
 
 @section('content')
-<script src="{{ asset('js/turn.js') }}"></script>
-    <main>
+
+<main>
+    <script src="{{ asset('js/data/turn.js') }}"></script>
         <div class="container-fluid" style="margin-top:20px;">
             <div class="row right-align">
                 <div class="col s3 m2 center-align">
@@ -119,23 +120,30 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="col s12 m4 animated bounceIn">
-                                    <a href="" class="btn-app white black-text">
-                                        <i class="fas fa-bullhorn blue-text"></i>
-                                        <span style="font-size: 16px;">Llamar de Nuevo</span>
-                                    </a>
+
+                                <div class="col s12 m12 animated bounceIn" id="block_llamar">
+                                    <button type="button"  id="llamar" style="border:none;" class="waves-effect btn-app white black-text">
+                                        <i class="fas fa-bullhorn" style="color:#ffb300"></i>
+                                        <span style="font-size: 16px;" id="text_llamar">Llamar</span>
+                                    </button>
                                 </div>
-                                <div class="col s12 m4 animated bounceIn">
-                                    <a href="" class="btn-app white black-text ">
+                                <div class="col s12 m6 animated bounceIn" id="block_iniciar">
+                                    <button type="button" id="iniciar" style="border:none;display:none;" class="waves-effect btn-app white black-text ">
                                         <i class="fas fa-play blue-text"></i>
                                         <span style="font-size: 16px;">Iniciar Atención</span>
-                                    </a>
+                                    </button>
                                 </div>
-                                <div class="col s12 m4 animated bounceIn">
-                                    <a href="" class="btn-app white black-text">
+                                <div class="col s12 m4 animated bounceIn" id="block_cancelar">
+                                    <button type="button" id="cancelar" style="border:none;display:none;" class="waves-effect btn-app white black-text">
                                         <i class="fas fa-user-times red-text"></i>
                                         <span style="font-size: 16px;">No se presentó</span>
-                                    </a>
+                                    </button>
+                                </div>
+                                <div class="col s12 m4 animated bounceIn" id="block_finalizar" ">
+                                        <button type="button" id="finalizar" style="border:none;display:none;" class="waves-effect btn-app white black-text">
+                                            <i class="fas fa-times-circle green-text"></i>
+                                            <span style="font-size: 16px;">Finalizar</span>
+                                        </button>
                                 </div>
                             </div>
                         </div>
@@ -238,7 +246,6 @@
         </div>
     </div>
             <!-- Modal va en una seccion aparte, solo que aqui esta la prueba -->
-        
             <div id="ticket" class="modal">
                     <div class="modal-content blue-text center-align">
                         <div class="row">
@@ -251,7 +258,6 @@
                         </div>
                     </div>
                 </div>
-            
             
     </main>
 @endsection
