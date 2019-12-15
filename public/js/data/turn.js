@@ -60,4 +60,8 @@ $(document).ready(function () {
      
     setInterval(udateTime, 1000);
 
+    $('#modal').click(function(e) {
+        $('#ticket').modal('#modal');
+    });
+
 });

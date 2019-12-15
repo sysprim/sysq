@@ -2,6 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
+<script src="{{ asset('js/turn.js') }}"></script>
     <main>
         <div class="container-fluid" style="margin-top:20px;">
             <div class="row right-align">
@@ -147,14 +148,14 @@
                                         @if($turns)
                                             @foreach ($turns as $turn)
                                             
-                                                <a href="#ticket" class="collection-item avatar modal-trigger">
+                                                <a  class="collection-item avatar modal-trigger">
                                                     @if($turn->turn_type == "Normal")
                                                     <i class="circle blue fas fa-user tooltipped" data-position="bottom" data-tooltip="Normal"></i>
                                                     @else
                                                     <i class="circle red fas fa-user tooltipped" data-position="bottom" data-tooltip="Preferencial"></i>
                                                     @endif
                                                     <span class="title">{{ $turn->random_code }}</span><br>
-                                                    <span class="title">{{ $turn->client_id}}</span>
+                                                    <span class="title">{{ $turn->clients->ci_client}}</span>
                                                 </a>
                                             @endforeach                                      
                                         @else
@@ -200,11 +201,7 @@
         <div id="taquilla" class="modal bottom-sheet">
                 <div class="modal-content">
                     <div class="row">
-                        <div class="col s12 m1 right">
-                            <i class="icon-assignment medium blue-text" style="text-aling:center"></i>
-                        </div>
-
-                        <div class="centered col s12 m11">
+                        <div class="centered col s12 m12">
                             <h5 style="margin-left:15px;margin-top:15px;">  Taquillas </h5></div>
                         </div>
                     </div>
@@ -215,12 +212,12 @@
                         <ul class="collection"> 
                             @foreach ($ticketAll as $tickets)                           
                             <li class="collection-item avatar">
-                                <i class="icon-attach_file circle orange"></i>
+                                <i class="icon-person_pin_circle circle orange"></i>
                                 <span class="title">{{$tickets->number_ticket}}</span>
                                 <p>{{$tickets->name_ticket}} <br>
                                    {{$tickets->description_ticket}}
                                 </p>
-                            <a href="{{route('panel.select', ['id'=>$tickets->id])}}" class="secondary-content" class="blue-text">Seleccionar</a>
+                            <a href="{{route('panel.select', ['id'=>$tickets->id])}}" class="secondary-content" style="color:red">Seleccionar</a>
                         </li>
                         @endforeach
                     </ul>                 
@@ -241,18 +238,20 @@
         </div>
     </div>
             <!-- Modal va en una seccion aparte, solo que aqui esta la prueba -->
+        
             <div id="ticket" class="modal">
-                <div class="modal-content blue-text center-align">
-                    <div class="row">
-                        <div class="col s12 center-align">
-                            <span style="font-size:50px;">Ticket</span>
-                        </div>
-                        <div class="col s12 center-align">
-                            <span style="font-size: 80px; font-weight: 900">A002</span>
+                    <div class="modal-content blue-text center-align">
+                        <div class="row">
+                            <div class="col s12 center-align">
+                                <span style="font-size:50px;">Ticket</span>
+                            </div>
+                            <div class="col s12 center-align">
+                                <span style="font-size: 80px; font-weight: 900">A002</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-            </div>
+            
+            
     </main>
 @endsection

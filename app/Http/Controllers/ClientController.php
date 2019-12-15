@@ -12,11 +12,11 @@ class ClientController extends Controller
         $client = new Client ();
         $ci     = $request->input('ci');
 
-        $search = $client->all()->where('ci_client', $ci);
+        $search = $client->all()->where('ci_client', $ci)->first();
         // var_dump($search);
         // die();
                
-        if($search->count()==0){
+        if($search==null){
 
             $validate = $this->validate($request, [ 'ci' => 'required|min:6|max:8']);
 
@@ -24,11 +24,13 @@ class ClientController extends Controller
             $client->ci_client = $ci;
             $client->save();
 
-            return redirect()->route('index.turn',['ci' => $ci])->with(['message'=>'Bienvenido ¡Eres nuevo entrando al sistema! - Selecciona una taquilla para continuar con el servicio.']);
+            $search2 = $client->all()->where('ci_client', $ci)->first();
+
+            return redirect()->route('index.turn',['ci' => $search2->id])->with(['message'=>'Bienvenido ¡Eres nuevo entrando al sistema! - Selecciona una taquilla para continuar con el servicio.']);
                 
         }else{
 
-            return redirect()->route('index.turn',['ci' => $ci])->with(['message'=>'Bienvenido nuevamente - ¡Gracias por usar nuestros servicios!']);            
+            return redirect()->route('index.turn',['ci' => $search->id])->with(['message'=>'Bienvenido nuevamente - ¡Gracias por usar nuestros servicios!']);            
         }
     }
 }

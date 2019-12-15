@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action=" {{-- route('update.ticket') --}}">
+                    <form method="POST" action=" {{ route('update.ticket') }}">
                         @csrf
                     <input type="hidden" name="id" id="id" value="{{ $ticket->id }}">
 
@@ -71,7 +71,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col s1" style="padding:10px;">
-                                <button type="button" id="update" class="btn blue">
+                                <button type="submit"  class="btn blue">
                                     Guardar
                                 </button>
                             </div>

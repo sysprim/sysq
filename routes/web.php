@@ -44,8 +44,9 @@ Route::post('/Ticket/Delete',  'TicketController@delete')       ->name('delete.t
 Route::post('/Client/Save', 'ClientController@save')  ->name('save.client');
 
 //Turn
-Route::get('/Turn/Index/{ci}'     ,'TurnController@index')      ->name('index.turn');
-Route::get('/Turn/Index/{ci}/{id}','TurnController@turnTicket') ->name('ticket.turn');
+Route::get('/Turn/Index/{ci}'     ,'TurnController@index')       ->name('index.turn');
+Route::get('/Turn/Index/{ci}/{id}','TurnController@turnTicket')  ->name('ticket.turn');
+Route::get('/Turn/Index/{ci}/{id}/{turn}','TurnController@save') ->name('save.turn');
 
 
 

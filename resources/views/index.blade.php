@@ -29,6 +29,7 @@
     <main>
         <div class="container-fluid">
             <div class="row">
+                @include('includes.message')
                 <div class="col s12 center-align">
                     <h4>Ingrese su cedula de identidad</h4>
                 </div>

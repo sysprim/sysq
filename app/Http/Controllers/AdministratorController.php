@@ -35,11 +35,16 @@ class AdministratorController extends Controller
    public function selectedPanel($id){
 
           $ticketAll = Ticket::all();
-          // $ticketFirst = null;
           $ticket = Ticket::find($id);
 
-          $turns    = Turn::where(['ticket_id'=> $id, 'turn_status'=>'En Espera'])->get();
-          // $client   = Client::where('id', $turns->client_id)->get();
+          // $turn = new Turn ();
+          // $filter = $turn->all()->where(['ticket_id'=> $id, 'turn_status'=>'En Espera' ]);
+          
+          // $clients = new Client();
+          // $client  = $clients->all()->where('id', $filter->cliente_id);
+          // // var_dump($filter);
+          // // die();
+           $turns  = Turn::where(['ticket_id'=> $id, 'turn_status'=>'En Espera'])->get();
           
           return view('administrator.panel',['ticket'       => $ticket,
                                              'turns'        => $turns ,

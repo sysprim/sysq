@@ -12,14 +12,14 @@
                  
                 <div class="row">
                         <div class="col s12 m6 animated bounceIn">
-                            <a href="" class="waves-effect btn-app white black-text">
+                            <a href="{{route('save.turn', ['ci'=>$ci, 'id'=> $id, 'Normal'])}}" class="waves-effect btn-app white black-text">
                                 <i class="icon-accessibility" style="font-size:60px;"></i>
                                 <span style="font-size:30px;">Normal</span>
                             </a>
                         </div>
               
                         <div class="col s12 m6 animated bounceIn">
-                            <a href="" class="waves-effect btn-app white black-text">
+                            <a href="{{route('save.turn', ['ci'=>$ci, 'id'=> $id, 'Preferencial'])}}" class="waves-effect btn-app white black-text">
                                 <i class="icon-accessible" style="font-size:60px;"></i>
                                 <span style="font-size:30px;">Preferencial</span>
                             </a>

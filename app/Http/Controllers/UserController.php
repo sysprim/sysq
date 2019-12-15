@@ -32,7 +32,6 @@ class UserController extends Controller
         $user->name     = $name;
         $user->email    = $email;
 
-
         $user->update();
 
         return redirect()->route('config')->with(['message'=>'Actualización Exitosa']);
