@@ -110,18 +110,26 @@
                                                 <td>{{$ticket->number_ticket}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Servicio</td>
-                                                <td>{{$ticket->name_ticket}}</td>
+                                                <td id="nameClient">Servicio</td>
+                                                <td id="ciClient">{{$ticket->name_ticket}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Descripción</td>
-                                                <td>{{$ticket->description_ticket}}</td>
+                                                <td id="nameTurn">Descripción</td>
+                                                <td id="numberTurn">{{$ticket->description_ticket}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
 
                                 <div class="col s12 m12 animated bounceIn" id="block_llamar">
+                                    @if($first)
+                                    <input type="hidden" value="{{$first->id}}" id="idTurn" class="idTurn">
+                                    <input type="hidden" value="{{$first->random_code}}" id="code" class="code">
+                                    <input type="hidden" value="{{$first->clients->ci_client}}" id="ci" class="ci">
+                                    @else
+                                    <input type="hidden" value="0" id="idTurn1" class="idTurn">
+                                    <input type="hidden" value="0" id="code1" class="code">
+                                    @endif
                                     <button type="button"  id="llamar" style="border:none;" class="waves-effect btn-app white black-text">
                                         <i class="fas fa-bullhorn" style="color:#ffb300"></i>
                                         <span style="font-size: 16px;" id="text_llamar">Llamar</span>
@@ -246,6 +254,7 @@
         </div>
     </div>
             <!-- Modal va en una seccion aparte, solo que aqui esta la prueba -->
+
             <div id="ticket" class="modal">
                     <div class="modal-content blue-text center-align">
                         <div class="row">
@@ -253,11 +262,15 @@
                                 <span style="font-size:50px;">Ticket</span>
                             </div>
                             <div class="col s12 center-align">
-                                <span style="font-size: 80px; font-weight: 900">A002</span>
+                                <span style="font-size: 80px; font-weight: 900" id="infoCode" >A002</span>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <audio class="audio">
+                    <source src="{{asset('img/turn.mp3')}}" type="audio/ogg">
+                </audio>
             
     </main>
 @endsection

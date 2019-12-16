@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Ticket;
 use App\Turn;
-use App\Client;
 use Illuminate\Support\Facades\DB;
 
 class AdministratorController extends Controller
@@ -19,12 +18,8 @@ class AdministratorController extends Controller
 
    public function panel(){
 
-     //    $ticketFirst = DB::table('tickets')->first();
         $ticketAll = Ticket::all();
         $ticket = null;
-
-     //    $turns= Turn::where('ticket_id', $ticketFirst->id)->get();
-
 
        return view('administrator.panel', [
                                            'ticketAll'  =>$ticketAll,
@@ -34,27 +29,26 @@ class AdministratorController extends Controller
 
    public function selectedPanel($id){
 
-          $ticketAll = Ticket::all();
-          $ticket = Ticket::find($id);
+          $ticketAll  = Ticket::all();
+          $ticket     = Ticket::find($id);
 
-          // $turn = new Turn ();
-          // $filter = $turn->all()->where(['ticket_id'=> $id, 'turn_status'=>'En Espera' ]);
-          
-          // $clients = new Client();
-          // $client  = $clients->all()->where('id', $filter->cliente_id);
-          // // var_dump($filter);
-          // // die();
-           $turns  = Turn::where(['ticket_id'=> $id, 'turn_status'=>'En Espera'])->get();
+          $turns  = Turn::where(['ticket_id'=> $id, 'turn_status'=>'En Espera'])->get();
+          $turnFirst  = Turn::where(['ticket_id'=> $id, 'turn_status'=>'En Espera'])->first();
           
           return view('administrator.panel',['ticket'       => $ticket,
                                              'turns'        => $turns ,
-                                             'ticketAll'    => $ticketAll
+                                             'ticketAll'    => $ticketAll,
+                                             'first'        => $turnFirst,
                                                ]);
    }
 
    public function turn(){
-   	
-   		return view('turn.turnPanel');
+
+          // $turn_history = Turn::where('turn_status','Atendido')->get();
+          $turn = new Turn();
+          $turnHistory = $turn->where('turn_status','Atendido')->limit(10)->get();
+
+   		    return view('turn.turnPanel', ['history'=>$turnHistory]);
    }
 
    public function config (){

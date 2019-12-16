@@ -27,6 +27,32 @@
         
         <div id="slide-out" class="sidenav sidenav-fixed">
 
+        @if($history)   
+            <div class="row">
+                <div class="col s12 m12 orange center-align">
+                    <h4>Historico</h4>
+                </div>
+
+            <div class="row">
+                <div class="col s6 center-align blue">
+                    <h4>Turno</h4>
+                </div>
+                <div class="col s6 center-align blue">
+                    <h4>Taquilla</h4>
+                </div>
+
+            @foreach($history as $turn)
+                <div class="col s6 center-align grey lighten-2">
+                    <h4>{{$turn->random_code}}</h4>
+                </div>
+                <div class="col s6 center-align grey lighten-2">
+                    <h4>{{$turn->tickets->number_ticket}}</h4>
+                </div>
+            @endforeach
+            </div>
+        </div>
+
+        @else
             <div class="row">
                 <div class="col s6 center-align blue">
                     <h4>Turno</h4>
@@ -35,18 +61,13 @@
                     <h4>Taquilla</h4>
                 </div>
                 <div class="col s6 center-align grey lighten-2">
-                    <h4>A001</h4>
+                    <h4>0</h4>
                 </div>
                 <div class="col s6 center-align grey lighten-2">
-                    <h4>1</h4>
-                </div>
-                <div class="col s6 center-align grey lighten-2">
-                    <h4>S001</h4>
-                </div>
-                <div class="col s6 center-align grey lighten-2">
-                    <h4>2</h4>
+                    <h4>0</h4>
                 </div>
             </div>
+        @endif
 
         </div>
         <!-- <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="icon-close"></i></a> -->
@@ -93,6 +114,19 @@
         </div>
     </footer>
 
+    <div id="ticket" class="modal">
+        <div class="modal-content blue-text center-align">
+            <div class="row">
+                <div class="col s12 center-align">
+                    <span style="font-size:50px;">Ticket</span>
+                </div>
+                <div class="col s12 center-align">
+                    <span style="font-size: 80px; font-weight: 900">A002</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript files -->
 
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
@@ -101,7 +135,7 @@
     <script src="{{ asset('js/aos.js') }}"></script>
     <script src="{{ asset('js/data/reloj.js') }}"></script>
     <script src="{{ asset('js/owner.js') }}"></script>
-
+    <script src="{{ asset('js/data/turn.js') }}"></script>
     <style>
         @media only screen and (max-width: 992px) {
     header,

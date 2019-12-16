@@ -1,9 +1,23 @@
 
 $(document).ready(function () {
 
+    const url = "http://localhost/sysq/public/";
+    var idTurn = $('.idTurn').val();
+    var code   = $('.code').val();
+    var ci     = $('#ci').val();
+
+    console.log(idTurn);
+    console.log(code);
+
     $('#llamar').click(function(e){
 
+        if(code != 0){
+        //Buttons infernal
         $('#text_llamar').html('Llamar de nuevo');
+        $('#nameClient').html('Cliente');
+        $('#ciClient').html(ci);
+        $('#nameTurn').html('Turno');
+        $('#numberTurn').html(code);
 
         $('#cancelar').show();
         $('#iniciar').show();
@@ -18,6 +32,23 @@ $(document).ready(function () {
         $("#block_iniciar").addClass("col s12 m4 animated bounceIn");       
         $("#block_llamar").addClass("col s12 m4 animated bounceIn");
         $("#block_cancelar").addClass("col s12 m4 animated bounceIn");
+
+        
+            $('#ticket').modal('open');
+            $('#infoCode').html(code);
+            $('.audio')[0].play();
+        
+        }else{
+
+            swal({
+                text: "No tienes clientes en cola",
+                icon: "error",
+                button: {
+                    text: "Aceptar",
+                    className: "red"
+                }
+            });
+        }
 
     });
 
@@ -43,52 +74,175 @@ $(document).ready(function () {
 
     $('#finalizar').click(function (e){
 
-        $('#text_llamar').html('Llamar');
-        //Buttons
-        $("#block_llamar").show();
-        $("#llamar").show();
-
-
-        $('#finalizar').hide();
-        $('#cancelar').hide();
-        $('#iniciar').hide();
-
-        $("#block_finalizar").hide();      
-        $("#block_cancelar").hide();
-        $("#block_iniciar").hide();
-        
-
+        $('#text_llamar').html('Llamar');       
         $("#block_llamar").removeClass();
-
         $("#block_llamar").addClass("col s12 m12 animated bounceIn");
 
-    });
+        swal({
+            title: "¿Quieres finalizar el servicio?",
+            text: "Al finalizar seguira con el proximo cliente en cola, no se revertiran los cambios.",
+            icon: "error",
+            buttons: {
+                confirm: {
+                    text: "Finalizar",
+                    value: true,
+                    visible: true,
+                    className: "green"
+
+                },
+                cancel: {
+                    text: "Cancelar",
+                    value: false,
+                    visible: true,
+                    className: "grey lighten-2"
+                }
+            }}).then(function(value){
+                
+                if(value == true){
+                    $.ajax({
+                        method:'POST',
+                        url: url+"Turn/Finally",
+                        data:{idTurn:idTurn,
+                            "_token": $("meta[name='csrf-token']").attr("content")
+                        },
+                        
+                        beforeSend: function(){
+                            console.log("Sending data...");
+                        },
+                        success: function(data) {
+                            console.log(data);
+                            swal({
+                                title: "¡Se ha finalizado con exito!",
+                                text: "Puedes seguir atendiendo ",
+                                icon: "success",
+                                button: {
+                                    text: "Aceptar",
+                                    visible: true,
+                                    value: true,
+                                    className: "green",
+                                    closeModal: true
+                                },
+                                timer: 3000
+                            })
+                            .then(redirect => {
+                                location.reload();
+                            })
+                        },
+                        error: function(err) {
+            
+                            console.log(err);
+                            swal({
+                                title: "¡Oh no!",
+                                text: "Ha ocurrido un error inesperado, refresca la página e intentalo de nuevo.",
+                                icon: "error",
+                                button: {
+                                    text: "Aceptar",
+                                    visible: true,
+                                    value: true,
+                                    className: "green",
+                                    closeModal: true
+                                }
+                            });
+                        }
+                    })}else {
+    
+                    swal({
+                        text: "No se ha finalizado de no finalizar seguira el cliente en cola",
+                        icon: "warning",
+                        button: {
+                            text: "Aceptar",
+                            className: "green"
+                        }
+                    });
+                }
+            });
+        });     
 
     $('#cancelar').click(function (e){
 
-        $('#text_llamar').html('Llamar');
-        //Buttons
-        $("#block_llamar").show();
-        $("#llamar").show();
+        swal({
+            title: "¿Quieres cancelar el servicio?",
+            text: "Al cancelar seguira con el proximo cliente en cola, no se revertiran los cambios.",
+            icon: "error",
+            buttons: {
+                confirm: {
+                    text: "Finalizar",
+                    value: true,
+                    visible: true,
+                    className: "green"
 
-
-        $('#finalizar').hide();
-        $("#block_finalizar").hide();
-        $('#cancelar').hide();
-        $("#block_cancelar").hide();
-        $("#block_iniciar").hide();
-        $("#iniciar").hide();
-
-              
-        $("#block_llamar").removeClass();
-      
-        $("#block_llamar").addClass("col s12 m12 animated bounceIn");
+                },
+                cancel: {
+                    text: "Cancelar",
+                    value: false,
+                    visible: true,
+                    className: "grey lighten-2"
+                }
+            }}).then(function(value){
+                
+                if(value == true){
+                    $.ajax({
+                        method:'POST',
+                        url: url+"Turn/Cancel",
+                        data:{idTurn:idTurn,
+                            "_token": $("meta[name='csrf-token']").attr("content")
+                        },
+                        
+                        beforeSend: function(){
+                            console.log("Sending data...");
+                        },
+                        success: function(data) {
+                            console.log(data);
+                            swal({
+                                title: "¡Se cancelo con exito!",
+                                text: "Puedes seguir atendiendo ",
+                                icon: "success",
+                                button: {
+                                    text: "Aceptar",
+                                    visible: true,
+                                    value: true,
+                                    className: "green",
+                                    closeModal: true
+                                },
+                                timer: 3000
+                            })
+                            .then(redirect => {
+                                location.reload();
+                            })
+                        },
+                        error: function(err) {
+            
+                            console.log(err);
+                            swal({
+                                title: "¡Oh no!",
+                                text: "Ha ocurrido un error inesperado, refresca la página e intentalo de nuevo.",
+                                icon: "error",
+                                button: {
+                                    text: "Aceptar",
+                                    visible: true,
+                                    value: true,
+                                    className: "green",
+                                    closeModal: true
+                                }
+                            });
+                        }
+                    })}else {
+    
+                    swal({
+                        text: "No se ha cancelado",
+                        icon: "warning",
+                        button: {
+                            text: "Aceptar",
+                            className: "green"
+                        }
+                    });
+                }
+            });
 
     });
 
     //funcional
     $('#modal').click(function (e){
-        $('#ticket').modal();
         $('#ticket').modal('open');
     });
 

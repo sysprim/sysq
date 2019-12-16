@@ -47,6 +47,9 @@ Route::post('/Client/Save', 'ClientController@save')  ->name('save.client');
 Route::get('/Turn/Index/{ci}'     ,'TurnController@index')       ->name('index.turn');
 Route::get('/Turn/Index/{ci}/{id}','TurnController@turnTicket')  ->name('ticket.turn');
 Route::get('/Turn/Index/{ci}/{id}/{turn}','TurnController@save') ->name('save.turn');
+Route::post('/Turn/Finally', 'TurnController@turnFinally')       ->name('finally.turn');
+Route::post('/Turn/Cancel', 'TurnController@turnCancel')         ->name('cancel.turn');
+
 
 
 

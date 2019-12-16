@@ -7,6 +7,7 @@ use App\Client;
 use App\Ticket;
 use App\Turn;
 use Illuminate\Support\Facades\DB;
+use Mpdf\Mpdf;
 
 class TurnController extends Controller
 {
@@ -48,7 +49,6 @@ class TurnController extends Controller
 
     public function save($ci, $id, $turn){
 
-
         $client_id  = $ci;
         $ticket_id  = $id;
         $turn_type  = $turn;
@@ -63,7 +63,38 @@ class TurnController extends Controller
 
         $generatedTurn->save();
 
+        $query = $generatedTurn->orderBy('id','desc')->first();
+        
+        $html = view('ticket.ticket',['turn'=> $query]);
+        
+        $pdf = new Mpdf(['mode' => 'utf-8', 'format' => [190, 200]]);
+        $pdf->WriteHTML($html);
+        $pdf->Output();
+
         return redirect()->route('index')->with(['message'=>'¡Gracias por preferirnos!, Ahora espere su turno']);
+
+    }
+
+    public function turnFinally(Request $request){
+
+        $id = $request->input('idTurn');
+
+        $turn  = Turn::find($id);
+        $turn->turn_status = "Atendido";
+
+        $turn->update();
+        
+    }
+
+    public function turnCancel(Request $request){
+
+        $id = $request->input('idTurn');
+
+        $turn  = Turn::find($id);
+        $turn->turn_status = "Cancelado";
+
+        $turn->update();
+        
     }
     
 }
