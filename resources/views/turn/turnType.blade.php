@@ -4,12 +4,12 @@
 
 @section('content')
     <main> 
-        <div class="container-fluid">          
+        <div class="container-fluid"> 
+            @include('includes.messageInfo');         
             <div class="row">                                     
                     <div class="col s12 center-align">
                         <h4>Seleccione el tipo de atención.</h4>
                     </div>
-                 
                 <div class="row">
                         <div class="col s12 m6 animated bounceIn">
                             <a href="{{route('save.turn', ['ci'=>$ci, 'id'=> $id, 'Normal'])}}" class="waves-effect btn-app white black-text">

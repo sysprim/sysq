@@ -13,30 +13,67 @@ $(document).ready(function () {
 
         if(code != 0){
         //Buttons infernal
-        $('#text_llamar').html('Llamar de nuevo');
-        $('#nameClient').html('Cliente');
-        $('#ciClient').html(ci);
-        $('#nameTurn').html('Turno');
-        $('#numberTurn').html(code);
-
-        $('#cancelar').show();
-        $('#iniciar').show();
-
-        $('#block_cancelar').show();      
-        $('#block_iniciar').show();
-
-        $("#block_iniciar").removeClass();
-        $("#block_llamar").removeClass();
-        $("#block_cancelar").removeClass();
-
-        $("#block_iniciar").addClass("col s12 m4 animated bounceIn");       
-        $("#block_llamar").addClass("col s12 m4 animated bounceIn");
-        $("#block_cancelar").addClass("col s12 m4 animated bounceIn");
-
         
-            $('#ticket').modal('open');
-            $('#infoCode').html(code);
-            $('.audio')[0].play();
+
+        //cambiar turno
+            $.ajax({
+                method:'POST',
+                url: url+"Turn/Call",
+                data:{idTurn:idTurn,
+                    "_token": $("meta[name='csrf-token']").attr("content")
+                },
+                
+                beforeSend: function(){
+                    console.log("Sending data...");
+                    $('#preLoader').show();
+                },
+                success: function(data) {
+                    console.log(data);
+
+                        $('#preLoader').hide();
+
+                        $('#text_llamar').html('Llamar de nuevo');
+                        $('#nameClient').html('Cliente');
+                        $('#ciClient').html(ci);
+                        $('#nameTurn').html('Turno');
+                        $('#numberTurn').html(code);
+
+                        $('#cancelar').show();
+                        $('#iniciar').show();
+
+                        $('#block_cancelar').show();      
+                        $('#block_iniciar').show();
+
+                        $("#block_iniciar").removeClass();
+                        $("#block_llamar").removeClass();
+                        $("#block_cancelar").removeClass();
+
+                        $("#block_iniciar").addClass("col s12 m4 animated bounceIn");       
+                        $("#block_llamar").addClass("col s12 m4 animated bounceIn");
+                        $("#block_cancelar").addClass("col s12 m4 animated bounceIn");
+
+        //modaaaaalllllllll
+                    $('#ticket').modal('open');
+                    $('#infoCode').html(code);
+                    $('.audio')[0].play();
+                },
+                error: function(err) {
+    
+                    console.log(err);
+                    swal({
+                        title: "¡Oh no!",
+                        text: "Ha ocurrido un error inesperado, refresca la página e intentalo de nuevo.",
+                        icon: "error",
+                        button: {
+                            text: "Aceptar",
+                            visible: true,
+                            value: true,
+                            className: "green",
+                            closeModal: true
+                        }
+                    });
+                }
+            })
         
         }else{
 
@@ -74,9 +111,6 @@ $(document).ready(function () {
 
     $('#finalizar').click(function (e){
 
-        $('#text_llamar').html('Llamar');       
-        $("#block_llamar").removeClass();
-        $("#block_llamar").addClass("col s12 m12 animated bounceIn");
 
         swal({
             title: "¿Quieres finalizar el servicio?",
@@ -108,9 +142,16 @@ $(document).ready(function () {
                         
                         beforeSend: function(){
                             console.log("Sending data...");
+                            $('#preLoader').show();
                         },
                         success: function(data) {
                             console.log(data);
+
+                            $('#preLoader').hide();
+                            $('#text_llamar').html('Llamar');       
+                            $("#block_llamar").removeClass();
+                            $("#block_llamar").addClass("col s12 m12 animated bounceIn");
+                            
                             swal({
                                 title: "¡Se ha finalizado con exito!",
                                 text: "Puedes seguir atendiendo ",
@@ -123,6 +164,7 @@ $(document).ready(function () {
                                     closeModal: true
                                 },
                                 timer: 3000
+                                
                             })
                             .then(redirect => {
                                 location.reload();
@@ -190,9 +232,11 @@ $(document).ready(function () {
                         
                         beforeSend: function(){
                             console.log("Sending data...");
+                            $('#preLoader').show();
                         },
                         success: function(data) {
                             console.log(data);
+                            $('#preLoader').hide();
                             swal({
                                 title: "¡Se cancelo con exito!",
                                 text: "Puedes seguir atendiendo ",

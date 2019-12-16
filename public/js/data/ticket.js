@@ -102,9 +102,9 @@ $(document).ready(function(){
         var id = $('#id').val();
 
         swal({
-            title: "¿Quiere eliminar al usuario",
-            text: "¿Esta seguro que desea eliminar al usuario? Si lo hace, no podrá revertir los cambios.",
-            icon: "error",
+            title: "¿Quiere eliminar la taquilla",
+            text: "¿Esta seguro que desea eliminar la taquilla? Si lo hace todos los clientes en colas y atentidos seran eliminados, no podrá revertir los cambios.",
+            icon: "warning",
             buttons: {
                 confirm: {
                     text: "Eliminar",
@@ -130,12 +130,13 @@ $(document).ready(function(){
 
                     beforeSend: function(){
                         console.log("Sending data...");
+                        $('#preLoader').show();
                     },
                     
                     success: function(data) {
                         console.log(data);
                         swal({
-                            text: "Se ha eliminado el usuario exitosamente.",
+                            text: "Se ha eliminado la taquilla exitosamente.",
                             icon: "success",
                             button: {
                                 text: "Entendido",
@@ -166,7 +167,7 @@ $(document).ready(function(){
                 })}else {
                     
                     swal({
-                        text: "El usuario no ha sido eliminado",
+                        text: "La taquilla no ha sido eliminado",
                         icon: "info",
                         button: {
                             text: "Aceptar",

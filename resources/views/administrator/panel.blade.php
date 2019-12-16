@@ -93,11 +93,31 @@
 
         @if($ticket)
             <div class="row">
-                    <div class="col s12 m3 blue center-align" style="border: solid 1px #cccccc">
-                        <h6 class="white-text">Taquilla</h6>
-                    <span class="white-text" style="font-size: 70px;">{{$ticket->number_ticket}}</span><br>
-                        <a href="#taquilla" class="btn btn-flat white-text modal-trigger">Cambiar</a>
-                    </div>
+                    <div class="col s12 m3">
+                        <div class="row">
+                            <div class="col s12 m12 blue center-align" style="border: solid 1px #cccccc">
+                            <h6 class="white-text">Taquilla</h6>
+                                <span class="white-text" style="font-size: 70px;">{{$ticket->number_ticket}}</span><br>
+                            <a href="#taquilla" class="btn btn-flat white-text modal-trigger">Cambiar</a>
+                            </div>
+                        </div>
+
+                    <div class="row" style="margin-top:40px"  >
+                        <div class="col s5 offset-s1" id="preLoader" style="display:none">             
+                                <div class="preloader-wrapper big active">
+                                    <div class="spinner-layer spinner-blue-only">
+                                      <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                      </div><div class="gap-patch">
+                                        <div class="circle"></div>
+                                      </div><div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
     
                     <div class="col s12 m9">
     
@@ -119,7 +139,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                </div>
+                                </div>          
 
                                 <div class="col s12 m12 animated bounceIn" id="block_llamar">
                                     @if($first)

@@ -32,8 +32,8 @@ class AdministratorController extends Controller
           $ticketAll  = Ticket::all();
           $ticket     = Ticket::find($id);
 
-          $turns  = Turn::where(['ticket_id'=> $id, 'turn_status'=>'En Espera'])->get();
-          $turnFirst  = Turn::where(['ticket_id'=> $id, 'turn_status'=>'En Espera'])->first();
+          $turns  = Turn::where('ticket_id', $id)->where('turn_status','En Espera')->orWhere('turn_status','LLamado')->where('ticket_id', $id)->get();
+          $turnFirst  = Turn::where('ticket_id', $id)->where( 'turn_status','En Espera')->orWhere('turn_status','LLamado')->where('ticket_id', $id)->first();
           
           return view('administrator.panel',['ticket'       => $ticket,
                                              'turns'        => $turns ,
@@ -46,9 +46,11 @@ class AdministratorController extends Controller
 
           // $turn_history = Turn::where('turn_status','Atendido')->get();
           $turn = new Turn();
-          $turnHistory = $turn->where('turn_status','Atendido')->limit(10)->get();
+          $turnCall = $turn->where('turn_status','Llamado')->orderBy('updated_at', 'desc')->get();
+          $turnHistory = $turn->where('turn_status','Atendido')->orWhere('turn_status','Cancelado')->limit(5)->orderBy('updated_at', 'desc')->get();
 
-   		    return view('turn.turnPanel', ['history'=>$turnHistory]);
+   		return view('turn.turnPanel', ['call'   =>$turnCall,
+                                             'history'=>$turnHistory]);
    }
 
    public function config (){

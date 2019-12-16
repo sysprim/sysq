@@ -23,12 +23,60 @@
 
 <body class="grey lighten-3 font-nunito">
     <!-- Header -->
-    <header>
+<header>
+    <main>
         
         <div id="slide-out" class="sidenav sidenav-fixed">
 
-        @if($history)   
+        @if($call)   
+            <div class="row" style="margin:0">
+                <div class="col s12 m12 green center-align">
+                    <h4>Llamados</h4>
+                </div>
+
+            <div class="row" style="margin:0">
+                <div class="col s6 center-align blue">
+                    <h4>Turno</h4>
+                </div>
+                <div class="col s6 center-align blue">
+                    <h4>Taquilla</h4>
+                </div>
+
+            @foreach($call as $callMe)
+                <div class="col s6 center-align grey lighten-2">
+                    <h4>{{$callMe->random_code}}</h4>
+                </div>
+                <div class="col s6 center-align grey lighten-2">
+                    <h4>{{$callMe->tickets->number_ticket}}</h4>
+                </div>
+            @endforeach
+            </div>
+        </div>
+
+        @else
+            <div class="row" style="margin:0">
+                <div class="col s12 m12 green center-align">
+                    <h4>Llamados</h4>
+                </div>
             <div class="row">
+                <div class="col s6 center-align blue">
+                    <h4>Turno</h4>
+                </div>
+                <div class="col s6 center-align blue">
+                    <h4>Taquilla</h4>
+                </div>
+                <div class="col s6 center-align grey lighten-2">
+                    <h4>0</h4>
+                </div>
+                <div class="col s6 center-align grey lighten-2">
+                    <h4>0</h4>
+                </div>
+            </div>
+        </div>
+        @endif
+
+        @if($history)   
+            <div class="row" style="margin:0">
                 <div class="col s12 m12 orange center-align">
                     <h4>Historico</h4>
                 </div>
@@ -53,7 +101,7 @@
         </div>
 
         @else
-            <div class="row">
+            <div class="row" style="margin:0">
                 <div class="col s6 center-align blue">
                     <h4>Turno</h4>
                 </div>
@@ -68,18 +116,17 @@
                 </div>
             </div>
         @endif
-
         </div>
         <!-- <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="icon-close"></i></a> -->
     </header>
 
-    <main>
+
         <div class="row"style="margin:0;">
             <div class="video-container">
-                <iframe width="853" height="480" src="chale" frameborder="0" allowfullscreen></iframe>
-            </div>
+                <iframe width="853" height="600" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
+              </div>
         </div>
-    </main>
+    
 
     <footer class="page-footer blue">
         <div class="container-fluid">
@@ -95,8 +142,7 @@
                 <div class="col s6">
                     <div class="date">
                         <span><i class="icon-date_range     "></i></span>
-                        <span id="weekDay"  class="weekDay  "></span><span>,</span> 
-                        <span id="day"      class="day      "></span> <span>de</span>
+                        <span id="weekDay"  class="weekDay  "></span><span>,   </span>
                         <span id="month"    class="month    "></span><span > del</span>
                         <span id="year"     class="year     "></span>
                     </div>               
@@ -116,16 +162,26 @@
 
     <div id="ticket" class="modal">
         <div class="modal-content blue-text center-align">
-            <div class="row">
-                <div class="col s12 center-align">
-                    <span style="font-size:50px;">Ticket</span>
-                </div>
-                <div class="col s12 center-align">
-                    <span style="font-size: 80px; font-weight: 900">A002</span>
-                </div>
-            </div>
+                 
+                @foreach($call as $callMe)
+                <input type="hidden" value="{{$callMe->random_code}}" id="codeTurn">
+                    <div class="row">           
+                        <div class="col s12 center-align">
+                            <span style="font-size:50px;">Ticket</span>
+                        </div>
+                        <div class="col s12 center-align">
+                            <span style="font-size: 80px; font-weight: 900" id="codeTurn">{{$callMe->random_code}}</span>
+                        </div>
+                    </div>
+                @endforeach
+            
         </div>
     </div>
+
+    <audio class="audio">
+        <source src="{{asset('img/turn.mp3')}}" type="audio/ogg">
+    </audio>
+</main>
 
     <!-- JavaScript files -->
 
@@ -155,5 +211,5 @@
         }
 }
     </style>
-
+    </body>
 </html>

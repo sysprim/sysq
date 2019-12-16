@@ -56,23 +56,39 @@ class TurnController extends Controller
         $generatedTurn  = new Turn();
         $turnController = new TurnController();
 
-        $generatedTurn->random_code = $turnController->generatedNumberTurn();
-        $generatedTurn->client_id   = $client_id;
-        $generatedTurn->ticket_id   = $ticket_id;
-        $generatedTurn->turn_type   = $turn_type;
-
-        $generatedTurn->save();
-
-        $query = $generatedTurn->orderBy('id','desc')->first();
+        $queryTurn= Turn::where(['client_id'=>$ci, 'ticket_id'=>$id, 'turn_status'=>'En Espera'])->first();
         
-        $html = view('ticket.ticket',['turn'=> $query]);
+        if($queryTurn == null){
+
+            $generatedTurn->random_code = $turnController->generatedNumberTurn();
+            $generatedTurn->client_id   = $client_id;
+            $generatedTurn->ticket_id   = $ticket_id;
+            $generatedTurn->turn_type   = $turn_type;
+
+            $generatedTurn->save();
+
+            $query = $generatedTurn->orderBy('id','desc')->first();
         
-        $pdf = new Mpdf(['mode' => 'utf-8', 'format' => [190, 200]]);
-        $pdf->WriteHTML($html);
-        $pdf->Output();
+            $html = view('ticket.ticket',['turn'=> $query]);
+        
+            $pdf = new Mpdf(['mode' => 'utf-8', 'format' => [190, 200]]);
+            $pdf->WriteHTML($html);
+            $pdf->Output();
+        
+        }else{
+            return redirect()->route('ticket.turn',['ci'=>$ci, 'id'=>$id])->with(['message'=>'¡Ya tienes un turno en proceso!, espere su turno']);  
+        }
+    }
 
-        return redirect()->route('index')->with(['message'=>'¡Gracias por preferirnos!, Ahora espere su turno']);
+    public function turnCall(Request $request){
 
+        $id = $request->input('idTurn');
+
+        $turn  = Turn::find($id);
+        $turn->turn_status = "llamado";
+
+        $turn->update();
+        
     }
 
     public function turnFinally(Request $request){

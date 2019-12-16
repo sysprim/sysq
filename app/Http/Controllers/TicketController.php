@@ -54,15 +54,12 @@ class TicketController extends Controller
 
         $ticket = Ticket::find($id);
 
-        $validate = $this->validate($request, [ 'number_ticket'=>'required|unique:tickets',
-                                                'name_ticket'  =>'required',                                             
+        $validate = $this->validate($request, ['name_ticket'  =>'required',                                             
                                                 ]);
 
-        $number         = $request->input('number_ticket');
         $name           = $request->input('name_ticket');
         $description    = $request->input('description_ticket');
 
-        $ticket->number_ticket      = $number;
         $ticket->name_ticket        = $name;
         $ticket->description_ticket = $description;
 

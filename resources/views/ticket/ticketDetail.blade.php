@@ -31,7 +31,7 @@
                             <div class="input-field col m8">
                                 <i class="icon-looks_one prefix"></i> 
                                 <label for="number_ticket" class="col-form-label text-md-right">Número de Taquilla</label>
-                                <input id="number_ticket" type="number" class="form-control @error('number_ticket') is-invalid @enderror" name="number_ticket" value="{{ $ticket->number_ticket }}" required autocomplete="number_ticket" autofocus>
+                                <input id="number_ticket" type="number" class="form-control @error('number_ticket') is-invalid @enderror" name="number_ticket" value="{{ $ticket->number_ticket }}"  autocomplete="number_ticket" disabled>
 
                                 @error('number_ticket')
                                     <span class="invalid-feedback" role="alert">
@@ -69,12 +69,28 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col s1" style="padding:10px;">
+                        <div class="row">
+                            <div class="col s1" style="padding:10px; margin-left:10px;">                           
                                 <button type="submit"  class="btn blue">
                                     Guardar
                                 </button>
                             </div>
+
+                                <div class="col s2 offset-s1">
+                                <span id="preLoader" style="display:none">
+                                    <div class="preloader-wrapper small active">
+                                        <div class="spinner-layer spinner-blue-only">
+                                          <div class="circle-clipper left">
+                                            <div class="circle"></div>
+                                          </div><div class="gap-patch">
+                                            <div class="circle"></div>
+                                          </div><div class="circle-clipper right">
+                                            <div class="circle"></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </span>
+                                </div>                     
                         </div>
                     </form>
                 </div>

@@ -1,5 +1,17 @@
 
 $(document).ready(function () {
+    // const url = "http://localhost/sysq/public/";
+    // function tiempoReal()
+	// 	{
+	// 	// 	var tabla = $.ajax({
+	// 	// 		url:url+'/Turn',
+	// 	// 		dataType:'text',
+	// 	// 		async:false
+	// 	// 	}).responseText;
+
+	// 	// 	document.getElementById("slide-out").innerHTML = tabla;
+	// 	// }
+	// 	// setInterval(tiempoReal, 1000);
     
     var udateTime = function() {
         let currentDate = new Date(),
@@ -7,7 +19,7 @@ $(document).ready(function () {
             minutes = currentDate.getMinutes(), 
             seconds = currentDate.getSeconds(),
             weekDay = currentDate.getDay(), 
-            day = currentDate.getDay(), 
+
             month = currentDate.getMonth(), 
             year = currentDate.getFullYear();
      
@@ -22,7 +34,7 @@ $(document).ready(function () {
         ];
      
         document.getElementById('weekDay').textContent = weekDays[weekDay];
-        document.getElementById('day').textContent = day;
+
      
         const months = [
             'Enero',
@@ -57,7 +69,17 @@ $(document).ready(function () {
     };
      
     udateTime();
+
+    // function turnCall(){
+    //     var code = $('#codeTurn').val();
+
+    //         if(code == 0){
+    //             $('#ticket').modal('open');
+    //             $('.audio')[0].play();
+    //         }
+        
+    // }
      
     setInterval(udateTime, 1000);
-
+    // setInterval(turnCall, 1000);
 });
