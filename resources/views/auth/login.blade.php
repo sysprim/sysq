@@ -13,27 +13,43 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                            <div class="input-field col s12">
+                            <div class="input-field col s12 m12">
+                                <i class="icon-markunread prefix"></i>
                                 <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo') }}</label>
+                                <label for="email" class="col-form-label text-md-right">{{ __('Correo') }}</label>
+
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+
                             </div>                         
 
-                            <div class="input-field col s12">
+                            <div class="input-field col s12 m12">
+                                <i class="icon-lock_outline prefix"></i>
                                 <input id="password" type="password" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
+                                <label for="password" class="col-form-label text-md-right">{{ __('Contraseña') }}</label>
+
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                                
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col s3 right offset-s5" style="margin-bottom:20px;">
+                            <div class="col s3 right " style="margin-bottom:20px;">
                                 <button type="submit" class="btn red">
                                     {{ __('Entrar') }}
                                 </button>
                             </div>
 
-                                <div class="left col s4 m4"">
+                                <div class="left col s8 m8">
                                     @if (Route::has('password.request'))
-                                        <a style="margin-left:3px;" class="black-text" href="{{ route('password.request') }}">
+                                        <a style="margin-left:15px;" class="black-text" href="{{ route('password.request') }}">
                                             {{ __('Olvidaste tu contraseña?') }}
                                         </a>
                                      @endif

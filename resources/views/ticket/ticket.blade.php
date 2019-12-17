@@ -36,16 +36,17 @@
                 <div class="col s12 m8 offset-m2 l6 offset-l3">
                     <div class="card z-depth-2">
                         <div class="card-header center-align blue darken-2">
-                            <h4 class="font-audiowide">SysQ</h4>
-                            <span>10/12/19 - 10:20am</span>
+                            <h4 class="font-audiowide white-text">SysQ</h4>
+                            <span class="white-text">{{ $turn->created_at }}</span>
                         </div>
                         <div class="card-content center-align">
-                            <h4>28286639</h4>
-                            <span class="ticket-number">A001</span>
-                            <h4>ATENCIÓN AL CLIENTE</h4>
+                            <h4>{{ $turn->clients->ci_client }}</h4>
+                            <span class="ticket-number">{{$turn->random_code}}</span>
+                            <h4>{{$turn->tickets->name_ticket}}</h4>
+                            <span>({{$turn->turn_type}})</span>
                         </div>
                         <div class="card-footer center-align blue darken-2">
-                            <span>Sistema para Colas</span>
+                            <span class="white-text">Sistema para Colas</span>
                         </div>
                     </div>
                 </div>
