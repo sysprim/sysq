@@ -285,6 +285,91 @@ $(document).ready(function () {
 
     });
 
+ $('#reset').click(function (e){
+
+        swal({
+            title: "¿Quieres cancelar todo los clientes en colas?",
+            text: "Al realizar esta acción, todos los clientes en cola serán cancelados.",
+            icon: "error",
+            buttons: {
+                confirm: {
+                    text: "Cancelar Colas",
+                    value: true,
+                    visible: true,
+                    className: "red"
+
+                },
+                cancel: {
+                    text: "Cancelar",
+                    value: false,
+                    visible: true,
+                    className: "grey lighten-2"
+                }
+            }}).then(function(value){
+                
+                if(value == true){
+                    $.ajax({
+                        method:'POST',
+                        url: url+"/Turn/Reset",
+                        data:{
+                            "_token": $("meta[name='csrf-token']").attr("content")
+                        },
+                        
+                        beforeSend: function(){
+                            console.log("Sending data...");
+                            $('#preLoader').show();
+                        },
+                        success: function(data) {
+                            console.log(data);
+                            $('#preLoader').hide();
+                            swal({
+                                title: "¡Se cancelo con exito!",
+                                text: "No hay clientes en cola ",
+                                icon: "success",
+                                button: {
+                                    text: "Aceptar",
+                                    visible: true,
+                                    value: true,
+                                    className: "green",
+                                    closeModal: true
+                                },
+                                timer: 3000
+                            })
+                            .then(redirect => {
+                                location.reload();
+                            })
+                        },
+                        error: function(err) {
+            
+                            console.log(err);
+                            swal({
+                                title: "¡Oh no!",
+                                text: "Ha ocurrido un error inesperado, refresca la página e intentalo de nuevo.",
+                                icon: "error",
+                                button: {
+                                    text: "Aceptar",
+                                    visible: true,
+                                    value: true,
+                                    className: "green",
+                                    closeModal: true
+                                }
+                            });
+                        }
+                    })}else {
+    
+                    swal({
+                        text: "No se ha cancelado las tareas",
+                        icon: "warning",
+                        button: {
+                            text: "Aceptar",
+                            className: "green"
+                        }
+                    });
+                }
+            });
+
+    });    
+
     //funcional
     $('#modal').click(function (e){
         $('#ticket').modal('open');

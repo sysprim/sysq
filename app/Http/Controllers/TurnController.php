@@ -114,5 +114,20 @@ class TurnController extends Controller
         $turn->update();
         
     }
+
+    public function turnReset(){
+
+        $turn= Turn::where('turn_status', 'En Espera')->orWhere('turn_status', 'Llamado')->get();
+
+        foreach ($turn as $turns) {
+
+            $turns->turn_status = "Cancelado";
+            $turns->update();
+        }
+ 
+
+       
+
+    }
     
 }

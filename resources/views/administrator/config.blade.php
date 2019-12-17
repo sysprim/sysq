@@ -17,11 +17,33 @@
                     @include('includes.message')
 
                     <ul id="tabs-swipe-demo" class="tabs">
-                        <li class="tab col s12 m4"><a href="#usuario"  style="color:#0288d1">Usuarios</a></li>
-                        <li class="tab col s12 m4"><a href="#taquilla" style="color:#0288d1">Taquillas</a></li>
-                        <li class="tab col s12 m4"><a href="#menu"     style="color:#0288d1">Registrar</a></li>
+                        <li class="tab col s12 m3"><a href="#usuario"  style="color:#0288d1">Usuarios</a></li>
+                        <li class="tab col s12 m3"><a href="#taquilla" style="color:#0288d1">Taquillas</a></li>
+                        <li class="tab col s12 m3"><a href="#menu"     style="color:#0288d1">Registrar</a></li>
+                        <li class="tab col s12 m3"><a href="#configuracion"     style="color:#0288d1">Configuración</a></li>
+
                     </ul>
-                
+
+                 <div class="collection white with-header row" style="margin:0;" id="configuracion">
+                    <div class="collection-header">
+                            <div class="row" style="margin:0;">
+                                    <div class="col s12 m1 right">
+                                        <i class="icon-settings medium black-text" style="text-aling:center"></i>
+                                    </div>
+
+                                    <div class="centered col s12 m11">
+                                        <h5 style="margin-left:15px;margin-top:15px;"> Configuración en turnos </h5></div>
+                                    </div>
+                                </div>
+                                         
+                        <div class="row" style="padding:20px;">
+                            <div class="col s12 m6">
+                                <a href="#" id="reset" class="btn-app white waves-effect small red-text" >Cancelar Turnos<i class="icon-autorenew"></i></a>
+                            </div>
+         
+                        </div>
+                </div>
+
                 <div class="collection white with-header row" style="margin:0;" id="menu">
                     <div class="collection-header">
                             <div class="row" style="margin:0;">
@@ -148,6 +170,7 @@
                 </div>
             </div>
         </div>
+            <script src="{{ asset('js/data/turn.js') }}"></script>
     </div>
 </main>
 

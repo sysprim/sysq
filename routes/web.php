@@ -50,6 +50,8 @@ Route::get('/Turn/Index/{ci}/{id}/{turn}','TurnController@save') ->name('save.tu
 Route::post('/Turn/Call', 'TurnController@turnCall')             ->name('call.turn');
 Route::post('/Turn/Finally', 'TurnController@turnFinally')       ->name('finally.turn');
 Route::post('/Turn/Cancel', 'TurnController@turnCancel')         ->name('cancel.turn');
+Route::post('/Turn/Reset'     ,'TurnController@turnReset')       ->name('reset.turn');
+
 
 
 

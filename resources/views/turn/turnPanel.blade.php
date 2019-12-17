@@ -28,7 +28,7 @@
 
             @if($call)   
                 <div class="row" style="margin:0">
-                    <div class="col s12 m12 green center-align">
+                    <div class="col s12 m12 green accent-3 center-align">
                         <h4>Llamados</h4>
                     </div>
 
@@ -73,10 +73,10 @@
             </div>
             @endif
 
-            @if($history)   
+            @if($turnWaiting)   
                 <div class="row" style="margin:0">
-                    <div class="col s12 m12 orange center-align">
-                        <h4>Historico</h4>
+                    <div class="col s12 m12 red center-align">
+                        <h4>En Espera</h4>
                     </div>
 
                 <div class="row">
@@ -87,7 +87,7 @@
                         <h4>Taquilla</h4>
                     </div>
 
-                @foreach($history as $turn)
+                @foreach($turnWaiting as $turn)
                     <div class="col s6 center-align grey lighten-2">
                         <h4>{{$turn->random_code}}</h4>
                     </div>
