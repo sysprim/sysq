@@ -1,0 +1,67 @@
+ // Breadcrumbs
+ul.breadcrumb {
+    font-size: 16px;
+    width: 100%;
+    list-style: none;
+    margin: .4rem 0;
+    padding: 10px 0 !important;
+    border-radius: 2px;
+    background-color: transparent;
+    margin-top: .5rem !important;
+
+
+
+  .breadcrumb-item {
+    color: #333333;
+    display: inline-block;
+    margin: 0;
+    padding: .2rem 0;
+
+    & i, 
+    & [class^=mdi-],
+    & [class*=mdi-],
+    & [class^=icon-],
+    & [class*=icon-],
+    & i.material-icons {
+        display: inline-block;
+        float: left;
+        font-size: 20px;
+        vertical-align: top;
+        line-height: 22px;
+        margin-right: 5px;
+    }
+
+    &:hover {
+        color: #444444 !important;
+        font-weight: bold;
+    }
+
+
+    &:last-child a{
+        color: #333333;
+        font-weight: bold;
+        cursor: default;
+    }
+
+    &:not(:last-child) {
+      margin-right: .5rem;
+
+      & a {
+        color:  #333333 !important;
+      }
+    }
+
+    &:not(:first-child) {
+      &::before {
+        color:  #333333;
+        content: "\e409" !important;
+        padding-right: .5rem;
+        vertical-align: top;
+        font-family: "icomaterialize" !important;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 18px;
+      }
+    }
+  }
+}

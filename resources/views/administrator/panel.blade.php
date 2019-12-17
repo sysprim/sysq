@@ -6,9 +6,9 @@
 <main>
     <script src="{{ asset('js/data/turn.js') }}"></script>
         <div class="container-fluid" style="margin-top:20px;">
-            <div class="row left-align">
+            <div class="row left-align alert alert-info">
                 <div class="col s4 m3 center-align">
-                    <i class="fas fa-exclamation-circle  " style="margin-left:10px;font-size: 50px; margin-top: 1rem;"></i>
+                    <i class="fas fa-exclamation-circle  " style="margin-left:10px;font-size: 70px; margin-top: .5rem;"></i>
                 </div>
                 <div class="col s8 m9 ">
                     <span style="font-size: 40px; font-weight: bolder;">Atención</span><br>
@@ -16,82 +16,7 @@
                 </div>
             </div>
             <div class="divider"></div>
-          
-        {{-- @if($ticketFirst)
-            <div class="row">
-                <div class="col s12 m3 blue center-align" style="border: solid 1px #cccccc">
-                    <h6 class="white-text">Taquilla</h6>
-                <span class="white-text" style="font-size: 70px;">{{$ticketFirst->number_ticket}}</span><br>
-                    <a href="#taquilla" class="btn btn-flat white-text modal-trigger">Cambiar</a>
-                </div>
-
-                <div class="col s12 m9">
-
-                        <div class="row">
-                            <div class="col s12" style="margin-bottom:40px;margin-top:25px;">
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>Numero Taquilla</td>
-                                            <td>{{$ticketFirst->number_ticket}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Servicio</td>
-                                            <td>{{$ticketFirst->name_ticket}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Descripción</td>
-                                            <td>{{$ticketFirst->description_ticket}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col s12 m4 animated bounceIn">
-                                <a href="" class="btn-app white black-text">
-                                    <i class="fas fa-bullhorn blue-text"></i>
-                                    <span style="font-size: 16px;">Llamar de Nuevo</span>
-                                </a>
-                            </div>
-                            <div class="col s12 m4 animated bounceIn">
-                                <a href="" class="btn-app white black-text ">
-                                    <i class="fas fa-play blue-text"></i>
-                                    <span style="font-size: 16px;">Iniciar Atención</span>
-                                </a>
-                            </div>
-                            <div class="col s12 m4 animated bounceIn">
-                                <a href="" class="btn-app white black-text">
-                                    <i class="fas fa-user-times red-text"></i>
-                                    <span style="font-size: 16px;">No se presentó</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                                    
-            
-                        <div class="row">
-                            <div class="col s12">
-                                <div class="collection with-header">
-                                    <div class="collection-header"><h5>Mi Fila (Todos)</h5></div>
-            
-                                    @if($turns)
-                                            @foreach ($turns as $turn)
-                                                <a href="#modal1" class="collection-item avatar modal-trigger">
-                                                    <i class="circle blue fas fa-user"></i>
-                                                    <span class="title">{{ $turn->random_code }}</span><br>
-                                                    <span class="title">{{ $turn->client_id}}</span>
-                                                </a>
-                                            @endforeach                                      
-                                        @else
-                                            <div>
-
-                                            </div>
-                                        @endif
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-
-        @if($ticket)
+            @if($ticket)
             <div class="row">
                     <div class="col s12 m3">
                         <div class="row">
@@ -116,8 +41,8 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
-            </div>
     
                     <div class="col s12 m9">
     

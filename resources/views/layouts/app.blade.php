@@ -32,7 +32,7 @@
     <!-- Header -->
     <header>
         <nav class="white container-fluid">
-            <div class="nav-wrapper responsive">
+            <div class="nav-wrapper">
                     <a href="{{ route('index')  }}" class="brand-logo font-audiowide left deep-purple-text text-darken-2">SysQ</a>
                         @if(Auth::check())
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
