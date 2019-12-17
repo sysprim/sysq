@@ -18,10 +18,14 @@
 <body class="grey lighten-3 font-nunito">
     <!-- Header -->
     <header>
-        <nav class="white container-fluid">
-            <div class="nav-wrapper">
-                <a href="{{ route('home') }}" class="black-text right tooltipped" data-position="bottom" data-tooltip="Entrar al Sistema"><i class="small icon-account_circle"  style="display:inline-block"></i></a>
-                <a href="{{ route('index') }}" class="brand-logo font-audiowide left deep-purple-text text-darken-2 tooltipped" data-position="bottom" data-tooltip="Inicio" >SysQ</a>
+        <nav class="white ">
+            <div class="nav-wrapper container-fluid">
+                <a href="{{ route('home') }}" class="black-text right tooltipped" data-position="left" data-tooltip="Entrar al Sistema"><i class="icon-account_circle"></i></a>
+                <ul class="left">
+                    <li>
+                        <a href="{{ route('index') }}" class="brand-logo font-audiowide deep-purple-text text-darken-2 waves-effect waves-light">SysQ</a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -31,7 +35,7 @@
             <div class="row">
                 @include('includes.message')
                 <div class="col s12 center-align">
-                    <h4>Ingrese su cedula de identidad</h4>
+                    <h4>Por favor, ingrese su cedula de identidad</h4>
                 </div>
             </div>
             <div ></div>
@@ -97,7 +101,7 @@
                             </div>
                             <div class="col s4 animated bounceIn">
                                 <button type="button" id="borrar"  class="waves-effect btn-app red white-text">
-                                    <i class="fas fa-backspace"></i>
+                                    <i class="fas fa-backspace" style="font-size: 31px"></i>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
@@ -107,7 +111,7 @@
                             </div>
                             <div class="col s4 animated bounceIn">
                                 <button type="reset" class="waves-effect btn-app red white-text">
-                                    <i class="icon-close"></i>
+                                    <i class="icon-close" style="font-size: 31px"></i>
                                 </button>
                             </div>
                             <div class="col s12 animated bounceIn">
