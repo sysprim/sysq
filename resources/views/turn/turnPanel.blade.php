@@ -116,6 +116,7 @@
                 </div>
             </div>
         @endif
+    
         </div>
         <!-- <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="icon-close"></i></a> -->
     </header>
@@ -123,7 +124,7 @@
 
         <div class="row"style="margin:0;">
             <div class="video-container">
-                <iframe width="853" height="600" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
+                <iframe width="853" height="600" src="//www" frameborder="0" allowfullscreen></iframe>
               </div>
         </div>
     
@@ -135,7 +136,7 @@
                    <span class="black-text">Cintillo de Noticia</span> 
                 </div>
                 <div class="col s12 m1 right">
-                    <a href="{{ route('panel') }}" class="clock turn-panel tooltipped" data-position="bottom" data-tooltip="Panel"><i class="icon-account_circle"></i></a>
+                    <a href="{{ route('panel') }}" class="turn-panel tooltipped" data-position="bottom" data-tooltip="Panel"><i class="orange-text icon-account_circle" style="font-size:50px"></i></a>
                 </div>
             </div>
             <div class="row">
@@ -190,6 +191,7 @@
     <script src="{{ asset('js/sweetalert.min.js') }}"></script>
     <script src="{{ asset('js/aos.js') }}"></script>
     <script src="{{ asset('js/data/reloj.js') }}"></script>
+    <script src="{{ asset('js/initialize.js') }}"></script>
     <script src="{{ asset('js/owner.js') }}"></script>
     <script src="{{ asset('js/data/turn.js') }}"></script>
     <style>

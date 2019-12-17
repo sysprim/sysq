@@ -115,7 +115,7 @@ $(document).ready(function () {
         swal({
             title: "¿Quieres finalizar el servicio?",
             text: "Al finalizar seguira con el proximo cliente en cola, no se revertiran los cambios.",
-            icon: "error",
+            icon: "warning",
             buttons: {
                 confirm: {
                     text: "Finalizar",
@@ -190,7 +190,7 @@ $(document).ready(function () {
     
                     swal({
                         text: "No se ha finalizado de no finalizar seguira el cliente en cola",
-                        icon: "warning",
+                        icon: "info",
                         button: {
                             text: "Aceptar",
                             className: "green"

@@ -70,15 +70,15 @@ $(document).ready(function () {
      
     udateTime();
 
-    // function turnCall(){
-    //     var code = $('#codeTurn').val();
+    function turnCall(){
+        var code = $('#codeTurn').val();
 
-    //         if(code == 0){
-    //             $('#ticket').modal('open');
-    //             $('.audio')[0].play();
-    //         }
+            if(code == 0){
+                $('#ticket').modal('open');
+                $('.audio')[0].play();
+            }
         
-    // }
+    }
      
     setInterval(udateTime, 1000);
     // setInterval(turnCall, 1000);

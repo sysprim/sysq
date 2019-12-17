@@ -6,11 +6,11 @@
 <main>
     <script src="{{ asset('js/data/turn.js') }}"></script>
         <div class="container-fluid" style="margin-top:20px;">
-            <div class="row right-align">
-                <div class="col s3 m2 center-align">
-                    <i class="fas fa-bullhorn" style="font-size: 50px; margin-top: 1rem;"></i>
+            <div class="row left-align">
+                <div class="col s4 m3 center-align">
+                    <i class="fas fa-exclamation-circle  " style="margin-left:10px;font-size: 50px; margin-top: 1rem;"></i>
                 </div>
-                <div class="col s9 m10">
+                <div class="col s8 m9 ">
                     <span style="font-size: 40px; font-weight: bolder;">Atención</span><br>
                     <span>Realizar la llamada por ticket de cliente para cada servicio.</span>
                 </div>
@@ -238,7 +238,7 @@
                 <div class="modal-content">
                     <div class="row">
                         <div class="centered col s12 m12">
-                            <h5 style="margin-left:15px;margin-top:15px;">  Taquillas </h5></div>
+                            <h5 style="margin-left:15px;">  Taquillas </h5></div>
                         </div>
                     </div>
 
@@ -248,12 +248,12 @@
                         <ul class="collection"> 
                             @foreach ($ticketAll as $tickets)                           
                             <li class="collection-item avatar">
-                                <i class="icon-person_pin_circle circle orange"></i>
+                                <i class="icon-local_convenience_store circle orange"></i>
                                 <span class="title">{{$tickets->number_ticket}}</span>
                                 <p>{{$tickets->name_ticket}} <br>
                                    {{$tickets->description_ticket}}
                                 </p>
-                            <a href="{{route('panel.select', ['id'=>$tickets->id])}}" class="secondary-content" style="color:red">Seleccionar</a>
+                            <a href="{{route('panel.select', ['id'=>$tickets->id])}}" class="btn secondary-content red" >Seleccionar</a>
                         </li>
                         @endforeach
                     </ul>                 
