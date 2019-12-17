@@ -47,7 +47,7 @@ class AdministratorController extends Controller
           // $turn_history = Turn::where('turn_status','Atendido')->get();
           $turn = new Turn();
           $turnCall = $turn->where('turn_status','Llamado')->orderBy('updated_at', 'desc')->get();
-          $turnHistory = $turn->where('turn_status','Atendido')->orWhere('turn_status','Cancelado')->limit(5)->orderBy('updated_at', 'desc')->get();
+          $turnHistory = $turn->where('turn_status','En Espera')->limit(5)->get();
 
    		return view('turn.turnPanel', ['call'   =>$turnCall,
                                              'history'=>$turnHistory]);

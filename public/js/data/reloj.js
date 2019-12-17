@@ -1,17 +1,5 @@
 
 $(document).ready(function () {
-    // const url = "http://localhost/sysq/public/";
-    // function tiempoReal()
-	// 	{
-	// 	// 	var tabla = $.ajax({
-	// 	// 		url:url+'/Turn',
-	// 	// 		dataType:'text',
-	// 	// 		async:false
-	// 	// 	}).responseText;
-
-	// 	// 	document.getElementById("slide-out").innerHTML = tabla;
-	// 	// }
-	// 	// setInterval(tiempoReal, 1000);
     
     var udateTime = function() {
         let currentDate = new Date(),
@@ -81,5 +69,5 @@ $(document).ready(function () {
     }
      
     setInterval(udateTime, 1000);
-    // setInterval(turnCall, 1000);
+    setInterval(turnCall, 1000);
 });

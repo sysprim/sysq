@@ -68,12 +68,14 @@ class TurnController extends Controller
             $generatedTurn->save();
 
             $query = $generatedTurn->orderBy('id','desc')->first();
+
+            return view('ticket.ticket',['turn'=> $query]);
         
-            $html = view('ticket.ticket',['turn'=> $query]);
+            // $html = view('ticket.ticket',['turn'=> $query]);
         
-            $pdf = new Mpdf(['mode' => 'utf-8', 'format' => [190, 200]]);
-            $pdf->WriteHTML($html);
-            $pdf->Output();
+            // $pdf = new Mpdf(['mode' => 'utf-8', 'format' => [190, 200]]);
+            // $pdf->WriteHTML($html);
+            // $pdf->Output();
         
         }else{
             return redirect()->route('ticket.turn',['ci'=>$ci, 'id'=>$id])->with(['message'=>'¡Ya tienes un turno en proceso!, espere su turno']);  
