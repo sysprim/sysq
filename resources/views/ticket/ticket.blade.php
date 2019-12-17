@@ -43,6 +43,7 @@
                             <h4>{{ $turn->clients->ci_client }}</h4>
                             <span class="ticket-number">{{$turn->random_code}}</span>
                             <h4>{{$turn->tickets->name_ticket}}</h4>
+                            <span>({{$turn->turn_type}})</span>
                         </div>
                         <div class="card-footer center-align blue darken-2">
                             <span class="white-text">Sistema para Colas</span>
