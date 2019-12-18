@@ -13,6 +13,7 @@ class CreateTicketsTable extends Migration
             $table->string('name_ticket');
             $table->integer('number_ticket')->unique();
             $table->string('description_ticket')->nullable();
+            $table->string ('status_ticket')->default('Activa');
             $table->timestamps();
         });
     }
