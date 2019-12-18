@@ -28,6 +28,8 @@
 </head>
 
 <body class="grey lighten-3 font-nunito">
+    @include('includes.preloader')    
+    
      <header>
         <nav class="white container-fluid">
             <div class="nav-wrapper">

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('includes.preloader')    
 <div class="container-fluid">
     <div class="row">
         <div class="col s12 m8 offset-m2 l6 offset-l3" style="margin-top:2rem;">

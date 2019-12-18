@@ -17,6 +17,8 @@
 </head>
 <body class="grey lighten-3 font-nunito">
     <!-- Header -->
+    @include('includes.preloader')    
+    
     <header>
         <nav class="white ">
             <div class="nav-wrapper container-fluid">

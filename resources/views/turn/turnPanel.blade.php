@@ -22,6 +22,8 @@
 </head>
 
 <body class="grey lighten-3 font-nunito">
+    @include('includes.preloader')    
+    
     <!-- Header -->
     <header>
         <div id="slide-out" class="sidenav sidenav-fixed">

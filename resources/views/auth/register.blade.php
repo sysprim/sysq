@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('includes.preloader')    
 
 <div class="row" style="margin-top:10px;">
         <div class="col s12 m12 ">

@@ -17,6 +17,14 @@
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owner.css') }}">
     <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
+    <style>
+        @media only screen and (max-width: 992px) {
+            i.nav-icons {
+                height: 56px !important;
+                line-height: 56px !important;
+            }
+        }
+    </style>
 
      <!-- JavaScript files -->
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
@@ -29,33 +37,15 @@
 </head>
 
 <body class="grey lighten-3 font-nunito">
+    @include('includes.preloader')
     <!-- Header -->
     <header>
-        <nav class="white container-fluid">
-            <div class="nav-wrapper">
-                    <a href="{{ route('index')  }}" class="brand-logo font-audiowide left deep-purple-text text-darken-2">SysQ</a>
-                        @if(Auth::check())
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><a href="{{ route('panel') }}" class="black-text tooltipped" data-position="bottom" data-tooltip="Panel"><i class="icon-account_circle"></i></a></li>
-                            <li><a href="{{ route('turn')}}" class="black-text tooltipped" data-position="bottom" data-tooltip="Turnos"><i class="icon-slow_motion_video"></i></a></li>
-                            <li><a href="{{ route('config')}}" class="black-text tooltipped" data-position="bottom" data-tooltip="Configuración"><i class="icon-settings"></i></a></li>
-                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="black-text tooltipped" data-position="bottom" data-tooltip="Cerrar Sesión"><i class="icon-exit_to_app"></i></a>
-                           
-                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                             </form>
-                            </li>
-                            {{-- <li><a href="collapsible.html">JavaScript</a></li> --}}
-                        </ul>
-                         @endif
-                    </div>
-                </nav>
-                
-        </header>
+        @include('includes.app.header')   
+    </header>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+    <main class="py-4">
+        @yield('content')
+    </main>
+
 </body>
 </html>
