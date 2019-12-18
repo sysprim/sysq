@@ -15,12 +15,12 @@
                 	</a>
                 </li>
                 <li>
-                	<a href="{{ route('config')}}" class="black-text tooltipped" data-position="bottom" data-tooltip="Configuración">
+                	<a href="{{ route('config')}}" class="black-text tooltipped" data-position="left" data-tooltip="Configuración">
                 		<i class="icon-settings nav-icons"></i>
                 	</a>
                 </li>
                 <li>
-                	<a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="black-text tooltipped" data-position="left" data-tooltip="Cerrar Sesión">
+                	<a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="black-text tooltipped" data-position="bottom" data-tooltip="Cerrar Sesión">
                 		<i class="icon-exit_to_app nav-icons"></i>
                 	</a>
                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

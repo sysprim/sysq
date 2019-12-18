@@ -78,4 +78,15 @@ class TicketController extends Controller
         
         return redirect()->route('config')->with(['message', 'Taquilla Eliminada']);
     }
+
+    public function statusTicket($id, $status){
+
+        $ticket = Ticket::find($id);
+
+        $ticket->status_ticket = $status;
+
+        $ticket->update();
+
+        return redirect()->route('config')->with(['message'=>'Estado de la taquilla Actualizado']);
+    }
 }

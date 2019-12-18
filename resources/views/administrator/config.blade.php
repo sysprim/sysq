@@ -8,17 +8,17 @@
             <div class="row">
                 <div class="col s12">
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="">Inicio</a></li>
-                        <li class="breadcrumb-item"><a href="">Ayuda</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('panel')}}">Panel</a></li>
+                        <li class="breadcrumb-item"><a href="#">Configuración</a></li>
                     </ul>
                 </div>
                 <div class="col s12">
                         <h4 class="title">Bienvenido {{Auth::user()->name. "-". Auth::user()->email }}</h4>
                     </div>
 
-                    @include('includes.message')
-
                     <div class="col s12">
+
+                        @include('includes.message')
                         <div class="card">
                             <ul id="tabs-swipe-demo" class="tabs">
                                 <li class="tab col s12 m3"><a href="#usuario"  style="color:#0288d1">Usuarios</a></li>
@@ -76,6 +76,7 @@
                                             <th>Número</th>
                                             <th>Nombre</th>
                                             <th>Descripción</th>
+                                            <th>Estado</th>
                                             <th>Detalles</th>
                                         </tr>
                                     </thead>
@@ -84,7 +85,19 @@
                                         <tr>
                                             <td>{{ $ticket->number_ticket }} </td>
                                             <td>{{ $ticket->name_ticket }} </td>
-                                            <td>{{ $ticket->description_ticket }}</td>                                       
+                                            <td>{{ $ticket->description_ticket }}</td>
+                                            <td>
+                                            @if($ticket->status_ticket == "Activa")
+                                                <span style="margin-right: 5px;"><strong>{{$ticket->status_ticket}}</strong></span>
+
+
+                                                <a href="{{ route('status.ticket', ['id' => $ticket->id, 'status'=>'Deshabilitado']) }}" class="ActDis btn btn-small btn-floating green waves-effect effect-light tooltipped" data-position="left" data-tooltip="Deshabilitar"><i class="icon-check"></i></a>
+                                            @else
+                                                <span style="margin-right: 5px;"><strong>{{$ticket->status_ticket}}</strong></span>
+
+                                                <a href="{{ route('status.ticket', ['id' => $ticket->id, 'status'=>'Activa']) }}" class="ActDis btn btn-small btn-floating red waves-effect effect-light tooltipped" data-position="left" data-tooltip="Activar"><i class="icon-close"></i></a>
+                                            @endif
+                                            </td>                                       
                                             <td>                                          
                                                 <a href="{{ route('detail.ticket', ['id' => $ticket->id]) }}" class="btn btn-small btn-floating blue waves-effect effect-light"><i class="icon-pageview"></i></a>
                                             </td>
@@ -129,8 +142,7 @@
                                     <a href="#" class="btn-app white lighten-1 blue-text" disabled>
                                         <i class="icon-trending_up"></i>
                                         Estadísticas
-                                    </a>
-                                    
+                                    </a>             
                                 </div>
                             </div>
                         </div>

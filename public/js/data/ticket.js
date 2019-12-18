@@ -44,9 +44,10 @@ $(document).ready(function(){
 
                     url: url + "Ticket/Update",
                     
-                    beforeSend: function(){
-                        console.log("Sending data...");
-                    },
+                    beforeSend: function () {
+                        $("#preloader").fadeIn('fast');
+                        $("#preloader-overlay").fadeIn('fast');
+                },
         
                     success: function(data) {
                         console.log(data);
@@ -128,10 +129,10 @@ $(document).ready(function(){
                     data: {id:id, "_token": $("meta[name='csrf-token']").attr("content")},
                     url: url + "Ticket/Delete",
 
-                    beforeSend: function(){
-                        console.log("Sending data...");
-                        $('#preLoader').show();
-                    },
+                    beforeSend: function () {
+                        $("#preloader").fadeIn('fast');
+                        $("#preloader-overlay").fadeIn('fast');
+                },
                     
                     success: function(data) {
                         console.log(data);
@@ -177,4 +178,6 @@ $(document).ready(function(){
             }
         });
     });
+
+    
 });

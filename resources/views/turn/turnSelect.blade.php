@@ -15,6 +15,7 @@
             
                 <div class="row">
                     @foreach($tickets as $ticket)
+                        @if($ticket->status_ticket == "Activa")
                         <div class="col s12 m6 animated bounceIn">
                             <a href="{{route('ticket.turn',['ci'=>$ci, 'id'=>$ticket->id])}}" class="waves-effect btn-app white black-text">
                                 <i class="icon-subtitles black-text" style="font-size:60px;"></i>
@@ -29,6 +30,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                     @endforeach
                 </div>   
             </div>

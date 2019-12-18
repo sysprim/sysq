@@ -27,9 +27,9 @@ $(document).ready(function () {
                     "_token": $("meta[name='csrf-token']").attr("content")
                 },
                 
-                beforeSend: function(){
-                    console.log("Sending data...");
-                    $('#preLoader').show();
+                beforeSend: function () {
+                    $("#preloader").fadeIn('fast');
+                    $("#preloader-overlay").fadeIn('fast');
                 },
                 success: function(data) {
                     console.log(data);
@@ -52,6 +52,7 @@ $(document).ready(function () {
                         $("#block_iniciar").removeClass();
                         $("#block_llamar").removeClass();
                         $("#block_cancelar").removeClass();
+                        $("#preloader-overlay").hide();
 
                         $("#block_iniciar").addClass("col s12 m4 animated bounceIn");       
                         $("#block_llamar").addClass("col s12 m4 animated bounceIn");
@@ -145,9 +146,9 @@ $(document).ready(function () {
                             "_token": $("meta[name='csrf-token']").attr("content")
                         },
                         
-                        beforeSend: function(){
-                            console.log("Sending data...");
-                            $('#preLoader').show();
+                        beforeSend: function () {
+                            $("#preloader").fadeIn('fast');
+                            $("#preloader-overlay").fadeIn('fast');
                         },
                         success: function(data) {
                             console.log(data);
@@ -235,13 +236,12 @@ $(document).ready(function () {
                             "_token": $("meta[name='csrf-token']").attr("content")
                         },
                         
-                        beforeSend: function(){
-                            console.log("Sending data...");
-                            $('#preLoader').show();
-                        },
+                        beforeSend: function () {
+                            $("#preloader").fadeIn('fast');
+                            $("#preloader-overlay").fadeIn('fast');
+                         },
                         success: function(data) {
                             console.log(data);
-                            $('#preLoader').hide();
                             swal({
                                 title: "¡Se cancelo con exito!",
                                 text: "Puedes seguir atendiendo ",
@@ -320,9 +320,9 @@ $(document).ready(function () {
                             "_token": $("meta[name='csrf-token']").attr("content")
                         },
                         
-                        beforeSend: function(){
-                            console.log("Sending data...");
-                            $('#preLoader').show();
+                        beforeSend: function () {
+                            $("#preloader").fadeIn('fast');
+                            $("#preloader-overlay").fadeIn('fast');
                         },
                         success: function(data) {
                             console.log(data);
@@ -409,8 +409,9 @@ $(document).ready(function () {
                             "_token": $("meta[name='csrf-token']").attr("content")
                         },
                         
-                        beforeSend: function(){
-                            console.log("Sending data...");
+                        beforeSend: function () {
+                            $("#preloader").fadeIn('fast');
+                            $("#preloader-overlay").fadeIn('fast');
                         },
                         success: function(data) {
                             console.log(data);

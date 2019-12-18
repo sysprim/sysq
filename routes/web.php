@@ -37,7 +37,9 @@ Route::get('/Ticket/Register' , 'TicketController@register'   ) ->name('register
 Route::post('/Ticket/Save' , 'TicketController@save'   )        ->name('save.ticket');
 Route::get('/Ticket/Detail/{id}'  ,'TicketController@detail')   ->name('detail.ticket');
 Route::post('/Ticket/Update', 'TicketController@update')        ->name('update.ticket'); 
-Route::post('/Ticket/Delete',  'TicketController@delete')       ->name('delete.ticket'); 
+Route::post('/Ticket/Delete',  'TicketController@delete')       ->name('delete.ticket');
+Route::get('/Ticket/ActDes/{id}/{status}',  'TicketController@statusTicket') ->name('status.ticket'); 
+
 
 //Client
 
