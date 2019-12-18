@@ -51,6 +51,8 @@ Route::post('/Turn/Call', 'TurnController@turnCall')             ->name('call.tu
 Route::post('/Turn/Finally', 'TurnController@turnFinally')       ->name('finally.turn');
 Route::post('/Turn/Cancel', 'TurnController@turnCancel')         ->name('cancel.turn');
 Route::post('/Turn/Reset'     ,'TurnController@turnReset')       ->name('reset.turn');
+Route::post('/Turn/Reset/Ticket' ,'TurnController@turnResetTicket') ->name('reset.ticket.turn');
+
 
 
 

@@ -27,21 +27,17 @@
                             </div>
                         </div>
 
-                    <div class="row" style="margin-top:40px"  >
-                        <div class="col s5 offset-s1" id="preLoader" style="display:none">             
-                                <div class="preloader-wrapper big active">
-                                    <div class="spinner-layer spinner-blue-only">
-                                      <div class="circle-clipper left">
-                                        <div class="circle"></div>
-                                      </div><div class="gap-patch">
-                                        <div class="circle"></div>
-                                      </div><div class="circle-clipper right">
-                                        <div class="circle"></div>
-                                      </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="row" style="margin-top:40px;" >
+                    <div class="col s12 m12 animated bounceIn" id="blockResetTurnos">
+                        <input type="hidden" value="{{$ticket->id}}" id="idTicketReset">
+                        <input type="hidden" value="{{$ticket->number_ticket}}" id="numberTicket">
+                         <button type="button" id="resetTaquilla" class="waves-effect btn-app white black-text" style="border: none;">
+                            <i class="fas fa-book-reader red-text"></i>
+                            <span style="font-size: 16px;">Cancelar Turnos Taquilla</span>
+                        </button>
                     </div>
+                </div>
+
                 </div>
     
                     <div class="col s12 m9">

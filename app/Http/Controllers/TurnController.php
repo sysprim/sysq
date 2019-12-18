@@ -115,9 +115,11 @@ class TurnController extends Controller
         
     }
 
-    public function turnReset(){
+    public function turnReset(Request $request){
 
-        $turn= Turn::where('turn_status', 'En Espera')->orWhere('turn_status', 'Llamado')->get();
+        $id = $request->input('idReset');
+
+        $turn= Turn::where('ticket_id', $id)->where('turn_status', 'En Espera')->orWhere('turn_status', 'Llamado')->get();
 
         foreach ($turn as $turns) {
 
@@ -125,9 +127,11 @@ class TurnController extends Controller
             $turns->update();
         }
  
-
-       
+    }
+    public function turnResetTicket(){
 
     }
+
+    
     
 }
