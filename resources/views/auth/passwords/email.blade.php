@@ -2,47 +2,36 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8" style="margin-top: 20px;">
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-title">Recuperar Contraseña</span>
+    <div class="row">
+        <div class="col s12 m8 offset-m2" style="margin-top:2rem;">
+            <form action="{{ route('password.email') }}" method="post" class="card">
+                @csrf
+                <div class="card-header center-align">
+                    <h4>Recuperar Contraseña</h4>
                 </div>
-
-                <div class="card-body">
+                <div class="card-content row">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="row">
-                            <div class="input-field col 12 m6" style="margin-top: 20px;">
-                                <i class="icon-markunread prefix"></i>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                 <label for="email" class="col-md-4 col-form-label text-md-right">Correo Agregado</label>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col s12 m6 offset-m10" style="padding: 20px;">
-                                <button type="submit" class="btn red">
-                                    Enviar
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    <div class="input-field col s12">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        <input id="email" type="email" class="validate" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                        <label for="email">Correo Agregado</label>
+                    </div>
                 </div>
-            </div>
+                <div class="card-footer center-align">
+                    <button type="submit" class="btn green waves-effect waves-light">
+                        Enviar
+                        <i class="icon-send right"></i>
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
