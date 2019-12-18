@@ -131,7 +131,14 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col s12">
-                   <marquee behavior="" direction=""><b>Cintillo de Noticia:</b><p id="notice"> Noticias noticia noticias</p></marquee>
+                   <marquee behavior="" direction=""><b>Cintillo de Noticia:</b><p id="notice"></p></marquee>
+                </div>
+            </div>
+            <div class="row" style="display:none" id="editNoticePanel">
+                <div class="input-field col s12">
+                   <input type="text" id="noticeCam" name="noticeCam" class="white-text">
+                   <label for="noticeCam" class="white-text">Cambiar Noticias</label>
+                   <button type="button" class="btn white black-text" id="camNotice">Cambiar</button>
                 </div>
             </div>
             <div class="row">
@@ -182,9 +189,10 @@
       <a href="{{ route('panel') }}" class="btn-floating btn-large red  tooltipped" data-position="left" data-tooltip="Panel">
         <i class="icon-account_circle large" style="font-size:50px"></i>
       </a>
-      <!-- <ul>
-            <li><button type="button" onclick="myFunction()" class="btn-floating blue"><i class="icon-mode_edit large" id="editNotice"></i></button></li>
-        </ul> -->
+        <ul>
+            <li><button type="button" class="btn-floating blue tooltipped"
+                data-position="left" data-tooltip="Editar Noticias"><i class="icon-mode_edit large" id="editNotice"></i></button></li>
+        </ul>
     </div>
 
    <!--  <script >

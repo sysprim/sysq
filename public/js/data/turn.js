@@ -8,6 +8,7 @@ $(document).ready(function () {
     var idTurn = $('.idTurn').val();
     var code   = $('.code').val();
     var ci     = $('#ci').val();
+    var number = $('#numberTicket').val();
 
     console.log(idTurn);
     console.log(code);
@@ -34,6 +35,7 @@ $(document).ready(function () {
                     console.log(data);
 
                         $('#preLoader').hide();
+                        $('#blockResetTurnos').hide();
 
                         $('#text_llamar').html('Llamar de nuevo');
                         $('#nameClient').html('Cliente');
@@ -370,6 +372,115 @@ $(document).ready(function () {
                     });
                 }
             });
+
+    });
+
+    $('#resetTaquilla').click(function (e){
+
+        var idReset= $('#idTicketReset').val();
+
+        if(code != 0){
+
+        swal({
+            title: "¿Quieres cancelar todo los clientes en colas?",
+            text: "Al realizar esta acción, todos los clientes en cola serán cancelados de la taquilla "+ number + ".",
+            icon: "error",
+            buttons: {
+                confirm: {
+                    text: "Cancelar Colas",
+                    value: true,
+                    visible: true,
+                    className: "red"
+
+                },
+                cancel: {
+                    text: "Cancelar",
+                    value: false,
+                    visible: true,
+                    className: "grey lighten-2"
+                }
+            }}).then(function(value){
+                
+                if(value == true){
+                    $.ajax({
+                        method:'POST',
+                        url: url+"/Turn/Reset",
+                        data:{idReset:idReset,
+                            "_token": $("meta[name='csrf-token']").attr("content")
+                        },
+                        
+                        beforeSend: function(){
+                            console.log("Sending data...");
+                        },
+                        success: function(data) {
+                            console.log(data);
+                            swal({
+                                title: "¡Se cancelo con exito!",
+                                text: "No hay clientes en cola de la taquilla " + number + ".",
+                                icon: "success",
+                                button: {
+                                    text: "Aceptar",
+                                    visible: true,
+                                    value: true,
+                                    className: "green",
+                                    closeModal: true
+                                },
+                                timer: 3000
+                            })
+                            .then(redirect => {
+                                location.reload();
+                            })
+                        },
+                        error: function(err) {
+            
+                            console.log(err);
+                            swal({
+                                title: "¡Oh no!",
+                                text: "Ha ocurrido un error inesperado, refresca la página e intentalo de nuevo.",
+                                icon: "error",
+                                button: {
+                                    text: "Aceptar",
+                                    visible: true,
+                                    value: true,
+                                    className: "green",
+                                    closeModal: true
+                                }
+                            });
+                        }
+                    })}else {
+    
+                    swal({
+                        text: "No se ha cancelado las tareas",
+                        icon: "warning",
+                        button: {
+                            text: "Aceptar",
+                            className: "green"
+                        }
+                    });
+                }
+            })}else{
+                 swal({
+                text: "No tienes clientes en cola",
+                icon: "error",
+                button: {
+                    text: "Aceptar",
+                    className: "red"
+                }
+            });
+        }
+    });
+
+    $('#editNotice').click(function(e) {
+       $('#editNoticePanel').show();
+    });
+
+    $('#camNotice').click(function(e) {
+
+        var notice = $('#noticeCam').val();
+
+        $('#notice').html(notice);
+
+        $('#editNoticePanel').hide();    
 
     });   
 
