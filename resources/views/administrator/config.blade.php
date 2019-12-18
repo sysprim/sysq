@@ -28,17 +28,21 @@
                     <div class="collection-header">
                             <div class="row" style="margin:0;">
                                     <div class="col s12 m1 right">
-                                        <i class="icon-settings medium black-text" style="text-aling:center"></i>
+                                        <i class="icon-settings medium blue-text" style="text-aling:center"></i>
                                     </div>
 
                                     <div class="centered col s12 m11">
-                                        <h5 style="margin-left:15px;margin-top:15px;"> Configuración en turnos </h5></div>
+                                        <h5 style="margin-left:15px;margin-top:15px;"> Configuración </h5></div>
                                     </div>
                                 </div>
                                          
                         <div class="row" style="padding:20px;">
                             <div class="col s12 m6">
                                 <a href="#" id="reset" class="btn-app white waves-effect small red-text" >Cancelar Turnos<i class="icon-autorenew"></i></a>
+                            </div>
+
+                             <div class="col s12 m6">
+                                <a href="#" class="btn-app white lighten-1 blue-text" disabled>Estadisticas<i class="icon-trending_up"></i></a>
                             </div>
          
                         </div>
@@ -48,26 +52,23 @@
                     <div class="collection-header">
                             <div class="row" style="margin:0;">
                                     <div class="col s12 m1 right">
-                                        <i class="icon-trending_up medium blue-text" style="text-aling:center"></i>
+                                        <i class="icon-publish medium blue-text" style="text-aling:center"></i>
                                     </div>
 
                                     <div class="centered col s12 m11">
-                                        <h5 style="margin-left:15px;margin-top:15px;">  Registrar o Visualizar Estadisticas</h5></div>
+                                        <h5 style="margin-left:15px;margin-top:15px;">  Registrar Datos</h5></div>
                                     </div>
                                 </div>
                                          
                         <div class="row" style="padding:20px;">
-                            <div class="col s12 m4">
+                            <div class="col s12 m6">
                                 <a href="{{ route('register') }}" class="btn-app white waves-effect small orange-text" >Usuarios<i class="icon-assignment"></i></a>
                             </div>
 
-                            <div class="col s12 m4">
+                            <div class="col s12 m6">
                                 <a href="{{ route('register.ticket') }}" class="btn-app white green-text">Taquillas<i class="icon-assignment_ind"></i></a>
                             </div>
-
-                            <div class="col s12 m4">
-                                <a href="#" class="btn-app white lighten-1 blue-text" disabled>Estadisticas<i class="icon-trending_up"></i></a>
-                            </div>              
+              
                         </div>
                 </div>
                     

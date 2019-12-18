@@ -368,7 +368,7 @@ $(document).ready(function () {
                 }
             });
 
-    });    
+    });   
 
     //funcional
     $('#modal').click(function (e){
