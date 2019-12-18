@@ -465,6 +465,20 @@ $(document).ready(function () {
                 }
             });
         }
+    });
+
+    $('#editNotice').click(function(e) {
+       $('#editNoticePanel').show();
+    });
+
+    $('#camNotice').click(function(e) {
+
+        var notice = $('#noticeCam').val();
+
+        $('#notice').html(notice);
+
+        $('#editNoticePanel').hide();    
+
     });   
 
     //funcional
