@@ -59,7 +59,7 @@ $(document).ready(function () {
     udateTime();
 
     function turnCall(){
-        var code = $('#codeTurn').val();
+        var code = $('#CallMe').val();
 
             if(code == 0){
                 $('#ticket').modal('open');
@@ -69,5 +69,5 @@ $(document).ready(function () {
     }
      
     setInterval(udateTime, 1000);
-    setInterval(turnCall, 1000);
+    turnCall();
 });

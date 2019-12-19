@@ -1,7 +1,4 @@
-// beforeSend: function () {
-//                     $("#preloader").fadeIn('fast');
-//                     $("#preloader-overlay").fadeIn('fast');
-//                 },
+
 $(document).ready(function () {
 
     const url = "http://localhost/sysq/public/";

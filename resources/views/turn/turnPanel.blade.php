@@ -22,7 +22,8 @@
 </head>
 
 <body class="grey lighten-3 font-nunito">
-    @include('includes.preloader')    
+    @include('includes.preloader')
+    
     
     <!-- Header -->
     <header>
@@ -44,6 +45,7 @@
 
                 @foreach($call as $callMe)
                     <div class="col s6 center-align grey lighten-2">
+                        <input type="hidden" value="{{$callMe->id}}" id="CallMe">
                         <h4>{{$callMe->random_code}}</h4>
                     </div>
                     <div class="col s6 center-align grey lighten-2">
@@ -121,9 +123,10 @@
         
 
     <main>
-        {{-- <div class="video-container">
-        </div> --}}
-            <iframe style="width: 100%; height: auto;" src="https://youtu.be/ZqmIFolThZo" frameborder="0" allowfullscreen></iframe>
+        <div class="video-container">
+            <video  src="{{asset('img/big_bck_bunny.mp4')}}" frameborder="0" allowfullscreen loop autoplay></video>
+        </div> 
+            
         
     </main>
 
