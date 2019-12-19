@@ -1,7 +1,9 @@
 
 $(document).ready(function () {
 
-    const url = "http://localhost/sysq/public/";
+    // const url = "http://localhost/sysq/public/";
+    const url = "144.91.97.209";
+    
     var idTurn = $('.idTurn').val();
     var code   = $('.code').val();
     var ci     = $('#ci').val();
