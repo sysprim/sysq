@@ -485,18 +485,27 @@ $(document).ready(function () {
 
     });   
 
-    $('#consultica').click(function(e){
+    function ticket(){
         var consulta = $.ajax({
                                 method:'POST',
                                 url: url+"Turn/CallMe",
-                        data:{
+                                data:{
                         "_token": $("meta[name='csrf-token']").attr("content")
 
             }, success: function(response) {
                 console.log(response.call[1]);
+
+                var CallMe = response.call;
                 
-                for(i=0; i<response.call; i++){
-                    console.log(response.call[i]);
+                for(i=0; i<response.call.length; i++){
+                    // console.log(response.call[i]);
+                    console.log(response.call[i].id);
+                    console.log(response.call[i].turn_status);
+                    console.log(response.call[i].random_code);
+                    console.log(response.call[i].number_ticket);
+
+                    $("#code_random").append("<h4>"+response.call[i].random_code+'</h4>');
+                    $("#ticket_number").append("<h4>"+0+'</h4>');
                 }
 
             },error: function() {
@@ -504,6 +513,8 @@ $(document).ready(function () {
             }
 
         });
-      });  
+      } 
+
+      setInterval(ticket, 1000); 
 
 });
