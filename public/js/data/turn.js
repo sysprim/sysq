@@ -28,13 +28,11 @@ $(document).ready(function () {
                 },
                 
                 beforeSend: function () {
-                    $("#preloader").fadeIn('fast');
-                    $("#preloader-overlay").fadeIn('fast');
+                   
                 },
                 success: function(data) {
                     console.log(data);
 
-                        $('#preLoader').hide();
                         $('#blockResetTurnos').hide();
 
                         $('#text_llamar').html('Llamar de nuevo');
