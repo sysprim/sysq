@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>SysQ - Sistema para Colas</title>
 
     <!-- CSS files -->
@@ -29,7 +30,30 @@
     <header>
         <div id="slide-out" class="sidenav sidenav-fixed">
 
-            @if($call)   
+            <div class="row" style="margin:0">
+                    <div class="col s12 m12 green accent-3 center-align">
+                        <h4>Llamados</h4>
+                    </div>
+
+                <div class="row" style="margin:0">
+                    <div class="col s6 center-align blue">
+                        <h4>Turno</h4>
+                    </div>
+                    <div class="col s6 center-align blue">
+                        <h4>Taquilla</h4>
+                    </div>
+                
+                    <div class="col s6 center-align grey lighten-2" id="code_random">
+                        <h4 id="random_code"></h4>
+                    </div>
+                    <div class="col s6 center-align grey lighten-2" id="ticket_number">
+                        <h4 id="number_ticket"></h4>
+                    </div>
+                
+                </div>
+            </div>
+
+            {{-- @if($call)   
                 <div class="row" style="margin:0">
                     <div class="col s12 m12 green accent-3 center-align">
                         <h4>Llamados</h4>
@@ -53,9 +77,9 @@
                     </div>
                 @endforeach
                 </div>
-            </div>
+            </div> -->
 
-            @else
+            <!-- @else
                 <div class="row" style="margin:0">
                     <div class="col s12 m12 green center-align">
                         <h4>Llamados</h4>
@@ -74,8 +98,8 @@
                         <h4>0</h4>
                     </div>
                 </div>
-            </div>
-            @endif
+            </div> -->
+            <!-- @endif -->--}}
 
             @if($turnWaiting)   
                 <div class="row" style="margin:0">
@@ -169,7 +193,7 @@
     <div id="ticket" class="modal">
         <div class="modal-content blue-text center-align">
                  
-                @foreach($call as $callMe)
+               {{-- <!-- @foreach($call as $callMe)
                 <input type="hidden" value="{{$callMe->random_code}}" id="codeTurn">
                     <div class="row">           
                         <div class="col s12 center-align">
@@ -179,7 +203,7 @@
                             <span style="font-size: 80px; font-weight: 900" id="codeTurn">{{$callMe->random_code}}</span>
                         </div>
                     </div>
-                @endforeach
+                @endforeach -->--}}
             
         </div>
     </div>

@@ -25,13 +25,11 @@ $(document).ready(function () {
                 },
                 
                 beforeSend: function () {
-                    $("#preloader").fadeIn('fast');
-                    $("#preloader-overlay").fadeIn('fast');
+                   
                 },
                 success: function(data) {
                     console.log(data);
 
-                        $('#preLoader').hide();
                         $('#blockResetTurnos').hide();
 
                         $('#text_llamar').html('Llamar de nuevo');
@@ -482,9 +480,36 @@ $(document).ready(function () {
 
     });   
 
-    //funcional
-    $('#modal').click(function (e){
-        $('#ticket').modal('open');
-    });
+    function ticket(){
+        var consulta = $.ajax({
+                                method:'POST',
+                                url: url+"Turn/CallMe",
+                                data:{
+                        "_token": $("meta[name='csrf-token']").attr("content")
+
+            }, success: function(response) {
+                console.log(response.call[1]);
+
+                var CallMe = response.call;
+                
+                for(i=0; i<response.call.length; i++){
+                    // console.log(response.call[i]);
+                    console.log(response.call[i].id);
+                    console.log(response.call[i].turn_status);
+                    console.log(response.call[i].random_code);
+                    console.log(response.call[i].number_ticket);
+
+                    $("#code_random").append("<h4>"+response.call[i].random_code+'</h4>');
+                    $("#ticket_number").append("<h4>"+0+'</h4>');
+                }
+
+            },error: function() {
+                console.log("No se ha podido obtener la información");
+            }
+
+        });
+      } 
+
+      setInterval(ticket, 1000); 
 
 });

@@ -69,5 +69,9 @@ $(document).ready(function () {
     }
      
     setInterval(udateTime, 1000);
+<<<<<<< HEAD
     turnCall();
+=======
+    //setInterval(turnCall, 1000);
+>>>>>>> 910c21baafb6e74be0020f6fa138534ef5538822
 });

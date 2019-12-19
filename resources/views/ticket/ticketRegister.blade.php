@@ -4,12 +4,13 @@
 
 <div class="row" style="margin-top:10px;">
         <div class="col s12 m12 ">
-                <div class="breadcrumb-nav col s12">
-                    <a href="{{ route('panel') }}" class="breadcrumb black-text">Panel</a>
-                    <a href="{{ route('config') }}" class="breadcrumb black-text">Configuración</a>
-                </div>
+                <ul class="breadcrumb"> 
+                    <li class="breadcrumb-item"><a href="{{route('panel')}}">Panel</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('config')}}">Configuración</a></li>
+                    <li class="breadcrumb-item"><a href="#">Detalles</a></li>  
+                </ul>
+            </div>
         </div>
-    </div>
     
 <div class="container">
     <div class="row justify-content-center">
