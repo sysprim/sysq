@@ -485,9 +485,25 @@ $(document).ready(function () {
 
     });   
 
-    //funcional
-    $('#modal').click(function (e){
-        $('#ticket').modal('open');
-    });
+    $('#consultica').click(function(e){
+        var consulta = $.ajax({
+                                method:'POST',
+                                url: url+"Turn/CallMe",
+                        data:{
+                        "_token": $("meta[name='csrf-token']").attr("content")
+
+            }, success: function(response) {
+                console.log(response.call[1]);
+                
+                for(i=0; i<response.call; i++){
+                    console.log(response.call[i]);
+                }
+
+            },error: function() {
+                console.log("No se ha podido obtener la información");
+            }
+
+        });
+      });  
 
 });

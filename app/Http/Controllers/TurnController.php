@@ -82,6 +82,13 @@ class TurnController extends Controller
         }
     }
 
+    public function turnCallMe(Request $request){
+        
+        $turnCall = Turn::where('turn_status', 'Llamado')->get();
+
+        return response()->json(array('call'=>$turnCall));
+    }
+
     public function turnCall(Request $request){
 
         $id = $request->input('idTurn');

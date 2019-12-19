@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>SysQ - Sistema para Colas</title>
 
     <!-- CSS files -->
@@ -27,6 +28,7 @@
     <!-- Header -->
     <header>
         <div id="slide-out" class="sidenav sidenav-fixed">
+            <a href="#" id="consultica" ">Consultar</a>
 
             @if($call)   
                 <div class="row" style="margin:0">
