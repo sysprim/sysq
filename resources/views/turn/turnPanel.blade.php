@@ -193,7 +193,7 @@
     <div id="ticket" class="modal">
         <div class="modal-content blue-text center-align">
                  
-               {{-- <!-- @foreach($call as $callMe)
+            {{--<!--  @foreach($call as $callMe)
                 <input type="hidden" value="{{$callMe->random_code}}" id="codeTurn">
                     <div class="row">           
                         <div class="col s12 center-align">

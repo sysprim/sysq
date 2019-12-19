@@ -84,7 +84,7 @@ class TurnController extends Controller
 
     public function turnCallMe(Request $request){
         
-        $turnCall = Turn::where('turn_status', 'Llamado')->get();
+        $turnCall = Turn::with('tickets')->where('turn_status', 'Llamado')->get();
         $turn = new Turn();
         // $ticket= $turn->tickets->where('turn_status', 'Llamado')->get();
 
@@ -98,6 +98,17 @@ class TurnController extends Controller
 
         $turn  = Turn::find($id);
         $turn->turn_status = "llamado";
+
+        $turn->update();
+        
+    }
+
+     public function turnStart(Request $request){
+
+        $id = $request->input('idTurn');
+
+        $turn  = Turn::find($id);
+        $turn->turn_status = "Iniciado";
 
         $turn->update();
         

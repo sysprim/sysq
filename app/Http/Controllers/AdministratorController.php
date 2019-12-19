@@ -32,8 +32,10 @@ class AdministratorController extends Controller
           $ticketAll  = Ticket::all();
           $ticket     = Ticket::find($id);
 
-          $turns  = Turn::where('ticket_id', $id)->where('turn_status','En Espera')->orWhere('turn_status','LLamado')->where('ticket_id', $id)->get();
-          $turnFirst  = Turn::where('ticket_id', $id)->where( 'turn_status','En Espera')->orWhere('turn_status','LLamado')->where('ticket_id', $id)->first();
+          $turns  = Turn::where('ticket_id', $id)->where('turn_status','En Espera')->orWhere('turn_status','LLamado')->orWhere('turn_status','Iniciado')->where('ticket_id', $id)->get();
+          // var_dump($turns);
+          // die();
+          $turnFirst  = Turn::where('ticket_id', $id)->where( 'turn_status','En Espera')->orWhere('turn_status','LLamado')->orWhere('turn_status','Iniciado')->where('ticket_id', $id)->first();
           
           return view('administrator.panel',['ticket'       => $ticket,
                                              'turns'        => $turns ,

@@ -1,13 +1,14 @@
 
 $(document).ready(function () {
 
-    // const url = "http://localhost/sysq/public/";
+     // const url = "http://localhost/sysq/public/";
     const url = "http://144.91.97.209/";
-    
+
     var idTurn = $('.idTurn').val();
     var code   = $('.code').val();
     var ci     = $('#ci').val();
     var number = $('#numberTicket').val();
+
 
     console.log(idTurn);
     console.log(code);
@@ -94,20 +95,73 @@ $(document).ready(function () {
 
     $('#iniciar').click(function(e) {
 
-        //Buttons
-        $('#llamar').hide();
-        $('#iniciar').hide();
-        $("#block_llamar").hide();
-        $("#block_iniciar").hide();
+        $.ajax({
+                method:'POST',
+                url: url+"Turn/Iniciar",
+                data:{idTurn:idTurn,
+                    "_token": $("meta[name='csrf-token']").attr("content")
+                },
+                
+                 beforeSend: function () {
+                    
+                        },
+                success: function(data) {
+                    console.log(data);
+                            
+                    swal({
+                        title: "¡Se ha Iniciado con exito!",
+                        text: "Puedes seguir atendiendo ",
+                        icon: "success",
+                        button: {
+                                text: "Aceptar",
+                                    visible: true,
+                                    value: true,
+                                    className: "green",
+                                    closeModal: true
+                                },
+                                timer: 3000
+                                
+                            })
+
+                        //Buttons
+                    $("#preloader").hide();
+                    $("#preloader-overlay").hide();  
+                    $('#llamar').hide();
+                    $('#iniciar').hide();
+                    $("#block_llamar").hide();
+                    $("#block_iniciar").hide();
         
-        $('#finalizar').show();
-        $('#block_finalizar').show();
-        $('#cancelar').show();
-        $('#block_cancelar').show();
+                    $('#finalizar').show();
+                    $('#block_finalizar').show();
+                    $('#cancelar').show();
+                    $('#block_cancelar').show();
         
         
-        $("#block_finalizar").addClass("col s12 m6 animated bounceIn");
-        $("#block_cancelar").addClass("col s12 m6 animated bounceIn");
+                    $("#block_finalizar").addClass("col s12 m6 animated bounceIn");
+                    $("#block_cancelar").addClass("col s12 m6 animated bounceIn");
+
+                },
+                error: function(err) {
+    
+                    console.log(err);
+                    swal({
+                        title: "¡Oh no!",
+                        text: "Ha ocurrido un error inesperado, refresca la página e intentalo de nuevo.",
+                        icon: "error",
+                        button: {
+                            text: "Aceptar",
+                            visible: true,
+                            value: true,
+                            className: "green",
+                            closeModal: true
+                        }
+                    });
+                }
+            })
+        
+
+
+       
         
 
     });
@@ -493,25 +547,35 @@ $(document).ready(function () {
                 console.log(response.call[1]);
 
                 var CallMe = response.call;
-                
+                var acum ="";
+                var acum1 ="";
+
                 for(i=0; i<response.call.length; i++){
                     // console.log(response.call[i]);
                     console.log(response.call[i].id);
                     console.log(response.call[i].turn_status);
                     console.log(response.call[i].random_code);
-                    console.log(response.call[i].number_ticket);
+                    console.log(response.call[i].tickets.number_ticket);
 
-                    $("#code_random").append("<h4>"+response.call[i].random_code+'</h4>');
-                    $("#ticket_number").append("<h4>"+0+'</h4>');
+                    acum+="<h4>"+response.call[i].random_code+'</h4>';
+                    acum1+="<h4>"+response.call[i].tickets.number_ticket+'</h4>';
+                  setTimeout(10000, alert(acum));     
                 }
+                $("#ticket_number").html(acum1);
 
+                $("#code_random").html(acum);
+                
             },error: function() {
                 console.log("No se ha podido obtener la información");
             }
 
         });
       } 
+    
 
-      setInterval(ticket, 1000); 
+      if($('#ticket_number').val()!=undefined){
+         setInterval(ticket, 1000); 
+      }
+     
 
 });
