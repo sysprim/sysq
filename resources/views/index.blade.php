@@ -49,7 +49,7 @@
 
                         <div class="card-content row ">
                             <div class="input-field col s12">
-                                <input autofocus type="text" pattern="[0-9]+" title="Solo puedes usar números" id="ci" minlength="5" maxlength="8" name="ci" style="height:80px; font-size:40px" required >
+                                <input type="text" pattern="[0-9]+" title="Solo puedes usar números" id="ci" minlength="5" maxlength="8" name="ci" style="height:80px; font-size:40px" required >
                           
                                 @if ($errors->has('ci'))
                                     <p>{{ $errors->first('ci') }}</p>

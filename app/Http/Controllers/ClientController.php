@@ -18,7 +18,7 @@ class ClientController extends Controller
                
         if($search==null){
 
-            $validate = $this->validate($request, [ 'ci' => 'required|min:6|max:8']);
+            $validate = $this->validate($request, [ 'ci' => 'required|min:6|max:9']);
 
             $client = new Client ();
             $client->ci_client = $ci;
