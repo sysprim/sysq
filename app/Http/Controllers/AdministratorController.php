@@ -51,8 +51,8 @@ class AdministratorController extends Controller
           // $turnCall = $turn->where('turn_status','Llamado')->orderBy('updated_at', 'desc')->get();
           $turnWaiting = $turn->where('turn_status','En Espera')->orderBy('id', 'asc')->limit(5)->get();
 
-   		 return view('turn.turnPanel', [//'call'   =>$turnCall,
-                                             'turnWaiting'=>$turnWaiting]);
+   		 return view('turn.turnPanel'/*, [//'call'   =>$turnCall,
+              'turnWaiting'=>$turnWaiting]*/);
    }
 
    public function config (){
