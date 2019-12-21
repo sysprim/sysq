@@ -68,7 +68,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col s1" style="padding:10px;">
-                                <button type="submit" class="btn blue">
+                                <button type="submit" class="btn" style="background-color:#1860ab">
                                     Registrar
                                 </button>
                             </div>

@@ -4,6 +4,6 @@
             <i class="large icon-arrow_back"></i>
         </a> 
             <ul>
-                <li><a href="{{route('index')}}" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Inicio"><i class="icon-home"></i></a></li>
+                <li><a href="{{route('index')}}" class="btn-floating tooltipped" style="background-color:#1860ab" data-position="left" data-tooltip="Inicio"><i class="icon-home"></i></a></li>
           </ul>
 </div>

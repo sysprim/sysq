@@ -20,7 +20,7 @@
             <div class="row">
                     <div class="col s12 m3">
                         <div class="row">
-                            <div class="col s12 m12 blue center-align" style="border: solid 1px #cccccc">
+                            <div class="col s12 m12 center-align" style="background-color:#1860ab;border: solid 1px #cccccc">
                             <h6 class="white-text">Taquilla</h6>
                                 <span class="white-text" style="font-size: 70px;">{{$ticket->number_ticket}}</span><br>
                             <a href="#taquilla" class="btn btn-flat white-text modal-trigger">Cambiar</a>
@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="col s12 m6 animated bounceIn" id="block_iniciar">
                                     <button type="button" id="iniciar" style="border:none;display:none;" class="waves-effect btn-app white black-text ">
-                                        <i class="fas fa-play blue-text"></i>
+                                        <i class="fas fa-play" style="color:#1860ab"></i>
                                         <span style="font-size: 16px;">Iniciar Atención</span>
                                     </button>
                                 </div>
@@ -107,7 +107,7 @@
                                             
                                                 <a  class="collection-item avatar modal-trigger">
                                                     @if($turn->turn_type == "Normal")
-                                                    <i class="circle blue fas fa-user tooltipped" data-position="bottom" data-tooltip="Normal"></i>
+                                                    <i class="circle fas fa-user tooltipped" style="background-color:#1860ab" data-position="bottom" data-tooltip="Normal"></i>
                                                     @else
                                                     <i class="circle red fas fa-user tooltipped" data-position="bottom" data-tooltip="Preferencial"></i>
                                                     @endif
@@ -127,7 +127,7 @@
 
             @else
             <div class="row">
-                <div class="col s12 m3 blue center-align" style="border: solid 1px #cccccc">
+                <div class="col s12 m3 center-align" style="background-color:#1860ab" style="border: solid 1px #cccccc">
                     <h6 class="white-text">Taquilla</h6>
                 <span class="white-text" style="font-size: 70px;">0</span><br>
                     <a href="#taquilla" class="btn btn-flat white-text modal-trigger">Cambiar</a>
@@ -197,7 +197,7 @@
             <!-- Modal va en una seccion aparte, solo que aqui esta la prueba -->
 
             <div id="ticket" class="modal">
-                    <div class="modal-content blue-text center-align">
+                    <div class="modal-content center-align" style="color:#1860ab">
                         <div class="row">
                             <div class="col s12 center-align">
                                 <span style="font-size:50px;">Ticket</span>

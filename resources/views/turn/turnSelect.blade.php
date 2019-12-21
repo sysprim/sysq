@@ -1,4 +1,4 @@
-@extends('layouts.simpleNav')
+@extends('layouts.app')
 
 <body class="grey lighten-3 font-nunito">
 

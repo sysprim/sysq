@@ -1,74 +1,63 @@
 
 $(document).ready(function () {
     
-    var udateTime = function() {
-        let currentDate = new Date(),
-            hours = currentDate.getHours(),
-            minutes = currentDate.getMinutes(), 
-            seconds = currentDate.getSeconds(),
-            weekDay = currentDate.getDay(), 
+var $hands = $('#liveclock div.hand')
+ 
+window.requestAnimationFrame = window.requestAnimationFrame
+                               || window.mozRequestAnimationFrame
+                               || window.webkitRequestAnimationFrame
+                               || window.msRequestAnimationFrame
+                               || function(f){setTimeout(f, 60)}
+ 
+ 
+function updateclock(){
+	var curdate = new Date()
+	var hour_as_degree = ( curdate.getHours() + curdate.getMinutes()/60 ) / 12 * 360
+	var minute_as_degree = curdate.getMinutes() / 60 * 360
+	var second_as_degree = ( curdate.getSeconds() + curdate.getMilliseconds()/1000 ) /60 * 360
+	$hands.filter('.hour').css({transform: 'rotate(' + hour_as_degree + 'deg)' })
+	$hands.filter('.minute').css({transform: 'rotate(' + minute_as_degree + 'deg)' })
+	$hands.filter('.second').css({transform: 'rotate(' + second_as_degree + 'deg)' })
+	requestAnimationFrame(updateclock)
+}
+ 
+requestAnimationFrame(updateclock)
+     
+let currentDate = new Date(),
 
-            month = currentDate.getMonth(), 
-            year = currentDate.getFullYear();
-     
-        const weekDays = [
-            'Domingo',
-            'Lunes',
-            'Martes',
-            'Miércoles',
-            'Jueves',
-            'Viernes',
-            'Sabado'
-        ];
-     
-        document.getElementById('weekDay').textContent = weekDays[weekDay];
+           weekDay = currentDate.getDay(), 
+           month = currentDate.getMonth(), 
+           year = currentDate.getFullYear();
+    
+       const weekDays = [
+           'Domingo',
+           'Lunes',
+           'Martes',
+           'Miércoles',
+           'Jueves',
+           'Viernes',
+           'Sabado'
+       ];
+    
+       document.getElementById('weekDay').textContent = weekDays[weekDay];
 
-     
-        const months = [
-            'Enero',
-            'Febrero',
-            'Marzo',
-            'Abril',
-            'Mayo',
-            'Junio',
-            'Julio',
-            'Agosto',
-            'Septiembre',
-            'Octubre',
-            'Noviembre',
-            'Diciembre'
-        ];
-     
-        document.getElementById('month').textContent = months[month];
-        document.getElementById('year').textContent = year;
-     
-        document.getElementById('hours').textContent = hours;
-     
-        if (minutes < 10) {
-            minutes = "0" + minutes
-        }
-     
-        if (seconds < 10) {
-            seconds = "0" + seconds
-        }
-     
-        document.getElementById('minutes').textContent = minutes;
-        document.getElementById('seconds').textContent = seconds;
-    };
-     
-    udateTime();
-
-    function turnCall(){
-        var code = $('#CallMe').val();
-
-            if(code == 0){
-                $('#ticket').modal('open');
-                $('.audio')[0].play();
-            }
-        
-    }
-     
-    setInterval(udateTime, 1000);
-    //setInterval(turnCall, 1000);
+    
+       const months = [
+           'Enero',
+           'Febrero',
+           'Marzo',
+           'Abril',
+           'Mayo',
+           'Junio',
+           'Julio',
+           'Agosto',
+           'Septiembre',
+           'Octubre',
+           'Noviembre',
+           'Diciembre'
+       ];
+    
+       document.getElementById('month').textContent = months[month];
+       document.getElementById('year').textContent = year;
 
 });

@@ -85,11 +85,25 @@ class TurnController extends Controller
     public function turnCallMe(Request $request){
         
         $turnCall = Turn::with('tickets')->where('turn_status', 'Llamado')->get();
-        $turn = new Turn();
-        // $ticket= $turn->tickets->where('turn_status', 'Llamado')->get();
 
         return response()->json(array('call'=>$turnCall,
-                                       /* 'ticket'=>$ticket*/));
+                                       ));
+    }
+
+    public function turnWaiting(Request $request){
+        
+        $turnWaiting = Turn::with('tickets')->where('turn_status', 'En Espera')->limit(5)->get();
+
+        return response()->json(array('waiting'=>$turnWaiting,
+                                       ));
+    }
+
+    public function turnAttending(Request $request){
+        
+        $turnAttend = Turn::with('tickets')->where('turn_status', 'Iniciado')->limit(5)->get();
+
+        return response()->json(array('attend'=>$turnAttend,
+                                       ));
     }
 
     public function turnCall(Request $request){

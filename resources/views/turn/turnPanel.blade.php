@@ -16,74 +16,180 @@
     <link rel="stylesheet" href="{{ asset('css/icons/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owner.css') }}">
-    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ asset('css/turno.css') }}">
+    <link rel="shortcut icon" href="{{ asset('img/sysQ-icono.ico') }}" type="image/x-icon">
 </head>
 <body>
     @include('includes.preloader')
 
-    <div class="row">
-        <div class="col s9 m9 l9">
+    <div class="row marginCol">
+        <div class="col s9 m9 l9 marginCol">
             <main>
-                <div class="row">
-                    <div class="col s12 m12 l12">           
-                        <video width="100%" height="auto" src="{{asset('img/big_buck_bunny.mp4')}}" frameborder="0" allowfullscreen loop autoplay></video>                
+                <div class="row marginCol">
+                    <div class="col s12 m12 l12 marginCol">
+                        <div class="video-container">           
+                            <video width="100%" height="auto" src="{{asset('img/big_buck_bunny.mp4')}}" frameborder="0" allowfullscreen loop autoplay></video>                
+                        </div>
                     </div>
                 </div>
             </main>
 
-        <div class="row">
-            <div class="col s12 m12 l12" >   
-                <footer class="page-footer blue">
+        <div class="row marginCol">
+            <div class="col s12 m12 l12 marginCol" >   
+                <footer class=" page-footer" style="background-color:#1860ab">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col s12">
-                               <marquee behavior="" direction=""><b>Cintillo de Noticia:</b><p id="notice"></p></marquee>
+                            <div class="col s12 m12 l12">
+                               <marquee behavior="" direction=""><b id="notice">Cintillo de Noticia:</b></marquee>
                             </div>
                         </div>
+
                         <div class="row" style="display:none" id="editNoticePanel">
-                            <div class="input-field col s12">
+                            <div class="input-field col s12 m12 l12" style="padding:20px;">
                                <input type="text" id="noticeCam" name="noticeCam" class="white-text">
                                <label for="noticeCam" class="white-text">Cambiar Noticias</label>
                                <button type="button" class="btn white black-text" id="camNotice">Cambiar</button>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col s6 left-align">
+
+                        <div class="row" style="margin-top:20px;">
+                            <div class="col s6 m6 l6" style="float:left">
+                                <div id="liveclock" class="outer_face">
+                                    <div class="marker oneseven"></div>
+                                    <div class="marker twoeight"></div>
+                                    <div class="marker fourten"></div>
+                                    <div class="marker fiveeleven"></div>
+                         
+                                    <div class="inner_face">
+                                        <div class="hand hour"></div>
+                                        <div class="hand minute"></div>
+                                        <div class="hand second"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col s6 m6 l6 left-align" style="margin-top:30px">
                                 <div class="date">
-                                    <span><i class="icon-date_range     "></i></span>
                                     <span id="weekDay"  class="weekDay  "></span><span>,   </span><br>
                                     <span id="month"    class="month    "></span><span > del</span>
                                     <span id="year"     class="year     "></span>
                                 </div>               
                             </div>
-            
-                            <div class="col s6 right-align">
-                                <div class="clock">
-                                    <span><i class="icon-alarm "></i></span>
-                                    <span id="hours"    class="hours "></span><span>:</span>
-                                    <span id="minutes"  class="minutes "></span><span>:</span>
-                                    <span id="seconds"  class="seconds "></span>
-                                </div>
-                            </div>
+                 
                         </div>
                     </div>
-                </footer>
+
+                <div class="row" style="margin-top:20px">
+                    <div class="col s6 m6 l6" style="background-color:#1860ab">
+                        <div class="container">
+                         <p>© 2019 Tecno-Ve</p> 
+                        </div>
+                      </div>
+
+                      <div class="col s2 m2 l2 offset-l4">
+                        
+                            <img style="width:50px; height:40px" src="{{asset('img/sysQ blanco icono.png')}}" alt=""> 
+                        
+                      </div>
                 </div>
+
+                </footer>
             </div>
         </div>
     </div>
 
-    <style>
-    
-    .row{
-        margin: 0;
-    }
+        <div class="col s3 m3 l3 marginCol">
+            <div  class="row marginCol">
+                <div class="row marginCol">
+                    <div class="col s12 m12 l12 green accent-4 center-align marginCol">
+                        <h4 class="flow-text" style="font-weight:bold;">Llamados</h4>
+                    </div>
+                </div>
 
-    .row .col{
-        padding: 0;
-    }
+                <div class="row">
+                    <div class="col s6 m6 l6 center-align marginCol" style="background-color:#1860ab">
+                        <h4 class="flow-text">Turno</h4>
+                    </div>
+                    <div class="col s6 m6 l6 center-align marginCol" style="background-color:#1860ab">
+                        <h4 class="flow-text">Taquilla</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s6 m6 l6 center-align grey lighten-2 marginCol" id="code_random">
+                        <h4 id="codeRandom"></h4>
+                    </div>
+                    <div class="col s6 m6 l6 center-align grey lighten-2 marginCol" id="ticket_number">
+                        <h4 id="ticketNumber"></h4>
+                    </div>
+                </div>
+
+
+                    <div class="row marginCol">
+                        <div class="col s12 m12 l12 yellow darken-2 center-align marginCol">
+                            <h4 class="flow-text" style="font-weight:bold;">En Atención</h4>
+                        </div>
+                    </div>
     
-    </style>
+                    <div class="row">
+                        <div class="col s6 m6 l6 center-align marginCol" style="background-color:#1860ab">
+                            <h4 class="flow-text">Turno</h4>
+                        </div>
+                        <div class="col s6 m6 l6 center-align marginCol" style="background-color:#1860ab">
+                            <h4 class="flow-text">Taquilla</h4>
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="col s6 m6 l6 center-align grey lighten-2 marginCol" id="code_random">
+                            <h4 id="codeAttend"></h4>
+                        </div>
+                        <div class="col s6 m6 l6 center-align grey lighten-2 marginCol" id="ticket_number">
+                            <h4 id="ticketAttend"></h4>
+                        </div>
+                    </div>
+
+            <div class="row">
+                <div class="col s12 m12 l12 red center-align marginCol">
+                    <h4 class="flow-text">En Espera</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s6 m6 l6 center-align marginCol" style="background-color:#1860ab">
+                    <h4 class="flow-text" style="margin-left:10xp">Turno</h4>
+                </div>
+                <div class="col s6 m6 l6 center-align marginCol" style="background-color:#1860ab">
+                    <h4 class="flow-text" >Taquilla</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s6 m6 l6 center-align grey lighten-2 marginCol">
+                    <h4 id="codeWaiting"></h4>
+                </div>
+                <div class="col s6 m6 l6 center-align grey lighten-2 marginCol">
+                    <h4 id="ticketWaiting"></h4>
+                </div>
+            </div>
+            
+           </div>
+    </div>
+
+    <audio class="audio">
+        <source src="{{asset('img/turn.mp3')}}" type="audio/ogg">
+    </audio>
+
+    <div class="fixed-action-btn" style="z-index: 99999">
+      <a href="{{ route('panel') }}" class="btn-floating btn-large red  tooltipped" data-position="left" data-tooltip="Panel">
+        <i class="icon-account_circle large" style="font-size:50px"></i>
+      </a>
+        <ul>
+            <li><button type="button" class="btn-floating tooltipped" style="background-color:#1860ab"
+                data-position="left" data-tooltip="Editar Noticias"><i class="icon-mode_edit large" id="editNotice"></i></button></li>
+        </ul>
+    </div>
+</div>
 
     <!-- JavaScript files -->
 

@@ -1,6 +1,4 @@
-@extends('layouts.simpleNav')
-
-<body class="grey lighten-3 font-nunito">
+@extends('layouts.app')
 
 @section('content')
     <main> 
@@ -39,7 +37,3 @@
     </div>
 </main>
 @endsection
-
-</body>
-
-</html>

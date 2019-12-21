@@ -17,9 +17,7 @@ $(document).ready(function () {
 
         if(code != 0){
         //Buttons infernal
-        
-
-        //cambiar turno
+    //cambiar turno
             $.ajax({
                 method:'POST',
                 url: url+"Turn/Call",
@@ -158,12 +156,6 @@ $(document).ready(function () {
                     });
                 }
             })
-        
-
-
-       
-        
-
     });
 
     $('#finalizar').click(function (e){
@@ -530,7 +522,7 @@ $(document).ready(function () {
 
         var notice = $('#noticeCam').val();
 
-        $('#notice').html(notice);
+        $('#notice').html('Cintillo de Noticia : '+ notice);
 
         $('#editNoticePanel').hide();    
 
@@ -549,6 +541,9 @@ $(document).ready(function () {
                 var CallMe = response.call;
                 var acum ="";
                 var acum1 ="";
+                var code="";
+                var ticket="";
+
 
                 for(i=0; i<response.call.length; i++){
                     // console.log(response.call[i]);
@@ -557,13 +552,85 @@ $(document).ready(function () {
                     console.log(response.call[i].random_code);
                     console.log(response.call[i].tickets.number_ticket);
 
-                    acum+="<h4>"+response.call[i].random_code+'</h4>';
-                    acum1+="<h4>"+response.call[i].tickets.number_ticket+'</h4>';
-                  setTimeout(10000, alert(acum));     
+                    acum+="<h5>"+response.call[i].random_code+'</h5>';
+                    acum1+="<h5>"+response.call[i].tickets.number_ticket+'</h5>';
+                    code+=response.call[i].random_code;
+                    ticket+=response.call[i].tickets.number_ticket;   
                 }
-                $("#ticket_number").html(acum1);
+                $("#ticketNumber").html(acum1);
+                $("#codeRandom").html(acum);
+                
+            },error: function() {
+                console.log("No se ha podido obtener la información");
+            }
 
-                $("#code_random").html(acum);
+        });
+      } 
+
+      function ticketWaiting(){
+        var consulta = $.ajax({
+                                method:'POST',
+                                url: url+"Turn/Waiting",
+                                data:{
+                        "_token": $("meta[name='csrf-token']").attr("content")
+
+            }, success: function(response) {
+                console.log(response.waiting[0]);
+
+                var CallMe = response.waiting;
+                var acum ="";
+                var acum1 ="";
+                
+
+                for(i=0; i<response.waiting.length; i++){
+                    // console.log(response.call[i]);
+                    console.log(response.waiting[i].id);
+                    console.log(response.waiting[i].turn_status);
+                    console.log(response.waiting[i].random_code);
+                    console.log(response.waiting[i].tickets.number_ticket);
+
+                    acum+="<h5>"+response.waiting[i].random_code+'</h5>';
+                    acum1+="<h5>"+response.waiting[i].tickets.number_ticket+'</h5>';    
+                }
+                $("#ticketWaiting").html(acum1);
+
+                $("#codeWaiting").html(acum);
+                
+            },error: function() {
+                console.log("No se ha podido obtener la información");
+            }
+
+        });
+      } 
+
+      function ticketAttending(){
+        var consulta = $.ajax({
+                                method:'POST',
+                                url: url+"Turn/Attending",
+                                data:{
+                        "_token": $("meta[name='csrf-token']").attr("content")
+
+            }, success: function(response) {
+                console.log(response.attend[0]);
+
+                var CallMe = response.attend;
+                var acum ="";
+                var acum1 ="";
+                
+
+                for(i=0; i<response.attend.length; i++){
+                    // console.log(response.call[i]);
+                    console.log(response.attend[i].id);
+                    console.log(response.attend[i].turn_status);
+                    console.log(response.attend[i].random_code);
+                    console.log(response.attend[i].tickets.number_ticket);
+
+                    acum+="<h5>"+response.attend[i].random_code+'</h5>';
+                    acum1+="<h5>"+response.attend[i].tickets.number_ticket+'</h5>';    
+                }
+                $("#ticketAttend").html(acum1);
+
+                $("#codeAttend").html(acum);
                 
             },error: function() {
                 console.log("No se ha podido obtener la información");
@@ -573,8 +640,10 @@ $(document).ready(function () {
       } 
     
 
-      if($('#ticket_number').val()!=undefined){
-         setInterval(ticket, 1000); 
+      if($('#ticketNumber').val()!=undefined){
+         setInterval(ticket, 1000);
+         setInterval(ticketWaiting, 1000);
+         setInterval(ticketAttending, 1000); 
       }
      
 

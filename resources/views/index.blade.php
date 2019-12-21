@@ -13,23 +13,26 @@
     <link rel="stylesheet" href="{{ asset('css/icons/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owner.css') }}">
-    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('img/sysQ-icono.ico') }}" type="image/x-icon">
 </head>
 <body class="grey lighten-3 font-nunito">
     <!-- Header -->
     @include('includes.preloader')    
     
     <header>
-        <nav class="white ">
-            <div class="nav-wrapper container-fluid">
-                <a href="{{ route('home') }}" class="black-text right tooltipped" data-position="left" data-tooltip="Entrar al Sistema"><i class="icon-account_circle"></i></a>
-                <ul class="left">
+        
+        <nav class="white container-fluid">
+            <div class="nav-wrapper">
+                    <a href="{{ route('index')  }}"  style="margin-top:0"><img class="logo" src="{{asset('img/sysQ-logo.png')}}" alt=""></a>
+            
+                <ul id="nav-mobile" class="right show-on-med-and-down">
                     <li>
-                        <a href="{{ route('index') }}" class="brand-logo font-audiowide deep-purple-text text-darken-2 waves-effect waves-light">SysQ</a>
+                        <a href="{{ route('home') }}" class="black-text right tooltipped" data-position="left" data-tooltip="Entrar al Sistema"><i class="icon-account_circle"></i></a>
                     </li>
-                </ul>
+                </ul>   
             </div>
         </nav>
+        
     </header>
 
     <main>
