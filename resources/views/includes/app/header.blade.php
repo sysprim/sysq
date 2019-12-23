@@ -1,8 +1,8 @@
 <header>
 	<nav class="white container-fluid">
         <div class="nav-wrapper">
-            <a href="{{ route('index')  }}" class="brand-logo font-audiowide left deep-purple-text text-darken-2">SysQ</a>
-            @auth
+                <a href="{{ route('index')  }}"  style="margin-top:0"><img class="logo" src="{{asset('img/sysQ-logo.png')}}" alt=""></a>
+        @auth
             <ul id="nav-mobile" class="right show-on-med-and-down">
                	<li>
                		<a href="{{ route('panel') }}" class="black-text tooltipped" data-position="left" data-tooltip="Panel">

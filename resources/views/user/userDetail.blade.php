@@ -20,10 +20,10 @@
             <div class="row">
                 <div class="col s12 m8 offset-m2">
 
-                    <ul id="tabs-swipe-demo" class="tabs">
+                    {{-- <ul id="tabs-swipe-demo" class="tabs">
                         <li class="tab col s12 m6"><a href="#user"  style="color:#0288d1">Usuarios</a></li>
                         <li class="tab col s12 m6"><a href="#password" style="color:#0288d1">Cambiar Contraseña</a></li>
-                    </ul>
+                    </ul> --}}
 
                 <div class="card" id="user" style="margin:0;">
                     <div class="card-header">
@@ -81,7 +81,7 @@
                         </div>
                     </div>
 
-                <div class="card" id="password" style="margin:0;">
+                {{-- <div class="card" id="password" style="margin:0;">
                     <div class="card-header">
                         <span class="card-title"> Cambiar Contraseña</span> 
                     </div>
@@ -131,7 +131,7 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="card-footer center-align">
-                    <button type="submit" class="btn blue waves-effect waves-light">
+                    <button type="submit" class="btn white-text waves-effect waves-light" style="background-color:#1860ab">
                         <i class="icon-send right"></i>
                         {{ __('Entrar') }}
                     </button>

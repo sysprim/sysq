@@ -32,7 +32,7 @@
                                     <h4 class="center-align">No hay usuarios registrados.</h4>
                                     @else
                                     <h4>
-                                        <i class="icon-account_circle blue-text"></i>
+                                        <i class="icon-account_circle" style="color:#1860ab"></i>
                                         Usuarios Registrados
                                     </h4>
                                     @endif
@@ -52,7 +52,7 @@
                                             <td>{{ $user->name }} </td>
                                             <td>{{ $user->email }}</td>
                                             <td>                                          
-                                                <a href="{{ route('detail.user', ['id' => $user->id]) }}" class="btn btn-small btn-floating blue waves-effect effect-light"><i class="icon-pageview"></i></a>
+                                                <a href="{{ route('detail.user', ['id' => $user->id]) }}" class="btn btn-small btn-floating waves-effect effect-light" style="background-color:#1860ab"><i class="icon-pageview"></i></a>
                                                 </td>
                                         </tr> 
                                         @endforeach
@@ -65,7 +65,7 @@
                                     <h4 class="center-align">No hay taquillas registradas.</h4>
                                     @else
                                     <h4>
-                                        <i class="icon-assignment blue-text"></i>
+                                        <i class="icon-assignment" style="color:#1860ab"></i>
                                         Taquillas Registradas
                                     </h4>
                                     @endif
@@ -99,7 +99,7 @@
                                             @endif
                                             </td>                                       
                                             <td>                                          
-                                                <a href="{{ route('detail.ticket', ['id' => $ticket->id]) }}" class="btn btn-small btn-floating blue waves-effect effect-light"><i class="icon-pageview"></i></a>
+                                                <a href="{{ route('detail.ticket', ['id' => $ticket->id]) }}" class="btn btn-small btn-floating waves-effect effect-light" style="background-color:#1860ab"><i class="icon-pageview"></i></a>
                                             </td>
                                         </tr> 
                                         @endforeach
@@ -113,7 +113,7 @@
                                     <h4>Seleccione:</h4>
                                 </div>
                                 <div class="col s6">
-                                    <a href="{{ route('register') }}" class="btn-app white waves-effect small orange-text" >
+                                    <a href="{{ route('register') }}" class="btn-app white waves-effect small" style="color:#1860ab" >
                                         <i class="icon-assignment_ind"></i>
                                         Usuarios
                                     </a>
@@ -128,7 +128,7 @@
                             <div class="card-content row" id="configuracion">
                                 <div class="col s12">
                                     <h4>
-                                        <i class="icon-settings blue-text"></i>
+                                        <i class="icon-settings" style="color:#1860ab"></i>
                                         Configuración
                                     </h4>
                                 </div>
@@ -139,9 +139,9 @@
                                     </a>
                                 </div>
                                 <div class="col s6">
-                                    <a href="#" class="btn-app white lighten-1 blue-text" disabled>
-                                        <i class="icon-trending_up"></i>
-                                        Estadísticas
+                                    <a href="{{route('index.video')}}" class="btn-app white lighten-1 orange-text" disabled>
+                                        <i class="icon-ondemand_video"></i>
+                                        Videos
                                     </a>             
                                 </div>
                             </div>
@@ -150,7 +150,7 @@
                 </div>
             </div>
         </div>
-            <script src="{{ asset('js/data/turn.js') }}"></script>
+        <script src="{{ asset('js/data/turn.js') }}"></script>
     </div>
 </main>
 

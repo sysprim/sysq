@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('css/icons/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owner.css') }}">
-    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('img/sysQ-icono.ico') }}" type="image/x-icon">
     <style>
         @media only screen and (max-width: 992px) {
             i.nav-icons {
@@ -46,6 +46,8 @@
     <main class="py-4">
         @yield('content')
     </main>
+
+    @include('includes.app.footer')
 
 </body>
 </html>

@@ -1,30 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    @include('layouts.simpleNav')
-        <style>
-        .ticket-number {
-            font-size: 96px;
-            font-weight: 900;
-        }
-    </style>
-</head>
-<body class="grey lighten-3 font-nunito">
-    <!-- Header -->
-    <!-- <header>
-        <nav class="white container-fluid">
-            <div class="nav-wrapper">
-                <a href="" class="brand-logo font-audiowide right deep-purple-text text-darken-2">SysQ</a>
-            </div>
-        </nav>
-    </header> -->
+@extends('layouts.app')
+           
+@section('content')
 
-    <main>
-        <div class="container-fluid" style="margin-top: 20px">
+<script>
+    //const url = "http://localhost/sysq/public/";
+    // const url = "http://144.91.97.209/";
+        
+    function redireccionar(){
+        setTimeout("location.href='http://localhost/sysq/public/'", 10000);
+    }
+
+</script>
+
+<main >
+    <body onload="redireccionar()">
+        <div class="container-fluid" style="padding: 20px">
+            <div class="row" style="margin-top:20px;">
+                <div class="col s12 m12 l12">
+                   <div class="alert alert-info" role="alert">
+                       Recuerde el número la pagina sera actualizada en breve
+                    </div>
+                </div>
+            </div> 
+            
             <div class="row">
                 <div class="col s12 m8 offset-m2 l6 offset-l3">
                     <div class="card z-depth-2">
-                        <div class="card-header center-align blue darken-2">
+                        <div class="card-header center-align" style="background-color:#1860ab">
                             <h4 class="font-audiowide white-text">SysQ</h4>
                             <span class="white-text">{{ $turn->created_at }}</span>
                         </div>
@@ -34,7 +36,7 @@
                             <h4>{{$turn->tickets->name_ticket}}</h4>
                             <span>({{$turn->turn_type}})</span>
                         </div>
-                        <div class="card-footer center-align blue darken-2">
+                        <div class="card-footer center-align" style="background-color:#1860ab">
                             <span class="white-text">Sistema para Colas</span>
                         </div>
                     </div>
@@ -42,14 +44,17 @@
             </div>
         </div>
         @include('includes.buttonFloating')
-    </main>
+    
+        <style>
+            .ticket-number {
+                font-size: 96px;
+                font-weight: 900;
+            }
+        </style>
+        
+    </body>
 
-
-    <!-- JavaScript files -->
-    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-    <script src="{{ asset('js/materialize.min.js') }}"></script>
-    <script src="{{ asset('js/sweetalert.min.js') }}"></script>
-    <script src="{{ asset('js/aos.js') }}"></script>
-    <script src="{{ asset('js/owner.js') }}"></script>
-</body>
-</html>
+</main>
+    
+@endsection
+    

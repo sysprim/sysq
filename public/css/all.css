@@ -14,11 +14,17 @@
   font-style: normal;
   font-variant: normal;
   text-rendering: auto;
-  line-height: 1; }
+  line-height: 1; 
+}
 
   .tabs .tab a:focus, .tabs .tab a:focus.active {
     background-color: rgba(155, 213, 238, 0.455);
     outline: none;
+}
+
+.logo{
+  width: 170px;
+  height: 70px;
 }
 
 .fa-lg {
