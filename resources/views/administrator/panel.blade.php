@@ -132,7 +132,7 @@
                 <span class="white-text" style="font-size: 70px;">0</span><br>
                     <a href="#taquilla" class="btn btn-flat white-text modal-trigger">Cambiar</a>
                 </div>
-                        <div class="col s12 m9" style="margin-bottom:40px;margin-top:25px;">
+                        <div class="col s12 m9" style="margin-bottom:200px;margin-top:25px;">
                             <table>
                                 <tbody>
                                     <tr>

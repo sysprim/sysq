@@ -120,7 +120,7 @@
                                 </button>
                             </div>
                             <div class="col s12 animated bounceIn">
-                                <button type="submit" class="waves-effect btn-app green white-text">
+                                <button type="submit" class="waves-effect btn-app white-text" style="background-color:#34e064">
                                     <i class="fas fa-ticket-alt"></i>
                                 </button>
                             </div>

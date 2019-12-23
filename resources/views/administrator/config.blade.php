@@ -113,7 +113,7 @@
                                     <h4>Seleccione:</h4>
                                 </div>
                                 <div class="col s6">
-                                    <a href="{{ route('register') }}" class="btn-app white waves-effect small orange-text" >
+                                    <a href="{{ route('register') }}" class="btn-app white waves-effect small" style="color:#1860ab" >
                                         <i class="icon-assignment_ind"></i>
                                         Usuarios
                                     </a>
@@ -139,9 +139,9 @@
                                     </a>
                                 </div>
                                 <div class="col s6">
-                                    <a href="#" class="btn-app white lighten-1" style="color:#1860ab" disabled>
-                                        <i class="icon-trending_up"></i>
-                                        Estadísticas
+                                    <a href="{{route('index.video')}}" class="btn-app white lighten-1 orange-text" disabled>
+                                        <i class="icon-ondemand_video"></i>
+                                        Videos
                                     </a>             
                                 </div>
                             </div>

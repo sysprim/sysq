@@ -8,7 +8,7 @@
                     <div class="col s12 center-align">
                         <h4>Seleccione el tipo de atención.</h4>
                     </div>
-                <div class="row">
+                <div class="row" style="margin-bottom:100px;">
                         <div class="col s12 m6 animated bounceIn">
                             <a href="{{route('save.turn', ['ci'=>$ci, 'id'=> $id, 'Normal'])}}" class="waves-effect btn-app white black-text">
                                 <i class="icon-accessibility" style="font-size:60px;"></i>

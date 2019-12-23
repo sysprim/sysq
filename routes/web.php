@@ -59,6 +59,16 @@ Route::post('/Turn/CallMe' ,'TurnController@turnCallMe') ->name('read.turn');
 Route::post('/Turn/Waiting' ,'TurnController@turnWaiting') ->name('read.waiting.turn');
 Route::post('/Turn/Attending' ,'TurnController@turnAttending') ->name('read.attending.turn');
 
+//Video
+Route::get('/Video/Register'     ,'VideoController@register')   ->name('register.video');
+Route::post('/Video/Save'     ,  'VideoController@save')        ->name('save.video');
+Route::get('/Video'     ,  'VideoController@index')             ->name('index.video');
+Route::post('/Video/Delete'     ,'VideoController@delete')  ->name('delete.video');
+Route::get('/Video/Search/{id}'     ,'VideoController@search')  ->name('search.video');
+Route::get('/Video/{filename}', 'VideoController@getVideo')     ->name('view.video');
+
+
+
 
 
 

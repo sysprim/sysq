@@ -20,6 +20,7 @@
     <link rel="shortcut icon" href="{{ asset('img/sysQ-icono.ico') }}" type="image/x-icon">
 </head>
 <body>
+
     @include('includes.preloader')
 
     <div class="row marginCol">
@@ -27,8 +28,18 @@
             <main>
                 <div class="row marginCol">
                     <div class="col s12 m12 l12 marginCol">
-                        <div class="video-container">           
-                            <video width="100%" height="auto" src="{{asset('img/big_buck_bunny.mp4')}}" frameborder="0" allowfullscreen loop autoplay></video>                
+                        <div class="video-container">
+                            @if($videoPanel)
+                            
+                            <video id="videoPanel" width="100%" height="auto"  frameborder="0" allowfullscreen loop autoplay>
+                                <source src="{{ route('view.video' ,['filename'=>$videoPanel->video_path])}}">
+                            </video>
+                            
+                            @else
+                            <video id="videoPanel" width="100%" height="auto"  frameborder="0" allowfullscreen loop autoplay>
+                                <source src="{{asset('img/big_buck_bunny.mp4')}}">
+                            </video>
+                            @endif                
                         </div>
                     </div>
                 </div>
@@ -80,9 +91,9 @@
                     </div>
 
                 <div class="row" style="margin-top:20px">
-                    <div class="col s6 m6 l6" style="background-color:#1860ab">
+                    <div class="col s6 m6 l6">
                         <div class="container">
-                         <p>© 2019 Tecno-Ve</p> 
+                         <p> © 2019 Tecnova-Ve</p> 
                         </div>
                       </div>
 
@@ -181,15 +192,66 @@
     </audio>
 
     <div class="fixed-action-btn" style="z-index: 99999">
-      <a href="{{ route('panel') }}" class="btn-floating btn-large red  tooltipped" data-position="left" data-tooltip="Panel">
+      <a href="{{ route('panel') }}" class="btn-floating btn-large red tooltipped" data-position="left" data-tooltip="Panel">
         <i class="icon-account_circle large" style="font-size:50px"></i>
       </a>
         <ul>
-            <li><button type="button" class="btn-floating tooltipped" style="background-color:#1860ab"
-                data-position="left" data-tooltip="Editar Noticias"><i class="icon-mode_edit large" id="editNotice"></i></button></li>
+            <li><a href="#video" class="btn-floating white tooltipped modal-trigger" style="background-color:##34e064"
+                data-position="left" data-tooltip="Seleccionar Video">
+                <i class="icon-vertical_align_top large black-text" ></i></a>
+            </li>      
+            <li><button type="button" value="#video" class="btn-floating tooltipped" style="background-color:#1860ab"
+                data-position="left" data-tooltip="Editar Noticias">
+                <i class="icon-mode_edit large" id="editNotice"></i></button>
+            </li>
+            <li><a href="{{route('index.video')}}" class="btn-floating tooltipped orange" data-position="left" data-tooltip="Consultar Videos">
+                <i class="icon-ondemand_video"></i></a>
+            </li>
         </ul>
     </div>
 </div>
+
+<!-- Modal Structure -->
+        <div id="video" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <div class="row">
+                        <div class="centered col s12 m12">
+                            <h5 style="margin-left:15px;">  Videos </h5></div>
+                        </div>
+                    </div>
+
+        @if($video)    
+                <div class="row">
+                    <div class="col s12 m12">                                              
+                        <ul class="collection"> 
+                            @foreach ($video as $videos)                           
+                            <li class="collection-item avatar">
+                                <i class="icon-ondemand_video circle orange"></i>
+                                <span class="title">{{$videos->video_path}}</span>
+                                <p>{{$videos->description_video}} 
+                                </p>
+                            <a href="{{route('search.video',['id'=>$videos->id])}}" class="btn secondary-content red" >Cambiar</a>
+                        </li>
+                        @endforeach
+                    </ul>                 
+                </div>
+            </div>
+            
+        @else
+                <div class="row">
+                    <div class="col s12 m12">
+                        <span class="black-text">No hay Videos</span>
+                    </div>
+                </div>
+        @endif
+                
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">cerrar</a>
+            </div>
+        </div>
+    </div>
+
+    
 
     <!-- JavaScript files -->
 
@@ -201,7 +263,8 @@
 <script src="{{ asset('js/initialize.js') }}"></script>
 <script src="{{ asset('js/owner.js') }}"></script>
 <script src="{{ asset('js/data/turn.js') }}"></script>
-    
+<script src="{{ asset('js/data/video.js') }}"></script>
+   
 </body>
 </html>
 

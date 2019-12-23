@@ -1,8 +1,7 @@
+const url = "http://localhost/sysq/public/";
+    // const url = "http://144.91.97.209/";
 
 $(document).ready(function () {
-
-     const url = "http://localhost/sysq/public/";
-    // const url = "http://144.91.97.209/";
 
     var idTurn = $('.idTurn').val();
     var code   = $('.code').val();
@@ -648,3 +647,41 @@ $(document).ready(function () {
      
 
 });
+
+// function change(id){
+            
+//     const url = "http://localhost/sysq/public/";
+
+//     var idVideo = id;
+//     var consulta = $.ajax({
+//                         method:'GET',
+//                         url: url+"Video/Search/"+idVideo,
+                        
+//     success: function(response) {
+//         console.log(response.changeVideo);
+//         console.log(response.changeVideo.video_path);
+        
+//         var name = response.changeVideo.video_path ;
+        
+//         $('#videoPanel').attr('src', '{{ route( view.video,[filename=>'+name+'])}}');
+//         $('#videoPanel')[0].load();
+
+//     },error: function(err) {
+//         console.log(err);
+//             swal({
+//                 title: "¡Oh no!",
+//                 text: "Ha ocurrido un error inesperado, refresca la página e intentalo de nuevo.",
+//                 icon: "error",
+//                 button: {
+//                     text: "Aceptar",
+//                     visible: true,
+//                     value: true,
+//                     className: "green",
+//                     closeModal: true
+//             }
+//         });
+//     }
+
+// });
+// }
+

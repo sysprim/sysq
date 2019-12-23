@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Ticket;
 use App\Turn;
+use App\Video;
 use Illuminate\Support\Facades\DB;
 
 class AdministratorController extends Controller
@@ -45,14 +46,12 @@ class AdministratorController extends Controller
    }
 
    public function turn(){
+         
+     $video = Video::all();
+     $videoPanel = null;
 
-          // $turn_history = Turn::where('turn_status','Atendido')->get();
-          $turn = new Turn();
-          // $turnCall = $turn->where('turn_status','Llamado')->orderBy('updated_at', 'desc')->get();
-          $turnWaiting = $turn->where('turn_status','En Espera')->orderBy('id', 'asc')->limit(5)->get();
-
-   		 return view('turn.turnPanel'/*, [//'call'   =>$turnCall,
-              'turnWaiting'=>$turnWaiting]*/);
+   	return view('turn.turnPanel', ['video'   =>$video,
+                                   'videoPanel'=>$videoPanel]);
    }
 
    public function config (){

@@ -20,7 +20,7 @@
     </div>
     <div class="footer-copyright" style="background-color:#1860ab">
       <div class="container">
-       <p style="margin-left:50px">© 2019 Tecno-Ve</p> 
+       <p style="margin-left:50px">© 2019 Tecnova-Ve</p> 
       </div>
     </div>
 </footer>
