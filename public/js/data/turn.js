@@ -33,6 +33,7 @@ $(document).ready(function () {
                         $('#blockResetTurnos').hide();
 
                         $('#text_llamar').html('Llamar de nuevo');
+                        $('#info').html('Recuerde iniciar atención cuando el cliente este en taquilla');
                         $('#nameClient').html('Cliente');
                         $('#ciClient').html(ci);
                         $('#nameTurn').html('Turno');
@@ -527,8 +528,11 @@ $(document).ready(function () {
 
     });   
 
-    function ticket(){
-        var consulta = $.ajax({
+function ticket(){
+        
+setTimeout(function(){
+
+    var consulta = $.ajax({
                                 method:'POST',
                                 url: url+"Turn/CallMe",
                                 data:{
@@ -550,21 +554,41 @@ $(document).ready(function () {
                     console.log(response.call[i].turn_status);
                     console.log(response.call[i].random_code);
                     console.log(response.call[i].tickets.number_ticket);
+                    console.log(response.call[i].clients.ci_client);
 
-                    acum+="<h5>"+response.call[i].random_code+'</h5>';
-                    acum1+="<h5>"+response.call[i].tickets.number_ticket+'</h5>';
+                    acum+="<h5>"+response.call[i].random_code+'</h5>'+'<h5>'+response.call[i].clients.ci_client+'<h5>';
+                    acum1+="<h5>"+response.call[i].tickets.number_ticket+'</h5>'+"<h5>"+"Cedula"+'</h5>';
                     code+=response.call[i].random_code;
-                    ticket+=response.call[i].tickets.number_ticket;   
+                    ticket+=response.call[i].tickets.number_ticket;
+
                 }
                 $("#ticketNumber").html(acum1);
                 $("#codeRandom").html(acum);
+
+                if(acum!=""){
+
+                     setTimeout( swal({
+                        title: "Cliente: "+response.call[0].clients.ci_client,
+                        text: "Turno: "+response.call[0].random_code,
+                        button: {
+                            className: "azul",
+                             },
+                            timer: 2000
+                    }),10000);
+
+                     $('.audio')[0].play();
+                }
                 
             },error: function() {
                 console.log("No se ha podido obtener la información");
             }
 
         });
-      } 
+      
+    ticket();
+}, 3000);
+
+} 
 
       function ticketWaiting(){
         var consulta = $.ajax({
@@ -587,10 +611,11 @@ $(document).ready(function () {
                     console.log(response.waiting[i].turn_status);
                     console.log(response.waiting[i].random_code);
                     console.log(response.waiting[i].tickets.number_ticket);
-
-                    acum+="<h5>"+response.waiting[i].random_code+'</h5>';
-                    acum1+="<h5>"+response.waiting[i].tickets.number_ticket+'</h5>';    
+                    
+                    acum+="<h5>"+response.waiting[i].random_code+'</h5>'+'<h5>'+response.waiting[i].clients.ci_client+'<h5>';
+                    acum1+="<h5>"+response.waiting[i].tickets.number_ticket+'</h5>'+"<h5>"+"Cedula"+'</h5>';    
                 }
+
                 $("#ticketWaiting").html(acum1);
 
                 $("#codeWaiting").html(acum);
@@ -624,8 +649,9 @@ $(document).ready(function () {
                     console.log(response.attend[i].random_code);
                     console.log(response.attend[i].tickets.number_ticket);
 
-                    acum+="<h5>"+response.attend[i].random_code+'</h5>';
-                    acum1+="<h5>"+response.attend[i].tickets.number_ticket+'</h5>';    
+                    acum+="<h5>"+response.attend[i].random_code+'</h5>'+'<h5>'+response.attend[i].clients.ci_client+'<h5>';
+                    acum1+="<h5>"+response.attend[i].tickets.number_ticket+'</h5>'+"<h5>"+"Cedula"+'</h5>';
+  
                 }
                 $("#ticketAttend").html(acum1);
 
@@ -640,7 +666,7 @@ $(document).ready(function () {
     
 
       if($('#ticketNumber').val()!=undefined){
-         setInterval(ticket, 1000);
+            ticket();
          setInterval(ticketWaiting, 1000);
          setInterval(ticketAttending, 1000); 
       }

@@ -12,7 +12,7 @@
                 </div>
                 <div class="col s8 m9 ">
                     <span style="font-size: 40px; font-weight: bolder;">Atención</span><br>
-                    <span>Realizar la llamada por ticket de cliente para cada servicio.</span>
+                    <span id="info">Realizar la llamada por ticket de cliente para cada servicio.</span>
                 </div>
             </div>
             <div class="divider"></div>

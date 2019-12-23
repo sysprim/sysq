@@ -16,7 +16,7 @@
                     <table class="striped centered" style="width: 100%;">
                         <thead>
                             <tr>
-                                <th>Videos</th>
+                                <th>Video</th>
                                 <th>Descripción</th>
                                 <th>Eliminar</th>
                             </tr>

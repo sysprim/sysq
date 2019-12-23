@@ -84,7 +84,7 @@ class TurnController extends Controller
 
     public function turnCallMe(Request $request){
         
-        $turnCall = Turn::with('tickets')->where('turn_status', 'Llamado')->get();
+        $turnCall = Turn::with(['tickets', 'clients'])->where('turn_status', 'Llamado')->get();
 
         return response()->json(array('call'=>$turnCall,
                                        ));
@@ -92,7 +92,7 @@ class TurnController extends Controller
 
     public function turnWaiting(Request $request){
         
-        $turnWaiting = Turn::with('tickets')->where('turn_status', 'En Espera')->limit(5)->get();
+        $turnWaiting = Turn::with(['tickets', 'clients'])->where('turn_status', 'En Espera')->limit(5)->get();
 
         return response()->json(array('waiting'=>$turnWaiting,
                                        ));
@@ -100,7 +100,7 @@ class TurnController extends Controller
 
     public function turnAttending(Request $request){
         
-        $turnAttend = Turn::with('tickets')->where('turn_status', 'Iniciado')->limit(5)->get();
+        $turnAttend = Turn::with(['tickets', 'clients'])->where('turn_status', 'Iniciado')->limit(5)->get();
 
         return response()->json(array('attend'=>$turnAttend,
                                        ));

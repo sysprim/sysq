@@ -18,7 +18,7 @@
             <div class="row" style="margin-top:20px;">
                 <div class="col s12 m12 l12">
                    <div class="alert alert-info" role="alert">
-                       Recuerde el número la pagina sera actualizada en breve
+                       Recuerde el número, la pagina sera actualizada en breve
                     </div>
                 </div>
             </div> 
