@@ -148,7 +148,7 @@
 
     <main>
         <div class="video-container">
-            <video  src="{{asset('img/big_bck_bunny.mp4')}}" frameborder="0" allowfullscreen loop autoplay></video>
+            <video  src="{{asset('img/big_buck_bunny.mp4')}}" frameborder="0" allowfullscreen loop autoplay></video>
         </div> 
             
         
