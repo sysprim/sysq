@@ -4,7 +4,7 @@
 
 <script>
     //const url = "http://localhost/sysq/public/";
-    // const url = "http://144.91.97.209/";
+    const url = "http://144.91.97.209/";
         
     function redireccionar(){
         setTimeout("location.href='http://localhost/sysq/public/'", 10000);
