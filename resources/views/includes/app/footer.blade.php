@@ -2,7 +2,7 @@
     <div class="container" style="background-color:#1860ab">
       <div class="row" >
         <div class="col s6">
-          <h5 class="white-text" style="margin-left:70px;">SysQ</h5>
+          <h5 class="white-text" style="margin-left:70px;">SYS</h5>
           <div>
             <img style="width:200px; height:110px" src="{{asset('img/sysQ blanco icono.png')}}" alt="">
           </div>
