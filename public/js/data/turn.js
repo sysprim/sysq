@@ -447,7 +447,7 @@ $(document).ready(function () {
                 if(value == true){
                     $.ajax({
                         method:'POST',
-                        url: url+"/Turn/Reset",
+                        url: url+"Turn/Reset/Ticket",
                         data:{idReset:idReset,
                             "_token": $("meta[name='csrf-token']").attr("content")
                         },

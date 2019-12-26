@@ -152,9 +152,21 @@ class TurnController extends Controller
 
     public function turnReset(Request $request){
 
+        $turn= Turn::where('turn_status', 'En Espera')->orWhere('turn_status', 'Llamado')->orWhere('turn_status', 'Iniciado')->get();
+
+        foreach ($turn as $turns) {
+
+            $turns->turn_status = "Cancelado";
+            $turns->update();
+        }
+ 
+    }
+
+    public function turnResetTicket(Request $request){
+
         $id = $request->input('idReset');
 
-        $turn= Turn::where('ticket_id', $id)->where('turn_status', 'En Espera')->orWhere('turn_status', 'Llamado')->get();
+        $turn= Turn::where('ticket_id', $id)->where('turn_status', 'En Espera')->where('ticket_id', $id)->orWhere('turn_status', 'Llamado')->where('ticket_id', $id)->orWhere('turn_status', 'Iniciado')->get();
 
         foreach ($turn as $turns) {
 

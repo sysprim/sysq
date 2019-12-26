@@ -30,7 +30,7 @@
                         <div class="video-container">
                             @if($videoPanel)
                             
-                            <video id="videoPanel" width="100%" height="100px"  frameborder="0" allowfullscreen loop autoplay>
+                            <video id="videoPanel"  frameborder="0" allowfullscreen loop autoplay>
                                 <source src="{{ route('view.video' ,['filename'=>$videoPanel->video_path])}}">
                             </video>
                             
@@ -109,7 +109,7 @@
 
 
         <div class="col s3 m3 l3 marginCol">
-            <div  class="row marginCol">
+            
                 <div class="row marginCol">
                     <div class="col s12 m12 l12 green accent-4 center-align marginCol">
                         <h4 class="flow-text" style="font-weight:bold;">Llamados</h4>
@@ -183,33 +183,36 @@
                 </div>
             </div>
             
-           </div>
+           
         </div>
     </main>
 </div>
+
+<div class="fixed-action-btn" style="z-index: 99999">
+    <a href="{{ route('panel') }}" class="btn-floating btn-large red tooltipped" data-position="left" data-tooltip="Panel">
+      <i class="icon-account_circle large" style="font-size:50px"></i>
+    </a>
+      <ul>
+          <li><a href="#video" class="btn-floating white tooltipped modal-trigger" style="background-color:##34e064"
+              data-position="left" data-tooltip="Seleccionar Video">
+              <i class="icon-vertical_align_top large black-text" ></i></a>
+          </li>      
+          <li><button type="button" value="#video" class="btn-floating tooltipped" style="background-color:#1860ab"
+              data-position="left" data-tooltip="Editar Noticias">
+              <i class="icon-mode_edit large" id="editNotice"></i></button>
+          </li>
+          <li><a href="{{route('index.video')}}" class="btn-floating tooltipped orange" data-position="left" data-tooltip="Consultar Videos">
+              <i class="icon-ondemand_video"></i></a>
+          </li>
+      </ul>
+  </div>
+
 
     <audio class="audio">
         <source src="{{asset('img/turn.mp3')}}" type="audio/ogg">
     </audio>
 
-    <div class="fixed-action-btn" style="z-index: 99999">
-      <a href="{{ route('panel') }}" class="btn-floating btn-large red tooltipped" data-position="left" data-tooltip="Panel">
-        <i class="icon-account_circle large" style="font-size:50px"></i>
-      </a>
-        <ul>
-            <li><a href="#video" class="btn-floating white tooltipped modal-trigger" style="background-color:##34e064"
-                data-position="left" data-tooltip="Seleccionar Video">
-                <i class="icon-vertical_align_top large black-text" ></i></a>
-            </li>      
-            <li><button type="button" value="#video" class="btn-floating tooltipped" style="background-color:#1860ab"
-                data-position="left" data-tooltip="Editar Noticias">
-                <i class="icon-mode_edit large" id="editNotice"></i></button>
-            </li>
-            <li><a href="{{route('index.video')}}" class="btn-floating tooltipped orange" data-position="left" data-tooltip="Consultar Videos">
-                <i class="icon-ondemand_video"></i></a>
-            </li>
-        </ul>
-    </div>
+   
 
 <!-- Modal Structure -->
         <div id="video" class="modal bottom-sheet">
@@ -279,7 +282,7 @@
 <script src="{{ asset('js/data/turn.js') }}"></script>
 <script src="{{ asset('js/data/video.js') }}"></script>
    
-</body>
+
 
 <style>
     body {
@@ -294,6 +297,7 @@
 
 </style>
 
+</body>
 </html>
 
 
