@@ -568,8 +568,9 @@ setTimeout(function(){
 
                 if(acum!=""){
 
-                        $('#ciClienteModal').html(response.call[0].clients.ci_client);
-                        $('#randomCodeModal').html(response.call[0].random_code);
+                        $('#ciClienteModal').html("Cliente: "+response.call[0].clients.ci_client);
+                        $('#randomCodeModal').html("Ticket: "+response.call[0].random_code);
+                        $('#numberTicketModal').html("Taquilla: "+response.call[0].tickets.number_ticket);
                         // var ci =response.call[i].clients.ci_client;
                         // var codeModal =response.call[i].random_code;
 
@@ -577,9 +578,7 @@ setTimeout(function(){
                         $('#turnModal').modal('open');   
                         
                      } ,10000);
-
-                      setTimeout($('#turnModal').modal('close'),12000);
-                     
+     
                     //  setTimeout( swal({
                     //     title: "CLIENTE: "+ci,
                     //     text: "TURNO: "+codeModal,
@@ -591,6 +590,8 @@ setTimeout(function(){
                                        
                     $('.audio')[0].play();
                 }
+
+                 setTimeout($('#turnModal').modal('close'),12000);
                 
             },error: function() {
                 console.log("No se ha podido obtener la información");

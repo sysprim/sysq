@@ -45,69 +45,12 @@
 
         <div class="row">
             <div class="col s12 m12 red">
-                <marquee behavior="" direction=""><b id="notice" style="color: #fff">Cintillo de Noticia:</b></marquee>
+                <marquee behavior="" direction=""><b id="notice" style="color: #fff; font-size: 40px">Cintillo de Noticia:</b></marquee>
             </div>
         </div>
             
 
-        <div class="row marginCol">
-            <div class="col s12 m12 " style="padding:0" >   
-                <div style="background-color:#1860ab;color: #fff">
-                    <div class="container-fluid">
-                        <div class="row" style="display:none" id="editNoticePanel">
-                            <div class="input-field col s12 m12 " style="padding:20px;">
-                               <input type="text" id="noticeCam" name="noticeCam" class="white-text">
-                               <label for="noticeCam" class="white-text">Cambiar Noticias</label>
-                               <button type="button" class="btn white black-text" id="camNotice">Cambiar</button>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col s4 m4" style="float:left;margin-top:20px">
-                                    <div class="Widget">
-                                        <div class="Fecha">
-                                            <div>
-                                            <p id="DiaSemana" class="DiaSemana"></p>
-                                            </div>
-                                            <p id="Dia" class="Dia"></p>
-                                            <p> de </p>
-                                            <p id="Mes" class="Mes"></p>
-                                            <p> del </p>
-                                            <p id="Anio" class="Anio"></p>
-                                        </div>
-                                        
-                                    </div>
-                            </div>
-
-                            <div class="col s4 m4 left-align" style="margin-top:30px">
-                                <div class="Widget">
-                                    <div class="Reloj">
-                                            <p id="Horas" class="Horas"></p>
-                                            <p>:</p>
-                                            <p id="Minutos" class="Minutos"></p>
-                                            <p>:</p>                                           
-                                            <p id="Segundos" class="Segundos"></p>
-                                            <p style="font-weight:bold;font-size: 15px;" id="AM-PM" class="AM-PM"></p>
-                                            
-                                    </div> 
-                                </div>              
-                            </div>
-
-                            <div class="col s4 m4 left-align" style="margin-top:30px">
-                                <div style="margin-left: 30px;">
-                                    <img style="width:150px; height:60px" src="{{asset('img/sysQ-blanco.png')}}" alt="">
-                                </div> 
-
-                                <div class="container">
-                                    <p> © 2019 Tecnova-Ve</p> 
-                                </div>          
-                            </div>
-                 
-                        </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        
 </div>
 
 
@@ -191,6 +134,65 @@
     </main>
 </div>
 
+<div class="row marginCol" style="width: 100%">
+            <div class="col s12 m12 " style="padding:0" >   
+                <div style="background-color:#1860ab;color: #fff">
+                    <div class="container-fluid">
+                        <div class="row" style="display:none" id="editNoticePanel">
+                            <div class="input-field col s12 m12 " style="padding:20px;">
+                               <input type="text" id="noticeCam" name="noticeCam" class="white-text">
+                               <label for="noticeCam" class="white-text">Cambiar Noticias</label>
+                               <button type="button" class="btn white black-text" id="camNotice">Cambiar</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col s4 m4" style="float:left;margin-top:20px">
+                                    <div class="Widget">
+                                        <div class="Fecha">
+                                            <div>
+                                            <p id="DiaSemana" class="DiaSemana"></p>
+                                            </div>
+                                            <p id="Dia" class="Dia"></p>
+                                            <p> de </p>
+                                            <p id="Mes" class="Mes"></p>
+                                            <p> del </p>
+                                            <p id="Anio" class="Anio"></p>
+                                        </div>
+                                        
+                                    </div>
+                            </div>
+
+                            <div class="col s4 m4 center-align" style="margin-top:30px">
+                                <div class="Widget">
+                                    <div class="Reloj">
+                                            <p id="Horas" class="Horas"></p>
+                                            <p>:</p>
+                                            <p id="Minutos" class="Minutos"></p>
+                                            <p>:</p>                                           
+                                            <p id="Segundos" class="Segundos"></p>
+                                            <p style="font-weight:bold;font-size: 15px;" id="AM-PM" class="AM-PM"></p>
+                                            
+                                    </div> 
+                                </div>              
+                            </div>
+
+                            <div class="col s4 m4 center-align" style="margin-top:30px">
+                                <div style="margin-left: 30px;">
+                                    <img style="width:300px; height:120px" src="{{asset('img/sysQ-blanco.png')}}" alt="">
+                                </div> 
+
+                                <div class="container">
+                                    <p style="font-size: 20px;"> © 2019 Tecnova-Ve</p> 
+                                </div>          
+                            </div>
+                 
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <div class="fixed-action-btn" style="z-index: 99999">
     <a href="{{ route('panel') }}" class="btn-floating btn-large red tooltipped" data-position="left" data-tooltip="Panel">
       <i class="icon-account_circle large" style="font-size:50px"></i>
@@ -262,9 +264,10 @@
                     <div class="col s12 center-align">
                         <span style="font-size:50px;">Presentarse:</span>
                     </div>
-                    <div class="col s12 center-align">
-                        <div style="font-size: 80px; font-weight: 500" id="ciClienteModal" ></div>
-                        <div style="font-size: 40px; font-weight: 900" id="randomCodeModal" ></div>
+                    <div class="col s12 left-align">
+                        <div style="font-size: 120px; font-weight: 500" id="ciClienteModal" ></div>
+                        <div style="font-size: 80px; font-weight: 500" id="randomCodeModal" ></div>
+                        <div style="font-size: 80px; font-weight: 500" id="numberTicketModal" ></div>
                     </div>
                 </div>
             </div>

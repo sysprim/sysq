@@ -29,24 +29,25 @@ div{
 .Fecha{
     font-family:Arial,Helvetica,Sans-serif;
     text-align:center;
-    font-size:20px;
+    font-size:50px;
     width:100%;
 }
 
 .Reloj{
     font-family:Arial,Helvetica,Sans-serif;
     text-align:center;
-    font-size:30px;
+    font-size:80px;
     width:100%;
 }
 
 .Reloj .Segundos,
 .Reloj .AM-PM{
-    font-size:20px;
+    font-size:60px;
     display:inline-block;
 }
 
 h4, h5 {
     font-weight: bold;
+    font-size: 50px  !important;
     color:#000;
 }
