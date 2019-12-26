@@ -163,13 +163,6 @@ div{
     font-weight: bolder;
 }
 
-footer {
-    display: flex;
-    min-height: 50vh;
-    flex-direction: column;
-    font-family: 'Arial' !important;
-}
-
 h4, h5 {
     font-weight: bold;
     color:#000;

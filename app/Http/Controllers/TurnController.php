@@ -111,7 +111,7 @@ class TurnController extends Controller
         $id = $request->input('idTurn');
 
         $turn  = Turn::find($id);
-        $turn->turn_status = "llamado";
+        $turn->turn_status = "Llamado";
 
         $turn->update();
         
@@ -163,10 +163,5 @@ class TurnController extends Controller
         }
  
     }
-    public function turnResetTicket(){
-
-    }
-
-    
     
 }

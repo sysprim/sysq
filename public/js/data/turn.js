@@ -1,5 +1,5 @@
-// const url = "http://localhost/sysq/public/";
- const url = "http://144.91.97.209/";
+ const url = "http://localhost/sysq/public/";
+//  const url = "http://144.91.97.209/";
 
 $(document).ready(function () {
 
@@ -556,8 +556,9 @@ setTimeout(function(){
                     console.log(response.call[i].tickets.number_ticket);
                     console.log(response.call[i].clients.ci_client);
 
-                    acum+="<h5>"+response.call[i].random_code+'</h5>'+'<h5>'+response.call[i].clients.ci_client+'<h5>';
-                    acum1+="<h5>"+response.call[i].tickets.number_ticket+'</h5>'+"<h5>"+"Cedula"+'</h5>';
+                    acum+="<h5>"+response.call[i].random_code+'</h5>'+'<h5>'+'Ci:'+response.call[i].clients.ci_client+'<h5>';
+                    acum1+="<h5>"+response.call[i].tickets.number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
+                    
                     code+=response.call[i].random_code;
                     ticket+=response.call[i].tickets.number_ticket;
 
@@ -567,16 +568,31 @@ setTimeout(function(){
 
                 if(acum!=""){
 
+                    for(i=0; i<response.call.length; i++){
+
+                        // $('#ciClienteModal').html(response.call[i].clients.ci_client);
+                        // $('#randomCodeModal').html(response.call[i].random_code);
+                        var ci =response.call[i].clients.ci_client;
+                        var codeModal =response.call[i].random_code;
+                    }
+
+                    //  setTimeout( function(){
+                    //     $('#turnModal').modal('open');
+
+                    //     setTimeout($('#turnModal').modal('close'),2000);
+                        
+                    //  } ,10000);
+                     
                      setTimeout( swal({
-                        title: "Cliente: "+response.call[0].clients.ci_client,
-                        text: "Turno: "+response.call[0].random_code,
+                        title: "CLIENTE: "+ci,
+                        text: "TURNO: "+codeModal,
                         button: {
-                            className: "azul",
+                            className: "blue",
                              },
                             timer: 2000
                     }),10000);
-
-                     $('.audio')[0].play();
+                                       
+                    $('.audio')[0].play();
                 }
                 
             },error: function() {
@@ -612,8 +628,8 @@ setTimeout(function(){
                     console.log(response.waiting[i].random_code);
                     console.log(response.waiting[i].tickets.number_ticket);
                     
-                    acum+="<h5>"+response.waiting[i].random_code+'</h5>'+'<h5>'+response.waiting[i].clients.ci_client+'<h5>';
-                    acum1+="<h5>"+response.waiting[i].tickets.number_ticket+'</h5>'+"<h5>"+"Cedula"+'</h5>';    
+                    acum+="<h5>"+response.waiting[i].random_code+'</h5>'+'<h5>'+'Ci:'+response.waiting[i].clients.ci_client+'<h5>';
+                    acum1+="<h5>"+response.waiting[i].tickets.number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';    
                 }
 
                 $("#ticketWaiting").html(acum1);
@@ -649,8 +665,8 @@ setTimeout(function(){
                     console.log(response.attend[i].random_code);
                     console.log(response.attend[i].tickets.number_ticket);
 
-                    acum+="<h5>"+response.attend[i].random_code+'</h5>'+'<h5>'+response.attend[i].clients.ci_client+'<h5>';
-                    acum1+="<h5>"+response.attend[i].tickets.number_ticket+'</h5>'+"<h5>"+"Cedula"+'</h5>';
+                    acum+="<h5>"+response.attend[i].random_code+'</h5>'+'<h5>'+'Ci:'+response.attend[i].clients.ci_client+'<h5>';
+                    acum1+="<h5>"+response.attend[i].tickets.number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
   
                 }
                 $("#ticketAttend").html(acum1);

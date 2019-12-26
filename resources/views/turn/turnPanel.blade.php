@@ -19,19 +19,18 @@
     <link rel="stylesheet" href="{{ asset('css/turno.css') }}">
     <link rel="shortcut icon" href="{{ asset('img/sysQ-icono.ico') }}" type="image/x-icon">
 </head>
-<body>
+<body class="grey lighten-3">
 
     @include('includes.preloader')
-
+<main>
     <div class="row marginCol">
         <div class="col s9 m9 l9 marginCol">
-            <main>
                 <div class="row marginCol">
                     <div class="col s12 m12 l12 marginCol">
                         <div class="video-container">
                             @if($videoPanel)
                             
-                            <video id="videoPanel" width="100%" height="auto"  frameborder="0" allowfullscreen loop autoplay>
+                            <video id="videoPanel" width="100%" height="100px"  frameborder="0" allowfullscreen loop autoplay>
                                 <source src="{{ route('view.video' ,['filename'=>$videoPanel->video_path])}}">
                             </video>
                             
@@ -43,11 +42,11 @@
                         </div>
                     </div>
                 </div>
-            </main>
+            
 
         <div class="row marginCol">
             <div class="col s12 m12 l12 marginCol" >   
-                <footer class=" page-footer" style="background-color:#1860ab">
+                <div class=" page-footer" style="background-color:#1860ab">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col s12 m12 l12">
@@ -106,6 +105,8 @@
             </div>
         </div>
     </div>
+</div>
+
 
         <div class="col s3 m3 l3 marginCol">
             <div  class="row marginCol">
@@ -125,11 +126,11 @@
                 </div>
 
                 <div class="row">
-                    <div class="col s6 m6 l6 center-align grey lighten-2 marginCol" id="code_random">
-                        <h4 id="codeRandom"></h4>
+                    <div class="col s8 m8 l8 grey lighten-3 marginCol" id="code_random">
+                        <div id="codeRandom"></div>
                     </div>
-                    <div class="col s6 m6 l6 center-align grey lighten-2 marginCol" id="ticket_number">
-                        <h4 id="ticketNumber"></h4>
+                    <div class="col s4 m4 l4 center-align grey lighten-3 marginCol" id="ticket_number">
+                        <div id="ticketNumber"></div>
                     </div>
                 </div>
 
@@ -150,11 +151,11 @@
                     </div>
     
                     <div class="row">
-                        <div class="col s6 m6 l6 center-align grey lighten-2 marginCol" id="code_random">
-                            <h4 id="codeAttend"></h4>
+                        <div class="col s8 m8 l8 grey lighten-3 marginCol" id="code_random">
+                            <div id="codeAttend"></div>
                         </div>
-                        <div class="col s6 m6 l6 center-align grey lighten-2 marginCol" id="ticket_number">
-                            <h4 id="ticketAttend"></h4>
+                        <div class="col s4 m4 l4 center-align grey lighten-3 marginCol" id="ticket_number">
+                            <div id="ticketAttend"></div>
                         </div>
                     </div>
 
@@ -174,16 +175,18 @@
             </div>
 
             <div class="row">
-                <div class="col s6 m6 l6 center-align grey lighten-2 marginCol">
-                    <h4 id="codeWaiting"></h4>
+                <div class="col s8 m8 l8 grey lighten-3 marginCol">
+                    <div id="codeWaiting"></div>
                 </div>
-                <div class="col s6 m6 l6 center-align grey lighten-2 marginCol">
-                    <h4 id="ticketWaiting"></h4>
+                <div class="col s4 m4 l4 center-align grey lighten-3 marginCol">
+                    <div id="ticketWaiting"></div>
                 </div>
             </div>
             
            </div>
-    </div>
+        </div>
+    </main>
+</div>
 
     <audio class="audio">
         <source src="{{asset('img/turn.mp3')}}" type="audio/ogg">
@@ -207,7 +210,6 @@
             </li>
         </ul>
     </div>
-</div>
 
 <!-- Modal Structure -->
         <div id="video" class="modal bottom-sheet">
@@ -247,7 +249,21 @@
                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">cerrar</a>
             </div>
         </div>
-    </div>
+
+        <div id="turnModal" class="modal">
+            <div class="modal-content center-align" style="color:#1860ab">
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <span style="font-size:50px;">Presentarse:</span>
+                    </div>
+                    <div class="col s12 center-align">
+                        <div style="font-size: 80px; font-weight: 500" id="ciClienteModal" ></div>
+                        <div style="font-size: 40px; font-weight: 900" id="randomCodeModal" ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     
 
@@ -264,6 +280,20 @@
 <script src="{{ asset('js/data/video.js') }}"></script>
    
 </body>
+
+<style>
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    main {
+        flex: 1 0 auto;
+    }
+
+</style>
+
 </html>
 
 

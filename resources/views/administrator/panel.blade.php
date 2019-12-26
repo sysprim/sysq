@@ -3,6 +3,7 @@
 
 @section('content')
 
+
 <main>
     <script src="{{ asset('js/data/turn.js') }}"></script>
         <div class="container-fluid" style="margin-top:20px;">
@@ -214,4 +215,5 @@
                 </audio>
             
     </main>
+
 @endsection
