@@ -26,7 +26,7 @@
     <div class="row marginCol">
         <div class="col s9 m9 l9 marginCol">
                 <div class="row marginCol">
-                    <div class="col s12 m12 l12 marginCol">
+                    <div class="col s12 m12 l12 " style="padding:0">
                         <div class="video-container">
                             @if($videoPanel)
                             
@@ -45,7 +45,7 @@
             
 
         <div class="row marginCol">
-            <div class="col s12 m12 l12 marginCol" >   
+            <div class="col s12 m12 l12 " style="padding:0" >   
                 <div class=" page-footer" style="background-color:#1860ab">
                     <div class="container-fluid">
                         <div class="row">
