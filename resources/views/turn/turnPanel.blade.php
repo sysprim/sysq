@@ -24,9 +24,9 @@
     @include('includes.preloader')
 <main>
     <div class="row marginCol">
-        <div class="col s9 m9 l9 marginCol">
+        <div class="col s8 m8 marginCol">
                 <div class="row marginCol">
-                    <div class="col s12 m12 l12 " style="padding:0">
+                    <div class="col s12 m12 " style="padding:0;height: 80%";>
                         <div class="video-container">
                             @if($videoPanel)
                             
@@ -45,17 +45,17 @@
             
 
         <div class="row marginCol">
-            <div class="col s12 m12 l12 " style="padding:0" >   
+            <div class="col s12 m12 " style="padding:0" >   
                 <div class=" page-footer" style="background-color:#1860ab">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col s12 m12 l12">
+                            <div class="col s12 m12 ">
                                <marquee behavior="" direction=""><b id="notice">Cintillo de Noticia:</b></marquee>
                             </div>
                         </div>
 
                         <div class="row" style="display:none" id="editNoticePanel">
-                            <div class="input-field col s12 m12 l12" style="padding:20px;">
+                            <div class="input-field col s12 m12 " style="padding:20px;">
                                <input type="text" id="noticeCam" name="noticeCam" class="white-text">
                                <label for="noticeCam" class="white-text">Cambiar Noticias</label>
                                <button type="button" class="btn white black-text" id="camNotice">Cambiar</button>
@@ -63,7 +63,7 @@
                         </div>
 
                         <div class="row" style="margin-top:20px;">
-                            <div class="col s6 m6 l6" style="float:left">
+                            <div class="col s6 m6" style="float:left">
                                 <div id="liveclock" class="outer_face">
                                     <div class="marker oneseven"></div>
                                     <div class="marker twoeight"></div>
@@ -78,7 +78,7 @@
                                 </div>
                             </div>
 
-                            <div class="col s6 m6 l6 left-align" style="margin-top:30px">
+                            <div class="col s6 m6 left-align" style="margin-top:30px">
                                 <div class="date">
                                     <span id="weekDay"  class="weekDay  "></span><span>,   </span><br>
                                     <span id="month"    class="month    "></span><span > del</span>
@@ -90,13 +90,13 @@
                     </div>
 
                 <div class="row" style="margin-top:20px">
-                    <div class="col s6 m6 l6">
+                    <div class="col s6 m6">
                         <div class="container">
                          <p> © 2019 Tecnova-Ve</p> 
                         </div>
                       </div>
 
-                      <div class="col s2 m2 l2 offset-l4">
+                      <div class="col s2 m2 offset-m4">
                         
                             <img style="width:50px; height:40px" src="{{asset('img/sysQ blanco icono.png')}}" alt=""> 
                         
@@ -108,7 +108,7 @@
 </div>
 
 
-        <div class="col s3 m3 l3 marginCol">
+        <div class="col s4 m4 marginCol">
             
                 <div class="row marginCol">
                     <div class="col s12 m12 l12 green accent-4 center-align marginCol">
@@ -117,68 +117,68 @@
                 </div>
 
                 <div class="row">
-                    <div class="col s6 m6 l6 center-align marginCol" style="background-color:#1860ab">
+                    <div class="col s6 m6 center-align marginCol" style="background-color:#1860ab">
                         <h4 class="flow-text">Turno</h4>
                     </div>
-                    <div class="col s6 m6 l6 center-align marginCol" style="background-color:#1860ab">
+                    <div class="col s6 m6 center-align marginCol" style="background-color:#1860ab">
                         <h4 class="flow-text">Taquilla</h4>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col s8 m8 l8 grey lighten-3 marginCol" id="code_random">
+                    <div class="col s8 m8 grey lighten-3 marginCol" id="code_random">
                         <div id="codeRandom"></div>
                     </div>
-                    <div class="col s4 m4 l4 center-align grey lighten-3 marginCol" id="ticket_number">
+                    <div class="col s4 m4 center-align grey lighten-3 marginCol" id="ticket_number">
                         <div id="ticketNumber"></div>
                     </div>
                 </div>
 
 
                     <div class="row marginCol">
-                        <div class="col s12 m12 l12 yellow darken-2 center-align marginCol">
+                        <div class="col s12 m12 yellow darken-2 center-align marginCol">
                             <h4 class="flow-text" style="font-weight:bold;">En Atención</h4>
                         </div>
                     </div>
     
                     <div class="row">
-                        <div class="col s6 m6 l6 center-align marginCol" style="background-color:#1860ab">
+                        <div class="col s6 m6 center-align marginCol" style="background-color:#1860ab">
                             <h4 class="flow-text">Turno</h4>
                         </div>
-                        <div class="col s6 m6 l6 center-align marginCol" style="background-color:#1860ab">
+                        <div class="col s6 m6 center-align marginCol" style="background-color:#1860ab">
                             <h4 class="flow-text">Taquilla</h4>
                         </div>
                     </div>
     
                     <div class="row">
-                        <div class="col s8 m8 l8 grey lighten-3 marginCol" id="code_random">
+                        <div class="col s8 m8 grey lighten-3 marginCol" id="code_random">
                             <div id="codeAttend"></div>
                         </div>
-                        <div class="col s4 m4 l4 center-align grey lighten-3 marginCol" id="ticket_number">
+                        <div class="col s4 m4 center-align grey lighten-3 marginCol" id="ticket_number">
                             <div id="ticketAttend"></div>
                         </div>
                     </div>
 
             <div class="row">
-                <div class="col s12 m12 l12 red center-align marginCol">
+                <div class="col s12 m12 red center-align marginCol">
                     <h4 class="flow-text">En Espera</h4>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col s6 m6 l6 center-align marginCol" style="background-color:#1860ab">
+                <div class="col s6 m6 center-align marginCol" style="background-color:#1860ab">
                     <h4 class="flow-text" style="margin-left:10xp">Turno</h4>
                 </div>
-                <div class="col s6 m6 l6 center-align marginCol" style="background-color:#1860ab">
+                <div class="col s6 m6 center-align marginCol" style="background-color:#1860ab">
                     <h4 class="flow-text" >Taquilla</h4>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col s8 m8 l8 grey lighten-3 marginCol">
+                <div class="col s8 m8 grey lighten-3 marginCol">
                     <div id="codeWaiting"></div>
                 </div>
-                <div class="col s4 m4 l4 center-align grey lighten-3 marginCol">
+                <div class="col s4 m4 center-align grey lighten-3 marginCol">
                     <div id="ticketWaiting"></div>
                 </div>
             </div>

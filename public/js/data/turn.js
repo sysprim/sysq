@@ -568,29 +568,26 @@ setTimeout(function(){
 
                 if(acum!=""){
 
-                    for(i=0; i<response.call.length; i++){
+                        $('#ciClienteModal').html(response.call[0].clients.ci_client);
+                        $('#randomCodeModal').html(response.call[0].random_code);
+                        // var ci =response.call[i].clients.ci_client;
+                        // var codeModal =response.call[i].random_code;
 
-                        // $('#ciClienteModal').html(response.call[i].clients.ci_client);
-                        // $('#randomCodeModal').html(response.call[i].random_code);
-                        var ci =response.call[i].clients.ci_client;
-                        var codeModal =response.call[i].random_code;
-                    }
-
-                    //  setTimeout( function(){
-                    //     $('#turnModal').modal('open');
-
-                    //     setTimeout($('#turnModal').modal('close'),2000);
+                     setTimeout( function(){
+                        $('#turnModal').modal('open');   
                         
-                    //  } ,10000);
+                     } ,10000);
+
+                      setTimeout($('#turnModal').modal('close'),12000);
                      
-                     setTimeout( swal({
-                        title: "CLIENTE: "+ci,
-                        text: "TURNO: "+codeModal,
-                        button: {
-                            className: "blue",
-                             },
-                            timer: 2000
-                    }),10000);
+                    //  setTimeout( swal({
+                    //     title: "CLIENTE: "+ci,
+                    //     text: "TURNO: "+codeModal,
+                    //     button: {
+                    //         className: "blue",
+                    //          },
+                    //         timer: 2000
+                    // }),10000);
                                        
                     $('.audio')[0].play();
                 }

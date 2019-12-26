@@ -84,7 +84,7 @@ class TurnController extends Controller
 
     public function turnCallMe(Request $request){
         
-        $turnCall = Turn::with(['tickets', 'clients'])->where('turn_status', 'Llamado')->get();
+        $turnCall = Turn::with(['tickets', 'clients'])->where('turn_status', 'Llamado')->orderBy('turn_status', 'desc')->get();
 
         return response()->json(array('call'=>$turnCall,
                                        ));
