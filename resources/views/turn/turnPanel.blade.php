@@ -42,18 +42,18 @@
                         </div>
                     </div>
                 </div>
+
+        <div class="row">
+            <div class="col s12 m12 red">
+                <marquee behavior="" direction=""><b id="notice" style="color: #fff">Cintillo de Noticia:</b></marquee>
+            </div>
+        </div>
             
 
         <div class="row marginCol">
             <div class="col s12 m12 " style="padding:0" >   
-                <div class=" page-footer" style="background-color:#1860ab">
+                <div style="background-color:#1860ab;color: #fff">
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="col s12 m12 ">
-                               <marquee behavior="" direction=""><b id="notice">Cintillo de Noticia:</b></marquee>
-                            </div>
-                        </div>
-
                         <div class="row" style="display:none" id="editNoticePanel">
                             <div class="input-field col s12 m12 " style="padding:20px;">
                                <input type="text" id="noticeCam" name="noticeCam" class="white-text">
@@ -62,45 +62,48 @@
                             </div>
                         </div>
 
-                        <div class="row" style="margin-top:20px;">
-                            <div class="col s6 m6" style="float:left">
-                                <div id="liveclock" class="outer_face">
-                                    <div class="marker oneseven"></div>
-                                    <div class="marker twoeight"></div>
-                                    <div class="marker fourten"></div>
-                                    <div class="marker fiveeleven"></div>
-                         
-                                    <div class="inner_face">
-                                        <div class="hand hour"></div>
-                                        <div class="hand minute"></div>
-                                        <div class="hand second"></div>
+                        <div class="row">
+                            <div class="col s4 m4" style="float:left;margin-top:20px">
+                                    <div class="Widget">
+                                        <div class="Fecha">
+                                            <div>
+                                            <p id="DiaSemana" class="DiaSemana"></p>
+                                            </div>
+                                            <p id="Dia" class="Dia"></p>
+                                            <p> de </p>
+                                            <p id="Mes" class="Mes"></p>
+                                            <p> del </p>
+                                            <p id="Anio" class="Anio"></p>
+                                        </div>
+                                        
                                     </div>
-                                </div>
                             </div>
 
-                            <div class="col s6 m6 left-align" style="margin-top:30px">
-                                <div class="date">
-                                    <span id="weekDay"  class="weekDay  "></span><span>,   </span><br>
-                                    <span id="month"    class="month    "></span><span > del</span>
-                                    <span id="year"     class="year     "></span>
-                                </div>               
+                            <div class="col s4 m4 left-align" style="margin-top:30px">
+                                <div class="Widget">
+                                    <div class="Reloj">
+                                            <p id="Horas" class="Horas"></p>
+                                            <p>:</p>
+                                            <p id="Minutos" class="Minutos"></p>
+                                            <p>:</p>                                           
+                                            <p id="Segundos" class="Segundos"></p>
+                                            <p style="font-weight:bold;font-size: 15px;" id="AM-PM" class="AM-PM"></p>
+                                            
+                                    </div> 
+                                </div>              
+                            </div>
+
+                            <div class="col s4 m4 left-align" style="margin-top:30px">
+                                <div style="margin-left: 30px;">
+                                    <img style="width:150px; height:60px" src="{{asset('img/sysQ-blanco.png')}}" alt="">
+                                </div> 
+
+                                <div class="container">
+                                    <p> © 2019 Tecnova-Ve</p> 
+                                </div>          
                             </div>
                  
                         </div>
-                    </div>
-
-                <div class="row" style="margin-top:20px">
-                    <div class="col s6 m6">
-                        <div class="container">
-                         <p> © 2019 Tecnova-Ve</p> 
-                        </div>
-                      </div>
-
-                      <div class="col s2 m2 offset-m4">
-                        
-                            <img style="width:50px; height:40px" src="{{asset('img/sysQ blanco icono.png')}}" alt=""> 
-                        
-                      </div>
                 </div>
             </div>
         </div>

@@ -1,63 +1,69 @@
 
 $(document).ready(function () {
     
-var $hands = $('#liveclock div.hand')
- 
-window.requestAnimationFrame = window.requestAnimationFrame
-                               || window.mozRequestAnimationFrame
-                               || window.webkitRequestAnimationFrame
-                               || window.msRequestAnimationFrame
-                               || function(f){setTimeout(f, 60)}
- 
- 
-function updateclock(){
-	var curdate = new Date()
-	var hour_as_degree = ( curdate.getHours() + curdate.getMinutes()/60 ) / 12 * 360
-	var minute_as_degree = curdate.getMinutes() / 60 * 360
-	var second_as_degree = ( curdate.getSeconds() + curdate.getMilliseconds()/1000 ) /60 * 360
-	$hands.filter('.hour').css({transform: 'rotate(' + hour_as_degree + 'deg)' })
-	$hands.filter('.minute').css({transform: 'rotate(' + minute_as_degree + 'deg)' })
-	$hands.filter('.second').css({transform: 'rotate(' + second_as_degree + 'deg)' })
-	requestAnimationFrame(updateclock)
-}
- 
-requestAnimationFrame(updateclock)
-     
-let currentDate = new Date(),
+function Actulizar_Hora(){
+    var Fecha = new Date(), // Constructor
+      Horas = Fecha.getHours(),
+      Minutos = Fecha.getMinutes(),
+      Segundos = Fecha.getSeconds(),
+      AMPM,
+      DiaSemana = Fecha.getDay(),
+      Dia = Fecha.getDate(),
+      Mes = Fecha.getMonth(),
+      Anio = Fecha.getFullYear();
 
-           weekDay = currentDate.getDay(), 
-           month = currentDate.getMonth(), 
-           year = currentDate.getFullYear();
-    
-       const weekDays = [
-           'Domingo',
-           'Lunes',
-           'Martes',
-           'Miércoles',
-           'Jueves',
-           'Viernes',
-           'Sabado'
-       ];
-    
-       document.getElementById('weekDay').textContent = weekDays[weekDay];
+    var p_Horas = document.getElementById('Horas'),
+      p_Minutos = document.getElementById('Minutos'),
+      p_Segundos = document.getElementById('Segundos'),
+      p_AMPM = document.getElementById('AM-PM'),
+      p_DiaSemana = document.getElementById('DiaSemana'),
+      p_Dia = document.getElementById('Dia'),
+      p_Mes = document.getElementById('Mes'),
+      p_Anio = document.getElementById('Anio');
 
-    
-       const months = [
-           'Enero',
-           'Febrero',
-           'Marzo',
-           'Abril',
-           'Mayo',
-           'Junio',
-           'Julio',
-           'Agosto',
-           'Septiembre',
-           'Octubre',
-           'Noviembre',
-           'Diciembre'
-       ];
-    
-       document.getElementById('month').textContent = months[month];
-       document.getElementById('year').textContent = year;
+    /* Arreglo - Dias de la Semana. */ 
+    var Semana = ['Domingo,','Lunes,','Martes,','Miercoles,','Jueves,','Viernes,','Sabado,'];
+    p_DiaSemana.textContent = Semana[DiaSemana];
+
+    p_Dia.textContent = Dia;
+
+    /* Arreglo - Meses del Año. */
+    var Meses = ['Enero','Febrero','Merzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    p_Mes.textContent = Meses[Mes];
+
+    p_Anio.textContent = Anio;
+
+
+    /* Reloj */
+
+    if(Horas>=12){
+      Horas = Horas - 12;
+      AMPM = 'PM';
+    }
+    else{
+      AMPM = 'AM';
+    }
+
+    if(Horas == 0){
+      Horas = 12;
+    }
+
+    p_Horas.textContent = Horas;
+    p_AMPM.textContent = AMPM;
+
+    if(Minutos < 10){
+      Minutos = "0" + Minutos;
+    }
+
+    if(Segundos < 10){
+      Segundos = "0" + Segundos;
+    }
+
+    p_Minutos.textContent = Minutos;
+    p_Segundos.textContent = Segundos;
+  }
+  
+  Actulizar_Hora();
+  var Intervalo = setInterval(Actulizar_Hora,1000);
 
 });

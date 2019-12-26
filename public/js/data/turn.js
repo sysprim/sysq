@@ -679,9 +679,9 @@ setTimeout(function(){
     
 
       if($('#ticketNumber').val()!=undefined){
-            ticket();
-         setInterval(ticketWaiting, 1000);
-         setInterval(ticketAttending, 1000); 
+         //    ticket();
+         // setInterval(ticketWaiting, 1000);
+         // setInterval(ticketAttending, 1000); 
       }
      
 
