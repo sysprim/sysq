@@ -1,4 +1,4 @@
- // const url = "http://localhost/sysq/public/";
+// const url = "http://localhost/sysq/public/";
 const url = "http://144.91.97.209/";
 
 $(document).ready(function () {
@@ -568,9 +568,24 @@ setTimeout(function(){
 
                 if(acum!=""){
 
-                        $('#ciClienteModal').html("Cliente: "+response.call[0].clients.ci_client);
-                        $('#randomCodeModal').html("Ticket: "+response.call[0].random_code);
-                        $('#numberTicketModal').html("Taquilla: "+response.call[0].tickets.number_ticket);
+                    clientM="";
+                    ticketM="";
+                    codeM="";
+
+                    for(i=0; i<response.call.length; i++){
+                        clientM+="<span>"+response.call[i].clients.ci_client+"</span>"+"<br>";
+                        ticketM+="<span>"+response.call[i].tickets.number_ticket+"</span>"+"<br>";
+                        codeM+="<span>"+response.call[i].random_code+"</span>"+"<br>";
+                    }
+
+                     $('#ciClienteModal').html(clientM);
+                     $('#randomCodeModal').html(codeM);
+                     $('#numberTicketModal').html(ticketM);
+
+
+                        // $('#ciClienteModal').html(response.call[0].clients.ci_client);
+                        // $('#randomCodeModal').html(response.call[0].random_code);
+                        // $('#numberTicketModal').html(response.call[0].tickets.number_ticket);
                         // var ci =response.call[i].clients.ci_client;
                         // var codeModal =response.call[i].random_code;
 
@@ -591,7 +606,7 @@ setTimeout(function(){
                     $('.audio')[0].play();
                 }
 
-                 setTimeout($('#turnModal').modal('close'),12000);
+                 setTimeout($('#turnModal').modal('close'),13000);
                 
             },error: function() {
                 console.log("No se ha podido obtener la información");

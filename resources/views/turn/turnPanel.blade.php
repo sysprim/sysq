@@ -259,17 +259,39 @@
         </div>
 
         <div id="turnModal" class="modal">
-            <div class="modal-content center-align" style="color:#1860ab">
-                <div class="row">
-                    <div class="col s12 center-align">
-                        <span style="font-size:50px;">Presentarse:</span>
+            <div class="modal-content center-align" style="color:#1860ab;padding: 0;">
+
+                <div class="card z-depth-2" style="margin: 0;">
+                        <div class="card-header center-align" style="background-color:#1860ab">
+                            <span class="font-audiowide white-text" style="font-size: 60px;">Presentarse:</span>
+                        </div>
+                        <div class="card-content center-align">
+                           <div class="col s12 left-align">
+                             <div class="row" style="margin-left: 10px;">
+                                <div class="col s4 m4" style="font-size: 80px; font-weight: 500">
+                                        <span style="font-size: 80px">Cliente</span><br>
+                                        <div style="font-size: 70px;" id="ciClienteModal"></div>
+                                </div>
+
+                                <div class="col s4 m4 center-align" style="font-size: 80px; font-weight: 500">
+
+                                    <span style="font-size: 80px">Ticket</span><br>
+                                    <div style="font-size: 70px;" id="randomCodeModal"></div>
+                        
+                                </div>
+
+                                <div class="col s4 m4 center-align" style="font-size: 80px; font-weight: 500">
+                                    <span style="font-size: 80px">Taquilla</span><br>
+                                    <div style="font-size: 70px;" id="numberTicketModal"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        <div class="card-footer center-align" style="background-color:#1860ab">
+                            <span class="white-text" style="font-size: 30px;">SYSQ</span>
+                        </div>
                     </div>
-                    <div class="col s12 left-align">
-                        <div style="font-size: 120px; font-weight: 500" id="ciClienteModal" ></div>
-                        <div style="font-size: 80px; font-weight: 500" id="randomCodeModal" ></div>
-                        <div style="font-size: 80px; font-weight: 500" id="numberTicketModal" ></div>
-                    </div>
-                </div>
+                </div>    
             </div>
         </div>
 
