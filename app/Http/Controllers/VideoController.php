@@ -28,9 +28,9 @@ class VideoController extends Controller
 
     public function save(Request $request){
 
-        // $validate = $this->validate($request, [
-        //     'video_path'  => 'required|mimes:mp4'
-        // ]);
+        $validate = $this->validate($request, [
+            'video_path'  => 'required|mimes:mp4'
+        ]);
         
 
         $video_path     = $request->file('video_path');

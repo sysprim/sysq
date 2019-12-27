@@ -30,13 +30,13 @@
                         <div class="video-container">
                             @if($videoPanel)
                             
-                            <video id="videoPanel"  frameborder="0" allowfullscreen loop autoplay>
+                            <video id="videoPanel" width="100%" height="auto"  frameborder="0" allowfullscreen loop autoplay>
                                 <source src="{{ route('view.video' ,['filename'=>$videoPanel->video_path])}}">
                             </video>
                             
                             @else
                             <video id="videoPanel" width="100%" height="auto"  frameborder="0" allowfullscreen loop autoplay>
-                                <source src="{{asset('img/big_buck_bunny.mp4')}}">
+                                <source src="{{asset('img/Video corto de naturaleza.mp4')}}">
                             </video>
                             @endif                
                         </div>
@@ -269,7 +269,7 @@
                            <div class="col s12 left-align">
                              <div class="row" style="margin-left: 10px;">
                                 <div class="col s4 m4" style="font-size: 80px; font-weight: 500">
-                                        <span style="font-size: 80px">Cliente</span><br>
+                                        <span style="font-size: 80px">Contribuyente</span><br>
                                         <div style="font-size: 70px;" id="ciClienteModal"></div>
                                 </div>
 

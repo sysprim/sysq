@@ -1,5 +1,5 @@
 // const url = "http://localhost/sysq/public/";
-const url = "http://144.91.97.209/";
+ const url = "http://144.91.97.209/";
 
 $(document).ready(function () {
 

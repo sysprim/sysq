@@ -243,5 +243,8 @@ ul.breadcrumb .breadcrumb-item:not(:first-child)::before {
     transform: rotate(360deg);
   }
 }
+.modal {
+  transform: translateY(20%) !important;
+}
 
 /*# sourceMappingURL=owner.css.map */
