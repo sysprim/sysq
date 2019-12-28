@@ -45,13 +45,12 @@ class AdministratorController extends Controller
 
           // var_dump($turns);
           // die();
-          $turnFirst  = Turn::where( 'turn_status','En Espera')->first();
+          // $turnFirst  = Turn::where( 'turn_status','En Espera')->first();
 
 
           
           return view('administrator.panel',['ticket'       => $ticket,
                                              'ticketAll'    => $ticketAll,
-                                             'first'        => $turnFirst,
                                                ]);
    }
 

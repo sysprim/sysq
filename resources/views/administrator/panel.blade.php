@@ -152,7 +152,8 @@
                 <div class="row">
                     <div class="col s12 m12">                                              
                         <ul class="collection"> 
-                            @foreach ($ticketAll as $tickets)                           
+                        @foreach ($ticketAll as $tickets)
+                            @if($tickets->status_ticket=="Activa")                           
                             <li class="collection-item avatar">
                                 <i class="icon-local_convenience_store circle orange"></i>
                                 <span class="title">{{$tickets->number_ticket}}</span>
@@ -160,7 +161,8 @@
                                    {{$tickets->description_ticket}}
                                 </p>
                             <a href="{{route('panel.select', ['id'=>$tickets->id])}}" class="btn secondary-content red" >Seleccionar</a>
-                        </li>
+                            </li>
+                            @endif
                         @endforeach
                     </ul>                 
                 </div>
