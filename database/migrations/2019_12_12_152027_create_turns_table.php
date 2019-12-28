@@ -13,9 +13,8 @@ class CreateTurnsTable extends Migration
             $table->string ('random_code');
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
-            $table->integer('ticket_id')->unsigned();
-            $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete('cascade')->onUpdate('cascade');
-            $table->string ('turn_type');
+            // $table->integer('ticket_id')->unsigned();
+            // $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete('cascade')->onUpdate('cascade');
             $table->string ('turn_status')->default('En Espera');
             $table->timestamps();
         });

@@ -116,16 +116,16 @@
                     <h4 class="flow-text" style="margin-left:10xp">Turno</h4>
                 </div>
                 <div class="col s6 m6 center-align marginCol" style="background-color:#1860ab">
-                    <h4 class="flow-text" >Taquilla</h4>
+                    <h4 class="flow-text" style="margin-left:10xp">Cedula</h4>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col s8 m8 grey lighten-3 marginCol">
+                <div class="col s4 m4 grey lighten-3 marginCol">
                     <div id="codeWaiting"></div>
                 </div>
-                <div class="col s4 m4 center-align grey lighten-3 marginCol">
-                    <div id="ticketWaiting"></div>
+                <div class="col s8 m8 grey lighten-3 marginCol">
+                    <div class="right-align" id="ciWaiting"></div>
                 </div>
             </div>
             
@@ -288,7 +288,7 @@
                             </div>
                           </div>
                         <div class="card-footer center-align" style="background-color:#1860ab">
-                            <span class="white-text" style="font-size: 30px;">SYSQ</span>
+                            <img style="width:30px; height:30px" src="{{asset('img/sysQ-blanco.png')}}" alt="">
                         </div>
                     </div>
                 </div>    

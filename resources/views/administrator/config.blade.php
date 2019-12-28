@@ -73,7 +73,6 @@
                                     <thead>
                                         <tr>
                                             <th>Número</th>
-                                            <th>Nombre</th>
                                             <th>Descripción</th>
                                             <th>Estado</th>
                                             <th>Detalles</th>
@@ -83,7 +82,6 @@
                                     @foreach ($tickets as $ticket)
                                         <tr>
                                             <td>{{ $ticket->number_ticket }} </td>
-                                            <td>{{ $ticket->name_ticket }} </td>
                                             <td>{{ $ticket->description_ticket }}</td>
                                             <td>
                                             @if($ticket->status_ticket == "Activa")

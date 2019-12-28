@@ -8,9 +8,9 @@ class Ticket extends Model
 {
     protected $table = 'tickets';
     
-    public function turns(){
+    // public function turns(){
 
-    	return $this->hasMany('App\Turn', 'id');
+    // 	return $this->hasMany('App\Turn', 'id');
 
-    }
+    // }
 }

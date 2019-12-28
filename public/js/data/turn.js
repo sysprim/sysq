@@ -1,5 +1,5 @@
-// const url = "http://localhost/sysq/public/";
- const url = "http://144.91.97.209/";
+const url = "http://localhost/sysq/public/";
+ // const url = "http://144.91.97.209/";
 
 $(document).ready(function () {
 
@@ -639,15 +639,16 @@ setTimeout(function(){
                     console.log(response.waiting[i].id);
                     console.log(response.waiting[i].turn_status);
                     console.log(response.waiting[i].random_code);
-                    console.log(response.waiting[i].tickets.number_ticket);
                     
-                    acum+="<h5>"+response.waiting[i].random_code+'</h5>'+'<h5>'+'Ci:'+response.waiting[i].clients.ci_client+'<h5>';
-                    acum1+="<h5>"+response.waiting[i].tickets.number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';    
+                    acum+="<h5 style='text-aling:right'>"+response.waiting[i].random_code+'</h5>';
+                    acum1+="<h5 style='text-aling:right'>"+response.waiting[i].clients.ci_client+'<h5>';
+                    // acum1+="<h5>"+response.waiting[i].tickets.number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';    
                 }
 
-                $("#ticketWaiting").html(acum1);
+                // $("#ticketWaiting").html(acum1);
 
                 $("#codeWaiting").html(acum);
+                $("#ciWaiting").html(acum1);
                 
             },error: function() {
                 console.log("No se ha podido obtener la información");
@@ -676,13 +677,12 @@ setTimeout(function(){
                     console.log(response.attend[i].id);
                     console.log(response.attend[i].turn_status);
                     console.log(response.attend[i].random_code);
-                    console.log(response.attend[i].tickets.number_ticket);
 
                     acum+="<h5>"+response.attend[i].random_code+'</h5>'+'<h5>'+'Ci:'+response.attend[i].clients.ci_client+'<h5>';
-                    acum1+="<h5>"+response.attend[i].tickets.number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
+                    // acum1+="<h5>"+response.attend[i].tickets.number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
   
                 }
-                $("#ticketAttend").html(acum1);
+                // $("#ticketAttend").html(acum1);
 
                 $("#codeAttend").html(acum);
                 
@@ -695,9 +695,9 @@ setTimeout(function(){
     
 
       if($('#ticketNumber').val()!=undefined){
-            ticket();
+        // ticket();
          setInterval(ticketWaiting, 1000);
-         setInterval(ticketAttending, 1000); 
+         setInterval(ticketAttending, 1000);
       }
      
 

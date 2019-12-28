@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="row" style="margin-bottom:100px;">
         <div class="col s12 m12 l12">
-            @include('includes.message')
+            @include('includes.messageInfo')
             <div class="row card white" style="margin-top:100px;">
                 <div class="col s12 centered"> 
                     <h4>

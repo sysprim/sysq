@@ -3,6 +3,7 @@
 
 @section('content')
 
+<script src="{{ asset('js/data/panel.js') }}"></script>
 
 <main>
     <script src="{{ asset('js/data/turn.js') }}"></script>
@@ -52,26 +53,23 @@
                                                 <td>{{$ticket->number_ticket}}</td>
                                             </tr>
                                             <tr>
-                                                <td id="nameClient">Servicio</td>
-                                                <td id="ciClient">{{$ticket->name_ticket}}</td>
-                                            </tr>
-                                            <tr>
                                                 <td id="nameTurn">Descripción</td>
                                                 <td id="numberTurn">{{$ticket->description_ticket}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>          
-
+                            
+                            <div class="row" style="margin-top: 50px;">
                                 <div class="col s12 m12 animated bounceIn" id="block_llamar">
-                                    @if($first)
+                                    {{--@if($first)
                                     <input type="hidden" value="{{$first->id}}" id="idTurn" class="idTurn">
                                     <input type="hidden" value="{{$first->random_code}}" id="code" class="code">
                                     <input type="hidden" value="{{$first->clients->ci_client}}" id="ci" class="ci">
                                     @else
                                     <input type="hidden" value="0" id="idTurn1" class="idTurn">
                                     <input type="hidden" value="0" id="code1" class="code">
-                                    @endif
+                                    @endif--}}
                                     <button type="button"  id="llamar" style="border:none;" class="waves-effect btn-app white black-text">
                                         <i class="fas fa-bullhorn" style="color:#ffb300"></i>
                                         <span style="font-size: 16px;" id="text_llamar">Llamar</span>
@@ -89,7 +87,7 @@
                                         <span style="font-size: 16px;">No se presentó</span>
                                     </button>
                                 </div>
-                                <div class="col s12 m4 animated bounceIn" id="block_finalizar" ">
+                                <div class="col s12 m4 animated bounceIn" id="block_finalizar">
                                         <button type="button" id="finalizar" style="border:none;display:none;" class="waves-effect btn-app white black-text">
                                             <i class="fas fa-times-circle green-text"></i>
                                             <span style="font-size: 16px;">Finalizar</span>
@@ -97,30 +95,16 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                                         
                 
                             <div class="row">
                                 <div class="col s12">
-                                    <div class="collection with-header">
+                                    <div class="collection with-header" >
                                         <div class="collection-header"><h5>Mi Fila</h5></div>
-                                        @if($turns)
-                                            @foreach ($turns as $turn)
-                                            
-                                                <a  class="collection-item avatar modal-trigger">
-                                                    @if($turn->turn_type == "Normal")
-                                                    <i class="circle fas fa-user tooltipped" style="background-color:#1860ab" data-position="bottom" data-tooltip="Normal"></i>
-                                                    @else
-                                                    <i class="circle red fas fa-user tooltipped" data-position="bottom" data-tooltip="Preferencial"></i>
-                                                    @endif
-                                                    <span class="title">{{ $turn->random_code }}</span><br>
-                                                    <span class="title">{{ $turn->clients->ci_client}}</span>
-                                                </a>
-                                            @endforeach                                      
-                                        @else
-                                            <div>
-
-                                            </div>
-                                        @endif
+                                            <div id="turnPanel" >
+                                                
+                                            </div>        
                                     </div>
                                 </div>
                             </div>
@@ -172,7 +156,7 @@
                             <li class="collection-item avatar">
                                 <i class="icon-local_convenience_store circle orange"></i>
                                 <span class="title">{{$tickets->number_ticket}}</span>
-                                <p>{{$tickets->name_ticket}} <br>
+                                <p>
                                    {{$tickets->description_ticket}}
                                 </p>
                             <a href="{{route('panel.select', ['id'=>$tickets->id])}}" class="btn secondary-content red" >Seleccionar</a>

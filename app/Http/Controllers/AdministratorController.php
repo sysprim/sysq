@@ -28,18 +28,28 @@ class AdministratorController extends Controller
                                             ]);
    }
 
+    public function queryTurn(){
+
+       $turns  = Turn::with(['clients'])->where('turn_status','En Espera')->get();
+       $turnFirst  = Turn::where( 'turn_status','En Espera')->first();
+
+       return response()->json(array('turn' =>$turns,
+                                     'first'=>$turnFirst,
+                                      ));
+    }
+
    public function selectedPanel($id){
 
           $ticketAll  = Ticket::all();
           $ticket     = Ticket::find($id);
 
-          $turns  = Turn::where('ticket_id', $id)->where('turn_status','En Espera')->orWhere('turn_status','Llamado')->where('ticket_id', $id)->orWhere('turn_status','Iniciado')->where('ticket_id', $id)->get();
           // var_dump($turns);
           // die();
-          $turnFirst  = Turn::where('ticket_id', $id)->where( 'turn_status','En Espera')->orWhere('turn_status','Llamado')->where('ticket_id', $id)->orWhere('turn_status','Iniciado')->where('ticket_id', $id)->first();
+          $turnFirst  = Turn::where( 'turn_status','En Espera')->first();
+
+
           
           return view('administrator.panel',['ticket'       => $ticket,
-                                             'turns'        => $turns ,
                                              'ticketAll'    => $ticketAll,
                                              'first'        => $turnFirst,
                                                ]);

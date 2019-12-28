@@ -38,7 +38,7 @@
     <main>
         <div class="container-fluid">
             <div class="row">
-                @include('includes.message')
+                @include('includes.messageInfo')
                 <div class="col s12 center-align">
                     <h4>Por favor, ingrese su cedula de identidad</h4>
                 </div>
