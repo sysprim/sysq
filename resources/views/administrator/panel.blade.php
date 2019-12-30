@@ -6,7 +6,6 @@
 <script src="{{ asset('js/data/panel.js') }}"></script>
 
 <main>
-    <script src="{{ asset('js/data/turn.js') }}"></script>
         <div class="container-fluid" style="margin-top:20px;">
             <div class="row left-align alert alert-info">
                 <div class="col s4 m3 center-align">
@@ -21,6 +20,7 @@
             @if($ticket)
             <div class="row">
                     <div class="col s12 m3">
+                        <input type="hidden" id="idTicket" value="{{ $ticket->id }}">
                         <div class="row">
                             <div class="col s12 m12 center-align" style="background-color:#1860ab;border: solid 1px #cccccc">
                             <h6 class="white-text">Taquilla</h6>
@@ -28,48 +28,36 @@
                             <a href="#taquilla" class="btn btn-flat white-text modal-trigger">Cambiar</a>
                             </div>
                         </div>
-
-                <div class="row" style="margin-top:40px;" >
-                    <div class="col s12 m12 animated bounceIn" id="blockResetTurnos">
-                        <input type="hidden" value="{{$ticket->id}}" id="idTicketReset">
-                        <input type="hidden" value="{{$ticket->number_ticket}}" id="numberTicket">
-                         <button type="button" id="resetTaquilla" class="waves-effect btn-app white black-text" style="border: none;">
-                            <i class="fas fa-book-reader red-text"></i>
-                            <span style="font-size: 16px;">Cancelar Turnos Taquilla</span>
-                        </button>
-                    </div>
                 </div>
 
-                </div>
-    
                     <div class="col s12 m9">
-    
+                        <input type="hidden" id="idTurn">
                             <div class="row">
-                                <div class="col s12" style="margin-bottom:40px;margin-top:25px;">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>Numero Taquilla</td>
-                                                <td>{{$ticket->number_ticket}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td id="nameTurn">Descripción</td>
-                                                <td id="numberTurn">{{$ticket->description_ticket}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>          
-                            
-                            <div class="row" style="margin-top: 50px;">
+                                <div class="row" style="margin-left:10px;">
+                                    <div class="col s12 m12" id="infoTicket" style="margin-bottom:40px;margin-top:25px;">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Numero Taquilla</td>
+                                                    <td>{{$ticket->number_ticket}}</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td id="nameTurn">Descripción</td>
+                                                    <td id="numberTurn">{{$ticket->description_ticket}}</td>
+
+                                                </tr>
+                                                <tr id="clientCall" style="display: none">
+                                                    <td>Cliente</td>
+                                                    <td id="ciClient"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                     </div>
+                                </div>
+
+                            <div class="row" style="margin-top: 20px;">
                                 <div class="col s12 m12 animated bounceIn" id="block_llamar">
-                                    {{--@if($first)
-                                    <input type="hidden" value="{{$first->id}}" id="idTurn" class="idTurn">
-                                    <input type="hidden" value="{{$first->random_code}}" id="code" class="code">
-                                    <input type="hidden" value="{{$first->clients->ci_client}}" id="ci" class="ci">
-                                    @else
-                                    <input type="hidden" value="0" id="idTurn1" class="idTurn">
-                                    <input type="hidden" value="0" id="code1" class="code">
-                                    @endif--}}
                                     <button type="button"  id="llamar" style="border:none;" class="waves-effect btn-app white black-text">
                                         <i class="fas fa-bullhorn" style="color:#ffb300"></i>
                                         <span style="font-size: 16px;" id="text_llamar">Llamar</span>
@@ -96,15 +84,15 @@
                             </div>
                         </div>
                     </div>
-                                        
-                
+
+
                             <div class="row">
                                 <div class="col s12">
                                     <div class="collection with-header" >
                                         <div class="collection-header"><h5>Mi Fila</h5></div>
                                             <div id="turnPanel" >
-                                                
-                                            </div>        
+
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -135,8 +123,8 @@
                                 </tbody>
                             </table>
                         </div>
-                </div>        
-            @endif              
+                </div>
+            @endif
     </div>
 
   <!-- Modal Structure -->
@@ -148,12 +136,12 @@
                         </div>
                     </div>
 
-        @if($ticketAll)    
+        @if($ticketAll)
                 <div class="row">
-                    <div class="col s12 m12">                                              
-                        <ul class="collection"> 
+                    <div class="col s12 m12">
+                        <ul class="collection">
                         @foreach ($ticketAll as $tickets)
-                            @if($tickets->status_ticket=="Activa")                           
+                            @if($tickets->status_ticket=="Activa")
                             <li class="collection-item avatar">
                                 <i class="icon-local_convenience_store circle orange"></i>
                                 <span class="title">{{$tickets->number_ticket}}</span>
@@ -164,10 +152,10 @@
                             </li>
                             @endif
                         @endforeach
-                    </ul>                 
+                    </ul>
                 </div>
             </div>
-            
+
         @else
                 <div class="row">
                     <div class="col s12 m12">
@@ -175,7 +163,7 @@
                     </div>
                 </div>
         @endif
-                
+
             <div class="modal-footer">
                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">cerrar</a>
             </div>
@@ -199,7 +187,7 @@
                 <audio class="audio">
                     <source src="{{asset('img/turn.mp3')}}" type="audio/ogg">
                 </audio>
-            
+
     </main>
 
 @endsection

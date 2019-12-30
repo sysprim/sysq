@@ -31,11 +31,15 @@ class AdministratorController extends Controller
     public function queryTurn(){
 
        $turns  = Turn::with(['clients'])->where('turn_status','En Espera')->get();
-       $turnFirst  = Turn::where( 'turn_status','En Espera')->first();
 
        return response()->json(array('turn' =>$turns,
-                                     'first'=>$turnFirst,
                                       ));
+    }
+
+    public function firstTurn(){
+        $turnFirst  = Turn::with(['clients'])->where( 'turn_status','En Espera')->first();
+
+        return response()->json(array('first'=>$turnFirst,));
     }
 
    public function selectedPanel($id){
@@ -48,14 +52,14 @@ class AdministratorController extends Controller
           // $turnFirst  = Turn::where( 'turn_status','En Espera')->first();
 
 
-          
+
           return view('administrator.panel',['ticket'       => $ticket,
                                              'ticketAll'    => $ticketAll,
                                                ]);
    }
 
    public function turn(){
-         
+
      $video = Video::all();
      $videoPanel = null;
 

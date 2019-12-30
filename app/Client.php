@@ -13,4 +13,10 @@ class Client extends Model
     	return $this->hasMany('App\Turn');
 
     }
+
+    public function attentions(){
+
+        return $this->hasMany('App\Attention');
+
+    }
 }

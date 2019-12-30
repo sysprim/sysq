@@ -1,99 +1,148 @@
+const url = "http://localhost/sysq/public/";
+// const url = "http://144.91.97.209/";
+
 $(document).ready(function(){
 
-	$('#llamar').click(function(e){
+    window.onbeforeunload = function() {
+        return 'Si actualiza los contribuyentes que fueron llamados o se a iniciado la atención no estarán en cola nuevamente.';
+    };
 
-        if(code != 0){
-        //Buttons infernal
-    //cambiar turno
-            $.ajax({
-                method:'POST',
-                url: url+"Turn/Call",
-                data:{idTurn:idTurn,
-                    "_token": $("meta[name='csrf-token']").attr("content")
-                },
-                
-                beforeSend: function () {
-                   
-                },
-                success: function(data) {
-                    console.log(data);
+    var idTicket= $('#idTicket').val();
 
-                        $('#blockResetTurnos').hide();
+	$('#llamar').click(function(response){
 
-                        $('#text_llamar').html('Llamar de nuevo');
-                        $('#info').html('Recuerde iniciar atención cuando el cliente este en taquilla');
-                        $('#nameClient').html('Cliente');
-                        $('#ciClient').html(ci);
-                        $('#nameTurn').html('Turno');
-                        $('#numberTurn').html(code);
+        $.ajax({
+            url:url + "Panel/First",
+            method:"GET",
+            datatype:"JSON",
 
-                        $('#cancelar').show();
-                        $('#iniciar').show();
+            beforeSend: function () {
+                console.log("Recibiendo datos");
+            },
 
-                        $('#block_cancelar').show();      
-                        $('#block_iniciar').show();
+            success:function (response) {
 
-                        $("#block_iniciar").removeClass();
-                        $("#block_llamar").removeClass();
-                        $("#block_cancelar").removeClass();
-                        $("#preloader-overlay").hide();
+               var idTurn  =response.first.id;
+               var code    =response.first.random_code;
+               var ci      =response.first.clients.ci_client;
+               var idClient=response.first.clients.id;
 
-                        $("#block_iniciar").addClass("col s12 m4 animated bounceIn");       
-                        $("#block_llamar").addClass("col s12 m4 animated bounceIn");
-                        $("#block_cancelar").addClass("col s12 m4 animated bounceIn");
+                if(idTurn != null){
+                        $.ajax({
+                            method:'POST',
+                            url: url+"Turn/Call",
+                            data:{idTurn:idTurn,
+                                "_token": $("meta[name='csrf-token']").attr("content")
+                            },
 
-        //modaaaaalllllllll
-                    $('#ticket').modal('open');
-                    $('#infoCode').html(code);
-                    $('.audio')[0].play();
-                },
-                error: function(err) {
-    
-                    console.log(err);
-                    swal({
-                        title: "¡Oh no!",
-                        text: "Ha ocurrido un error inesperado, refresca la página e intentalo de nuevo.",
-                        icon: "error",
-                        button: {
-                            text: "Aceptar",
-                            visible: true,
-                            value: true,
-                            className: "green",
-                            closeModal: true
-                        }
-                    });
-                }
-            })
-        
-        }else{
+                            beforeSend: function () {
 
-            swal({
-                text: "No tienes clientes en cola",
-                icon: "error",
-                button: {
-                    text: "Aceptar",
-                    className: "red"
-                }
-            });
-        }
+                            },
+                            success: function(data) {
+                                $.ajax({
+                                    method:'POST',
+                                    url: url+"Attention/Save",
+                                    data:{idClient:idClient,
+                                        idTicket:idTicket,
+                                        "_token": $("meta[name='csrf-token']").attr("content")
+                                    },
+                                    beforeSend:function(){
 
+                                    },
+
+                                    success:function(){
+                                        console.log("registrado");
+                                    },
+
+                                    error: function() {
+                                        console.log("No se ha podido obtener la información");
+                                    }
+                                });
+                                    $("#idTurn").val(idTurn);
+
+                                    $('#text_llamar').html('Llamar de nuevo');
+                                    $('#info').html('Recuerde iniciar atención cuando el cliente este en taquilla');
+                                    $('#nameClient').html('Cliente');
+
+                                    $('#nameTurn').html('Turno');
+                                    $('#numberTurn').html(code);
+
+                                    $('#clientCall').show();
+                                    $('#ciClient').html(ci);
+
+                                    $('#cancelar').show();
+                                    $('#iniciar').show();
+
+                                    $('#block_cancelar').show();
+                                    $('#block_iniciar').show();
+                                    $("#block_llamar").hide();
+
+                                    $("#block_iniciar").removeClass();
+
+                                    $("#block_cancelar").removeClass();
+                                    $("#preloader-overlay").hide();
+
+                                    $("#block_iniciar").addClass("col s12 m6 animated bounceIn");
+                                    $("#block_cancelar").addClass("col s12 m6 animated bounceIn");
+
+                    //modaaaaalllllllll
+                                $('#ticket').modal('open');
+                                $('#infoCode').html(code);
+                                $('.audio')[0].play();
+                            },
+                            error: function(err) {
+
+                                console.log(err);
+                                swal({
+                                    title: "¡Oh no!",
+                                    text: "Ha ocurrido un error inesperado, refresca la página e intentalo de nuevo.",
+                                    icon: "error",
+                                    button: {
+                                        text: "Aceptar",
+                                        visible: true,
+                                        value: true,
+                                        className: "green",
+                                        closeModal: true
+                                    }
+                                });
+                            }
+                        })
+                    }else{
+
+                        swal({
+                            text: "No tienes clientes en cola",
+                            icon: "error",
+                            button: {
+                                text: "Aceptar",
+                                className: "red"
+                            }
+                        });
+                    }
+            },
+            error: function() {
+                console.log("No se ha podido obtener la información");
+            }
+
+        });
     });
 
     $('#iniciar').click(function(e) {
 
+        var idTurn=$("#idTurn").val();
+
         $.ajax({
                 method:'POST',
-                url: url+"Turn/Iniciar",
+                url: url+"Turn/Start",
                 data:{idTurn:idTurn,
                     "_token": $("meta[name='csrf-token']").attr("content")
                 },
-                
+
                  beforeSend: function () {
-                    
+                    console.log(idTurn);
                         },
                 success: function(data) {
                     console.log(data);
-                            
+
                     swal({
                         title: "¡Se ha Iniciado con exito!",
                         text: "Puedes seguir atendiendo ",
@@ -106,29 +155,28 @@ $(document).ready(function(){
                                     closeModal: true
                                 },
                                 timer: 3000
-                                
-                            })
+
+                            });
 
                         //Buttons
                     $("#preloader").hide();
-                    $("#preloader-overlay").hide();  
+                    $("#preloader-overlay").hide();
                     $('#llamar').hide();
                     $('#iniciar').hide();
                     $("#block_llamar").hide();
                     $("#block_iniciar").hide();
-        
+
                     $('#finalizar').show();
                     $('#block_finalizar').show();
                     $('#cancelar').show();
                     $('#block_cancelar').show();
-        
-        
+
                     $("#block_finalizar").addClass("col s12 m6 animated bounceIn");
                     $("#block_cancelar").addClass("col s12 m6 animated bounceIn");
 
                 },
                 error: function(err) {
-    
+
                     console.log(err);
                     swal({
                         title: "¡Oh no!",
@@ -148,6 +196,7 @@ $(document).ready(function(){
 
     $('#finalizar').click(function (e){
 
+        var idTurn=$("#idTurn").val();
 
         swal({
             title: "¿Quieres finalizar el servicio?",
@@ -168,7 +217,7 @@ $(document).ready(function(){
                     className: "grey lighten-2"
                 }
             }}).then(function(value){
-                
+
                 if(value == true){
                     $.ajax({
                         method:'POST',
@@ -176,7 +225,7 @@ $(document).ready(function(){
                         data:{idTurn:idTurn,
                             "_token": $("meta[name='csrf-token']").attr("content")
                         },
-                        
+
                         beforeSend: function () {
                             $("#preloader").fadeIn('fast');
                             $("#preloader-overlay").fadeIn('fast');
@@ -185,10 +234,10 @@ $(document).ready(function(){
                             console.log(data);
 
                             $('#preLoader').hide();
-                            $('#text_llamar').html('Llamar');       
+                            $('#text_llamar').html('Llamar');
                             $("#block_llamar").removeClass();
                             $("#block_llamar").addClass("col s12 m12 animated bounceIn");
-                            
+
                             swal({
                                 title: "¡Se ha finalizado con exito!",
                                 text: "Puedes seguir atendiendo ",
@@ -201,14 +250,31 @@ $(document).ready(function(){
                                     closeModal: true
                                 },
                                 timer: 3000
-                                
-                            })
-                            .then(redirect => {
-                                location.reload();
-                            })
+
+                            });
+
+                            //Buttons
+                            $("#preloader").hide();
+                            $("#preloader-overlay").hide();
+
+                            $('#llamar').show();
+                            $("#block_llamar").show();
+
+                            $('#iniciar').hide();
+                            $("#block_iniciar").hide();
+
+                            $('#finalizar').hide();
+                            $('#block_finalizar').hide();
+
+                            $('#cancelar').hide();
+                            $('#block_cancelar').hide();
+
+                            $("#block_llamar").removeClass();
+                            $("#block_llamar").addClass("col s12 m12 animated bounceIn");
+
                         },
                         error: function(err) {
-            
+
                             console.log(err);
                             swal({
                                 title: "¡Oh no!",
@@ -224,7 +290,7 @@ $(document).ready(function(){
                             });
                         }
                     })}else {
-    
+
                     swal({
                         text: "No se ha finalizado de no finalizar seguira el cliente en cola",
                         icon: "info",
@@ -235,9 +301,11 @@ $(document).ready(function(){
                     });
                 }
             });
-        });     
+        });
 
     $('#cancelar').click(function (e){
+
+        var idTurn=$("#idTurn").val();
 
         swal({
             title: "¿Quieres cancelar el servicio?",
@@ -258,15 +326,15 @@ $(document).ready(function(){
                     className: "grey lighten-2"
                 }
             }}).then(function(value){
-                
-                if(value == true){
+
+                if(value){
                     $.ajax({
                         method:'POST',
                         url: url+"Turn/Cancel",
                         data:{idTurn:idTurn,
                             "_token": $("meta[name='csrf-token']").attr("content")
                         },
-                        
+
                         beforeSend: function () {
                             $("#preloader").fadeIn('fast');
                             $("#preloader-overlay").fadeIn('fast');
@@ -285,13 +353,28 @@ $(document).ready(function(){
                                     closeModal: true
                                 },
                                 timer: 3000
-                            })
-                            .then(redirect => {
-                                location.reload();
-                            })
+                            });
+                            //Buttons
+                            $("#preloader").hide();
+                            $("#preloader-overlay").hide();
+
+                            $('#llamar').show();
+                            $("#block_llamar").show();
+
+                            $('#iniciar').hide();
+                            $("#block_iniciar").hide();
+
+                            $('#finalizar').hide();
+                            $('#block_finalizar').hide();
+
+                            $('#cancelar').hide();
+                            $('#block_cancelar').hide();
+
+                            $("#block_llamar").removeClass();
+                            $("#block_llamar").addClass("col s12 m12 animated bounceIn");
                         },
                         error: function(err) {
-            
+
                             console.log(err);
                             swal({
                                 title: "¡Oh no!",
@@ -307,7 +390,7 @@ $(document).ready(function(){
                             });
                         }
                     })}else {
-    
+
                     swal({
                         text: "No se ha cancelado",
                         icon: "warning",
@@ -332,8 +415,9 @@ $(document).ready(function(){
             }, success: function(response) {
 
                 console.log(response.turn[0]);
+                code=response.turn[0];
 
-                acum="";
+                var acum="";
 
                 for(i=0; i<response.turn.length; i++){
 
@@ -345,11 +429,11 @@ $(document).ready(function(){
                           "</i>"+
                           "<span class='title'>"+response.turn[i].random_code+"</span>"+"<br>"+
                           "<span class='title'>"+response.turn[i].clients.ci_client+"</span>"+
-                            "</a>";
+                          "</a>";
                 }
 
                 $("#turnPanel").html(acum);
-                
+
             },error: function() {
                 console.log("No se ha podido obtener la información");
             }
