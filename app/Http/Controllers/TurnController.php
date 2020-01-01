@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Client;
-use App\Ticket;
 use App\Turn;
+use App\Attention;
+use App\Client;
 use Illuminate\Support\Facades\DB;
 use Mpdf\Mpdf;
 
@@ -14,26 +14,38 @@ class TurnController extends Controller
 
 
     public function turnCallMe(Request $request){
-        
-        $turnCall = Turn::with(['clients'])->where('turn_status', 'Llamado')->orderBy('turn_status', 'desc')->get();
 
-        return response()->json(array('call'=>$turnCall,
+        $query = DB::select("SELECT * FROM attentions INNER JOIN turns ON attentions.turn_id = turns.id 
+                                        INNER JOIN tickets ON attentions.ticket_id = tickets.id 
+                                        INNER JOIN clients ON turns.client_id = clients.id WHERE turn_status = 'Llamado'");
+
+
+        foreach ($query as $turnCall){
+                $call[]=$turnCall;
+            }
+
+        return response()->json(array('call'=>$call,
                                        ));
     }
 
     public function turnWaiting(Request $request){
-        
+
         $turnWaiting = Turn::with(['clients'])->where('turn_status', 'En Espera')->limit(5)->get();
 
         return response()->json(array('waiting'=>$turnWaiting,
                                        ));
     }
 
-    public function turnAttending(Request $request){
-        
-        $turnAttend = Turn::with(['clients'])->where('turn_status', 'Iniciado')->limit(5)->get();
+    public function turnAttending(){
+        $query = DB::select("SELECT * FROM attentions INNER JOIN turns ON attentions.turn_id = turns.id 
+                                        INNER JOIN tickets ON attentions.ticket_id = tickets.id 
+                                        INNER JOIN clients ON turns.client_id = clients.id WHERE turn_status = 'Iniciado'");
 
-        return response()->json(array('attend'=>$turnAttend,
+
+        foreach ($query as $turnAttend){
+            $attend[]=$turnAttend;
+        }
+        return response()->json(array('attend'=>$attend,
                                        ));
     }
 
@@ -45,7 +57,7 @@ class TurnController extends Controller
         $turn->turn_status = "Llamado";
 
         $turn->update();
-        
+
     }
 
      public function turnStart(Request $request){
@@ -56,7 +68,7 @@ class TurnController extends Controller
         $turn->turn_status = "Iniciado";
 
         $turn->update();
-        
+
     }
 
     public function turnFinally(Request $request){
@@ -67,7 +79,7 @@ class TurnController extends Controller
         $turn->turn_status = "Atendido";
 
         $turn->update();
-        
+
     }
 
     public function turnCancel(Request $request){
@@ -78,7 +90,7 @@ class TurnController extends Controller
         $turn->turn_status = "Cancelado";
 
         $turn->update();
-        
+
     }
 
     public function turnReset(Request $request){
@@ -90,7 +102,7 @@ class TurnController extends Controller
             $turns->turn_status = "Cancelado";
             $turns->update();
         }
- 
+
     }
 
     public function turnResetTicket(Request $request){
@@ -104,7 +116,7 @@ class TurnController extends Controller
             $turns->turn_status = "Cancelado";
             $turns->update();
         }
- 
+
     }
-    
+
 }

@@ -14,9 +14,9 @@ class Turn extends Model
 
     }
 
-    // public function tickets(){
+     public function attentions(){
 
-    // 	return $this->belongsTo('App\Ticket', 'ticket_id');
+     	return $this->hasMany('App\Attention');
 
-    // }
+     }
 }

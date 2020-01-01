@@ -10,7 +10,8 @@ class Ticket extends Model
 
      public function attentions(){
 
-     	return $this->hasMany('App\Attention');
+        return $this->hasMany('App\Attention');
+
 
      }
 }

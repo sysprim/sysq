@@ -59,7 +59,7 @@ Route::post('/Turn/Reset'     ,'TurnController@turnReset')       ->name('reset.t
 Route::post('/Turn/Reset/Ticket' ,'TurnController@turnResetTicket') ->name('reset.ticket.turn');
 Route::post('/Turn/CallMe' ,'TurnController@turnCallMe') ->name('read.turn');
 Route::post('/Turn/Waiting' ,'TurnController@turnWaiting') ->name('read.waiting.turn');
-Route::post('/Turn/Attending' ,'TurnController@turnAttending') ->name('read.attending.turn');
+Route::get('/Turn/Attending' ,'TurnController@turnAttending') ->name('read.attending.turn');
 
 //Video
 Route::get('/Video/Register'     ,'VideoController@register')   ->name('register.video');

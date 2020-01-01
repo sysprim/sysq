@@ -15,8 +15,8 @@ class CreateAttentionsTable extends Migration
     {
         Schema::create('attentions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('client_id')->unsigned();
-            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('turn_id')->unsigned();
+            $table->foreign('turn_id')->references('id')->on('turns')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('ticket_id')->unsigned();
             $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

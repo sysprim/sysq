@@ -34,7 +34,7 @@ $(document).ready(function () {
                     className: "grey lighten-2"
                 }
             }}).then(function(value){
-                
+
                 if(value == true){
                     $.ajax({
                         method:'POST',
@@ -42,7 +42,7 @@ $(document).ready(function () {
                         data:{
                             "_token": $("meta[name='csrf-token']").attr("content")
                         },
-                        
+
                         beforeSend: function () {
                             $("#preloader").fadeIn('fast');
                             $("#preloader-overlay").fadeIn('fast');
@@ -68,7 +68,7 @@ $(document).ready(function () {
                             })
                         },
                         error: function(err) {
-            
+
                             console.log(err);
                             swal({
                                 title: "¡Oh no!",
@@ -84,7 +84,7 @@ $(document).ready(function () {
                             });
                         }
                     })}else {
-    
+
                     swal({
                         text: "No se ha cancelado las tareas",
                         icon: "warning",
@@ -123,7 +123,7 @@ $(document).ready(function () {
                     className: "grey lighten-2"
                 }
             }}).then(function(value){
-                
+
                 if(value == true){
                     $.ajax({
                         method:'POST',
@@ -131,7 +131,7 @@ $(document).ready(function () {
                         data:{idReset:idReset,
                             "_token": $("meta[name='csrf-token']").attr("content")
                         },
-                        
+
                         beforeSend: function () {
                             $("#preloader").fadeIn('fast');
                             $("#preloader-overlay").fadeIn('fast');
@@ -156,7 +156,7 @@ $(document).ready(function () {
                             })
                         },
                         error: function(err) {
-            
+
                             console.log(err);
                             swal({
                                 title: "¡Oh no!",
@@ -172,7 +172,7 @@ $(document).ready(function () {
                             });
                         }
                     })}else {
-    
+
                     swal({
                         text: "No se ha cancelado las tareas",
                         icon: "warning",
@@ -204,12 +204,12 @@ $(document).ready(function () {
 
         $('#notice').html('Cintillo de Noticia : '+ notice);
 
-        $('#editNoticePanel').hide();    
+        $('#editNoticePanel').hide();
 
-    });   
+    });
 
 function ticket(){
-        
+
 setTimeout(function(){
 
     var consulta = $.ajax({
@@ -219,7 +219,6 @@ setTimeout(function(){
                         "_token": $("meta[name='csrf-token']").attr("content")
 
             }, success: function(response) {
-                console.log(response.call[1]);
 
                 var CallMe = response.call;
                 var acum ="";
@@ -233,14 +232,14 @@ setTimeout(function(){
                     console.log(response.call[i].id);
                     console.log(response.call[i].turn_status);
                     console.log(response.call[i].random_code);
-                    console.log(response.call[i].tickets.number_ticket);
-                    console.log(response.call[i].clients.ci_client);
+                    console.log(response.call[i].number_ticket);
+                    console.log(response.call[i].ci_client);
 
-                    acum+="<h5>"+response.call[i].random_code+'</h5>'+'<h5>'+'Ci:'+response.call[i].clients.ci_client+'<h5>';
-                    acum1+="<h5>"+response.call[i].tickets.number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
-                    
+                    acum+="<h5>"+response.call[i].random_code+'</h5>'+'<h5>'+'Ci:'+response.call[i].ci_client+'<h5>';
+                    acum1+="<h5>"+response.call[i].number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
+
                     code+=response.call[i].random_code;
-                    ticket+=response.call[i].tickets.number_ticket;
+                    ticket+=response.call[i].number_ticket;
 
                 }
                 $("#ticketNumber").html(acum1);
@@ -253,8 +252,8 @@ setTimeout(function(){
                     codeM="";
 
                     for(i=0; i<response.call.length; i++){
-                        clientM+="<span>"+response.call[i].clients.ci_client+"</span>"+"<br>";
-                        ticketM+="<span>"+response.call[i].tickets.number_ticket+"</span>"+"<br>";
+                        clientM+="<span>"+response.call[i].ci_client+"</span>"+"<br>";
+                        ticketM+="<span>"+response.call[i].number_ticket+"</span>"+"<br>";
                         codeM+="<span>"+response.call[i].random_code+"</span>"+"<br>";
                     }
 
@@ -270,10 +269,10 @@ setTimeout(function(){
                         // var codeModal =response.call[i].random_code;
 
                      setTimeout( function(){
-                        $('#turnModal').modal('open');   
-                        
+                        $('#turnModal').modal('open');
+
                      } ,10000);
-     
+
                     //  setTimeout( swal({
                     //     title: "CLIENTE: "+ci,
                     //     text: "TURNO: "+codeModal,
@@ -282,22 +281,22 @@ setTimeout(function(){
                     //          },
                     //         timer: 2000
                     // }),10000);
-                                       
+
                     $('.audio')[0].play();
                 }
 
                  setTimeout($('#turnModal').modal('close'),13000);
-                
+
             },error: function() {
                 console.log("No se ha podido obtener la información");
             }
 
         });
-      
+
     ticket();
 }, 3000);
 
-} 
+}
 
       function ticketWaiting(){
         var consulta = $.ajax({
@@ -312,92 +311,88 @@ setTimeout(function(){
                 var CallMe = response.waiting;
                 var acum ="";
                 var acum1 ="";
-                
 
+            if(response.waiting != null){
                 for(i=0; i<response.waiting.length; i++){
                     // console.log(response.call[i]);
                     console.log(response.waiting[i].id);
                     console.log(response.waiting[i].turn_status);
                     console.log(response.waiting[i].random_code);
-                    
+
                     acum+="<h5 style='text-aling:right'>"+response.waiting[i].random_code+'</h5>';
                     acum1+="<h5 style='text-aling:right'>"+response.waiting[i].clients.ci_client+'<h5>';
-                    // acum1+="<h5>"+response.waiting[i].tickets.number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';    
+                    // acum1+="<h5>"+response.waiting[i].tickets.number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
                 }
-
+            }
                 // $("#ticketWaiting").html(acum1);
 
                 $("#codeWaiting").html(acum);
                 $("#ciWaiting").html(acum1);
-                
+
             },error: function() {
                 console.log("No se ha podido obtener la información");
             }
 
         });
-      } 
+      }
 
       function ticketAttending(){
         var consulta = $.ajax({
-                                method:'POST',
+                                method:'GET',
                                 url: url+"Turn/Attending",
-                                data:{
-                        "_token": $("meta[name='csrf-token']").attr("content")
 
-            }, success: function(response) {
+            success: function(response) {
                 console.log(response.attend[0]);
 
-                var CallMe = response.attend;
                 var acum ="";
                 var acum1 ="";
-                
+
 
                 for(i=0; i<response.attend.length; i++){
-                    // console.log(response.call[i]);
+
                     console.log(response.attend[i].id);
                     console.log(response.attend[i].turn_status);
                     console.log(response.attend[i].random_code);
 
-                    acum+="<h5>"+response.attend[i].random_code+'</h5>'+'<h5>'+'Ci:'+response.attend[i].clients.ci_client+'<h5>';
-                    // acum1+="<h5>"+response.attend[i].tickets.number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
-  
-                }
-                // $("#ticketAttend").html(acum1);
+                    acum+="<h5>"+response.attend[i].random_code+'</h5>'+'<h5>'+'Ci:'+response.attend[i].ci_client+'<h5>';
+                    acum1+="<h5>"+response.attend[i].number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
 
+                }
+                $("#ticketAttend").html(acum1);
                 $("#codeAttend").html(acum);
-                
+
             },error: function() {
                 console.log("No se ha podido obtener la información");
             }
 
         });
-      } 
-    
+      }
+
 
       if($('#ticketNumber').val()!=undefined){
-        // ticket();
+         ticket();
          setInterval(ticketWaiting, 1000);
          setInterval(ticketAttending, 1000);
       }
-     
+
 
 });
 
 // function change(id){
-            
+
 //     const url = "http://localhost/sysq/public/";
 
 //     var idVideo = id;
 //     var consulta = $.ajax({
 //                         method:'GET',
 //                         url: url+"Video/Search/"+idVideo,
-                        
+
 //     success: function(response) {
 //         console.log(response.changeVideo);
 //         console.log(response.changeVideo.video_path);
-        
+
 //         var name = response.changeVideo.video_path ;
-        
+
 //         $('#videoPanel').attr('src', '{{ route( view.video,[filename=>'+name+'])}}');
 //         $('#videoPanel')[0].load();
 

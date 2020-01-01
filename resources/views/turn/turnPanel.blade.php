@@ -29,16 +29,16 @@
                     <div class="col s12 m12 " style="padding:0;height: 80%";>
                         <div class="video-container">
                             @if($videoPanel)
-                            
+
                             <video id="videoPanel" width="100%" height="auto"  frameborder="0" allowfullscreen loop autoplay>
                                 <source src="{{ route('view.video' ,['filename'=>$videoPanel->video_path])}}">
                             </video>
-                            
+
                             @else
                             <video id="videoPanel" width="100%" height="auto"  frameborder="0" allowfullscreen loop autoplay>
                                 <source src="{{asset('img/Video corto de naturaleza.mp4')}}">
                             </video>
-                            @endif                
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -48,14 +48,14 @@
                 <marquee behavior="" direction=""><b id="notice" style="color: #fff; font-size: 40px">Cintillo de Noticia:</b></marquee>
             </div>
         </div>
-            
 
-        
+
+
 </div>
 
 
         <div class="col s4 m4 marginCol">
-            
+
                 <div class="row marginCol">
                     <div class="col s12 m12 l12 green accent-4 center-align marginCol">
                         <h4 class="flow-text" style="font-weight:bold;">Llamados</h4>
@@ -86,7 +86,7 @@
                             <h4 class="flow-text" style="font-weight:bold;">En Atención</h4>
                         </div>
                     </div>
-    
+
                     <div class="row">
                         <div class="col s6 m6 center-align marginCol" style="background-color:#1860ab">
                             <h4 class="flow-text">Turno</h4>
@@ -95,7 +95,7 @@
                             <h4 class="flow-text">Taquilla</h4>
                         </div>
                     </div>
-    
+
                     <div class="row">
                         <div class="col s8 m8 grey lighten-3 marginCol" id="code_random">
                             <div id="codeAttend"></div>
@@ -113,10 +113,10 @@
 
             <div class="row">
                 <div class="col s6 m6 center-align marginCol" style="background-color:#1860ab">
-                    <h4 class="flow-text" style="margin-left:10xp">Turno</h4>
+                    <h4 class="flow-text">Turno</h4>
                 </div>
                 <div class="col s6 m6 center-align marginCol" style="background-color:#1860ab">
-                    <h4 class="flow-text" style="margin-left:10xp">Cedula</h4>
+                    <h4 class="flow-text">Cedula</h4>
                 </div>
             </div>
 
@@ -128,14 +128,14 @@
                     <div class="right-align" id="ciWaiting"></div>
                 </div>
             </div>
-            
-           
+
+
         </div>
     </main>
 </div>
 
 <div class="row marginCol" style="width: 100%">
-            <div class="col s12 m12 " style="padding:0" >   
+            <div class="col s12 m12 " style="padding:0" >
                 <div style="background-color:#1860ab;color: #fff">
                     <div class="container-fluid">
                         <div class="row" style="display:none" id="editNoticePanel">
@@ -159,7 +159,7 @@
                                             <p> del </p>
                                             <p id="Anio" class="Anio"></p>
                                         </div>
-                                        
+
                                     </div>
                             </div>
 
@@ -169,24 +169,24 @@
                                             <p id="Horas" class="Horas"></p>
                                             <p>:</p>
                                             <p id="Minutos" class="Minutos"></p>
-                                            <p>:</p>                                           
+                                            <p>:</p>
                                             <p id="Segundos" class="Segundos"></p>
                                             <p style="font-weight:bold;font-size: 15px;" id="AM-PM" class="AM-PM"></p>
-                                            
-                                    </div> 
-                                </div>              
+
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="col s4 m4 center-align" style="margin-top:30px">
                                 <div style="margin-left: 30px;">
                                     <img style="width:300px; height:120px" src="{{asset('img/sysQ-blanco.png')}}" alt="">
-                                </div> 
+                                </div>
 
                                 <div class="container">
-                                    <p style="font-size: 20px;"> © 2019 Tecnova-Ve</p> 
-                                </div>          
+                                    <p style="font-size: 20px;"> © 2019 Tecnova-Ve</p>
+                                </div>
                             </div>
-                 
+
                         </div>
                 </div>
             </div>
@@ -194,14 +194,17 @@
     </div>
 
 <div class="fixed-action-btn" style="z-index: 99999">
-    <a href="{{ route('panel') }}" class="btn-floating btn-large red tooltipped" data-position="left" data-tooltip="Panel">
-      <i class="icon-account_circle large" style="font-size:50px"></i>
+    <a class="btn-floating btn-large tooltipped " style="background-color:#34e064" data-position="left" data-tooltip="Configurar Pantalla">
+        <i class="large icon-attach_file"></i>
     </a>
       <ul>
-          <li><a href="#video" class="btn-floating white tooltipped modal-trigger" style="background-color:##34e064"
-              data-position="left" data-tooltip="Seleccionar Video">
+          <li><a href="{{ route('panel') }}" class="btn-floating red tooltipped" data-position="left" data-tooltip="Panel" >
+                  <i class="icon-account_circle large"></i>
+              </a>
+          </li>
+          <li><a href="#video" class="btn-floating white tooltipped modal-trigger" style="background-color:#34e064">
               <i class="icon-vertical_align_top large black-text" ></i></a>
-          </li>      
+          </li>
           <li><button type="button" value="#video" class="btn-floating tooltipped" style="background-color:#1860ab"
               data-position="left" data-tooltip="Editar Noticias">
               <i class="icon-mode_edit large" id="editNotice"></i></button>
@@ -217,7 +220,7 @@
         <source src="{{asset('img/turn.mp3')}}" type="audio/ogg">
     </audio>
 
-   
+
 
 <!-- Modal Structure -->
         <div id="video" class="modal bottom-sheet">
@@ -228,23 +231,23 @@
                         </div>
                     </div>
 
-        @if($video)    
+        @if($video)
                 <div class="row">
-                    <div class="col s12 m12">                                              
-                        <ul class="collection"> 
-                            @foreach ($video as $videos)                           
+                    <div class="col s12 m12">
+                        <ul class="collection">
+                            @foreach ($video as $videos)
                             <li class="collection-item avatar">
                                 <i class="icon-ondemand_video circle orange"></i>
                                 <span class="title">{{$videos->video_path}}</span>
-                                <p>{{$videos->description_video}} 
+                                <p>{{$videos->description_video}}
                                 </p>
                             <a href="{{route('search.video',['id'=>$videos->id])}}" class="btn secondary-content red" >Cambiar</a>
                         </li>
                         @endforeach
-                    </ul>                 
+                    </ul>
                 </div>
             </div>
-            
+
         @else
                 <div class="row">
                     <div class="col s12 m12">
@@ -252,7 +255,7 @@
                     </div>
                 </div>
         @endif
-                
+
             <div class="modal-footer">
                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">cerrar</a>
             </div>
@@ -269,7 +272,7 @@
                            <div class="col s12 left-align">
                              <div class="row" style="margin-left: 10px;">
                                 <div class="col s4 m4" style="font-size: 80px; font-weight: 500">
-                                        <span style="font-size: 80px">Contribuyente</span><br>
+                                        <span style="font-size: 80px">Persona</span><br>
                                         <div style="font-size: 70px;" id="ciClienteModal"></div>
                                 </div>
 
@@ -277,7 +280,7 @@
 
                                     <span style="font-size: 80px">Ticket</span><br>
                                     <div style="font-size: 70px;" id="randomCodeModal"></div>
-                        
+
                                 </div>
 
                                 <div class="col s4 m4 center-align" style="font-size: 80px; font-weight: 500">
@@ -288,15 +291,15 @@
                             </div>
                           </div>
                         <div class="card-footer center-align" style="background-color:#1860ab">
-                            <img style="width:30px; height:30px" src="{{asset('img/sysQ-blanco.png')}}" alt="">
+                            <img style="width:100px; height:60px" src="{{asset('img/sysQ-blanco.png')}}" alt="">
                         </div>
                     </div>
-                </div>    
+                </div>
             </div>
         </div>
 
 
-    
+
 
     <!-- JavaScript files -->
 
@@ -309,7 +312,7 @@
 <script src="{{ asset('js/owner.js') }}"></script>
 <script src="{{ asset('js/data/turn.js') }}"></script>
 <script src="{{ asset('js/data/video.js') }}"></script>
-   
+
 
 
 <style>

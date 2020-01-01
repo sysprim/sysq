@@ -11,12 +11,12 @@ class AttentionController extends Controller
 {
     public function save(Request $request){
 
-        $idClient = $request->input('idClient');
+        $idTurn = $request->input('idTurn');
         $idTicket = $request->input('idTicket');
 
         $attention = new Attention();
 
-        $attention->client_id = $idClient;
+        $attention->turn_id = $idTurn;
         $attention->ticket_id = $idTicket;
 
         $attention->save();

@@ -40,12 +40,10 @@
                                                 <tr>
                                                     <td>Numero Taquilla</td>
                                                     <td>{{$ticket->number_ticket}}</td>
-
                                                 </tr>
                                                 <tr>
                                                     <td id="nameTurn">Descripción</td>
                                                     <td id="numberTurn">{{$ticket->description_ticket}}</td>
-
                                                 </tr>
                                                 <tr id="clientCall" style="display: none">
                                                     <td>Cliente</td>

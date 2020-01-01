@@ -25,7 +25,6 @@ $(document).ready(function(){
                var idTurn  =response.first.id;
                var code    =response.first.random_code;
                var ci      =response.first.clients.ci_client;
-               var idClient=response.first.clients.id;
 
                 if(idTurn != null){
                         $.ajax({
@@ -42,8 +41,8 @@ $(document).ready(function(){
                                 $.ajax({
                                     method:'POST',
                                     url: url+"Attention/Save",
-                                    data:{idClient:idClient,
-                                        idTicket:idTicket,
+                                    data:{idTurn:idTurn,
+                                          idTicket:idTicket,
                                         "_token": $("meta[name='csrf-token']").attr("content")
                                     },
                                     beforeSend:function(){

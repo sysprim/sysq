@@ -5,13 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Attention extends Model
-
 {
     protected $table='attentions';
 
-    public function clients(){
+    public function turns(){
 
-        return $this->belongsTo('App\Client', 'client_id');
+        return $this->belongsTo('App\Turn', 'turn_id');
 
     }
 
