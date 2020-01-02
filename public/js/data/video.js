@@ -6,8 +6,8 @@ function deleteVideo(id){
     var id = id;
 
     swal({
-        title: "¿Quiere eliminar al usuario",
-        text: "¿Esta seguro que desea eliminar al usuario? Si lo hace, no podrá revertir los cambios.",
+        title: "¿Quiere eliminar el video?",
+        text: "¿Esta seguro que desea eliminar el video? Si lo hace, no podrá revertir los cambios.",
         icon: "error",
         buttons: {
             confirm: {

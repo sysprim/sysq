@@ -9,7 +9,7 @@
             <div class="row card white" style="margin-top:100px;">
                 <div class="col s12 centered"> 
                     <h4>
-                        <i class="icon-video_label" style="color:#1860ab"></i>
+                        <i class="icon-live_tv" style="color:#1860ab"></i>
                         Videos Subidos
                     </h4> 
                 </div>
