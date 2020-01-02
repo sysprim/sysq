@@ -1,5 +1,5 @@
-const url = "http://localhost/sysq/public/";
-// const url = "http://144.91.97.209/";
+// const url = "http://localhost/sysq/public/";
+ const url = "http://144.91.97.209/";
 
 $(document).ready(function(){
 
@@ -8,8 +8,10 @@ var _wasPageCleanedUp = false;
 $(window).on('beforeunload', function ()
 {
 console.log("Entrando a la actualizacion de pagina");
+	
+	alert('El cliente llamado a sido cancelado.');
 
-   var idTurn=$("#idTurn").val();
+    var idTurn=$("#idTurn").val();
 
 	if (!_wasPageCleanedUp)
     {
