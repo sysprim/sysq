@@ -72,7 +72,7 @@
                                 
                                 <div class="row " style="padding:20px;">
                                     <div class="col s12 m8">
-                                        <button type="button" class="btn blue" id="update">
+                                        <button type="button" class="btn" style="background-color:#1860ab;" id="update">
                                             Guardar
                                         </button>
                                     </div>
