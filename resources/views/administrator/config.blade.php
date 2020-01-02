@@ -20,8 +20,8 @@
                         @include('includes.message')
                         <div class="card">
                             <ul id="tabs-swipe-demo" class="tabs">
-                                <li class="tab col s12 m3"><a href="#usuario"  style="color:#0288d1">Usuarios</a></li>
-                                <li class="tab col s12 m3"><a href="#taquilla" style="color:#0288d1">Taquillas</a></li>
+                                <li class="tab col s12 m3 "><a href="#usuario"  style="color:#0288d1">Usuarios</a></li>
+                                <li class="tab col s12 m3 "><a href="#taquilla" style="color:#0288d1">Taquillas</a></li>
                                 <li class="tab col s12 m3"><a href="#menu"     style="color:#0288d1">Registrar</a></li>
                                 <li class="tab col s12 m3"><a href="#configuracion"     style="color:#0288d1">Configuración</a></li>
                             </ul>
@@ -110,13 +110,13 @@
                                     <h4>Seleccione:</h4>
                                 </div>
                                 <div class="col s6">
-                                    <a href="{{ route('register') }}" class="btn-app white waves-effect small" style="color:#1860ab" >
+                                    <a href="{{ route('register') }}" class="btn-app white waves-effect  truncate" style="color:#1860ab" >
                                         <i class="icon-assignment_ind"></i>
                                         Usuarios
                                     </a>
                                 </div>
                                 <div class="col s6">
-                                    <a href="{{ route('register.ticket') }}" class="btn-app white green-text">
+                                    <a href="{{ route('register.ticket') }}" class="btn-app white green-text truncate">
                                         <i class="icon-assignment"></i>
                                         Taquillas
                                     </a>
@@ -130,13 +130,13 @@
                                     </h4>
                                 </div>
                                 <div class="col s6">
-                                    <a href="#" id="reset" class="btn-app white waves-effect small red-text" >
+                                    <a href="#" id="reset" class="btn-app white waves-effect small red-text truncate" >
                                         <i class="icon-autorenew"></i>
                                         Cancelar Turnos
                                     </a>
                                 </div>
                                 <div class="col s6">
-                                    <a href="{{route('index.video')}}" class="btn-app white lighten-1 orange-text" disabled>
+                                    <a href="{{route('index.video')}}" class="btn-app white lighten-1 orange-text truncate" disabled>
                                         <i class="icon-ondemand_video"></i>
                                         Videos
                                     </a>             
