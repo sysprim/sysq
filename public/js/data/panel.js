@@ -3,9 +3,52 @@ const url = "http://localhost/sysq/public/";
 
 $(document).ready(function(){
 
-    window.onbeforeunload = function() {
-        return 'Si actualiza los contribuyentes que fueron llamados o se a iniciado la atención no estarán en cola nuevamente.';
-    };
+var _wasPageCleanedUp = false;
+
+$(window).on('beforeunload', function ()
+{
+console.log("Entrando a la actualizacion de pagina");
+
+   var idTurn=$("#idTurn").val();
+
+	if (!_wasPageCleanedUp)
+    {
+	
+var consulta= $.ajax({
+              		method:'POST',
+              		url: url+"Turn/Cancel",
+              		async: false,
+              		data:{idTurn:idTurn,
+                  		"_token": $("meta[name='csrf-token']").attr("content")
+              },
+
+              beforeSend: function () {
+                  
+               },
+              success: function(data) {
+                  console.log(data);
+                  swal({
+                      title: "¡Turno Cancelado!",
+                      text: "Puedes seguir atendiendo ",
+                      icon: "success",
+                      button: {
+                          text: "Aceptar",
+                          visible: true,
+                          value: true,
+                          className: "green",
+                          closeModal: true
+                      },
+               timer: 3000
+
+ 			});
+
+          _wasPageCleanedUp = true;
+
+          }
+       });
+     }
+
+});
 
     var idTicket= $('#idTicket').val();
 
@@ -444,3 +487,8 @@ $(document).ready(function(){
     setInterval(queryTurn, 1000);
 
 });
+
+function resetCallAttend(){
+
+
+ }

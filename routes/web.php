@@ -61,6 +61,7 @@ Route::post('/Turn/CallMe' ,'TurnController@turnCallMe') ->name('read.turn');
 Route::post('/Turn/Waiting' ,'TurnController@turnWaiting') ->name('read.waiting.turn');
 Route::get('/Turn/Attending' ,'TurnController@turnAttending') ->name('read.attending.turn');
 
+
 //Video
 Route::get('/Video/Register'     ,'VideoController@register')   ->name('register.video');
 Route::post('/Video/Save'     ,  'VideoController@save')        ->name('save.video');
