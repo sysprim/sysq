@@ -30,13 +30,13 @@
                         <div class="video-container">
                             @if($videoPanel)
 
-                            <video id="videoPanel" width="100%" height="auto"  frameborder="0" allowfullscreen loop autoplay>
-                                <source src="{{ route('view.video' ,['filename'=>$videoPanel->video_path])}}">
+                            <video id="videoPanel" width="100%" height="auto"  controls autoplay>
+                                <source src="{{ route('view.video' ,['filename'=>$videoPanel->video_path])}}" type="video/mp4">
                             </video>
 
                             @else
-                            <video id="videoPanel" width="100%" height="auto"  frameborder="0" allowfullscreen loop autoplay>
-                                <source src="{{asset('img/Video corto de naturaleza.mp4')}}">
+                            <video id="videoPanel" width="100%" height="auto"  frameborder="0" controls autoplay>
+                                <source src="{{asset('img/Video corto de naturaleza.mp4')}}" type="video/mp4">
                             </video>
                             @endif
                         </div>
