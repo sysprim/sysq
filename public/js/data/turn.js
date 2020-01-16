@@ -1,5 +1,5 @@
- // const url = "http://localhost/sysq/public/";
-const url = "http://144.91.97.209/";
+const url = "http://localhost/sysq/public/";
+// const url = "http://144.91.97.209/";
 
 $(document).ready(function () {
 
@@ -226,22 +226,22 @@ setTimeout(function(){
                 var code="";
                 var ticket="";
 
-
-                for(i=0; i<response.call.length; i++){
+                if(response.call != 0){
+                    for(i=0; i<response.call.length; i++){
                     // console.log(response.call[i]);
-                    console.log(response.call[i].id);
-                    console.log(response.call[i].turn_status);
-                    console.log(response.call[i].random_code);
-                    console.log(response.call[i].number_ticket);
-                    console.log(response.call[i].ci_client);
+                        console.log(response.call[i].id);
+                        console.log(response.call[i].turn_status);
+                        console.log(response.call[i].random_code);
+                        console.log(response.call[i].number_ticket);
+                        console.log(response.call[i].ci_client);
 
-                    acum+="<h5 class='flow-text'>"+response.call[i].random_code+'</h5>'+'<h5>'+'Ci:'+response.call[i].ci_client+'<h5>';
-                    acum1+="<h5 class='flow-text'>"+response.call[i].number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
+                        acum+="<h5 class='flow-text'>"+response.call[i].random_code+'</h5>'+'<h5>'+'Ci:'+response.call[i].ci_client+'<h5>';
+                        acum1+="<h5 class='flow-text'>"+response.call[i].number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
 
-                    code+=response.call[i].random_code;
-                    ticket+=response.call[i].number_ticket;
-
+                        code+=response.call[i].random_code;
+                        ticket+=response.call[i].number_ticket;
                 }
+            }
                 $("#ticketNumber").html(acum1);
                 $("#codeRandom").html(acum);
 
@@ -347,7 +347,7 @@ setTimeout(function(){
                 var acum ="";
                 var acum1 ="";
 
-
+            if(response.attend != 0){
                 for(i=0; i<response.attend.length; i++){
 
                     console.log(response.attend[i].id);
@@ -358,6 +358,7 @@ setTimeout(function(){
                     acum1+="<h5 class='flow-text'>"+response.attend[i].number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
 
                 }
+            }
                 $("#ticketAttend").html(acum1);
                 $("#codeAttend").html(acum);
 

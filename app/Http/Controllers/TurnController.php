@@ -19,16 +19,19 @@ class TurnController extends Controller
                                         INNER JOIN tickets ON attentions.ticket_id = tickets.id 
                                         INNER JOIN clients ON turns.client_id = clients.id WHERE turn_status = 'Llamado'");
 
-
-        foreach ($query as $turnCall){
+        if ($query) {
+            foreach ($query as $turnCall){
                 $call[]=$turnCall;
             }
+        }else{
+                $call[]=0;
+        }    
 
         return response()->json(array('call'=>$call,
                                        ));
     }
 
-    public function turnWaiting(Request $request){
+    public function turnWaiting(){
 
         $turnWaiting = Turn::with(['clients'])->where('turn_status', 'En Espera')->limit(5)->get();
 
@@ -41,10 +44,15 @@ class TurnController extends Controller
                                         INNER JOIN tickets ON attentions.ticket_id = tickets.id 
                                         INNER JOIN clients ON turns.client_id = clients.id WHERE turn_status = 'Iniciado'");
 
-
-        foreach ($query as $turnAttend){
+        if ($query) {
+            foreach ($query as $turnAttend){
             $attend[]=$turnAttend;
+            }
+        }else{
+            $attend[]=0;
         }
+        
+        
         return response()->json(array('attend'=>$attend,
                                        ));
     }
