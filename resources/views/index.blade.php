@@ -45,7 +45,7 @@
             </div>
             <div ></div>
             <div class="row">
-                <div class="col s12 m8 offset-m2 l6 offset-l3">
+                <div class="col s12 m10 offset-m2 l6 offset-l3">
                     <form action="{{ route('save.client') }}" method="post" class="card grey lighten-5 hoverable">
 
                          @csrf

@@ -1,4 +1,4 @@
-// const url = "http://localhost/sysq/public/";
+ // const url = "http://localhost/sysq/public/";
 const url = "http://144.91.97.209/";
 
 $(document).ready(function () {
@@ -235,8 +235,8 @@ setTimeout(function(){
                     console.log(response.call[i].number_ticket);
                     console.log(response.call[i].ci_client);
 
-                    acum+="<h5>"+response.call[i].random_code+'</h5>'+'<h5>'+'Ci:'+response.call[i].ci_client+'<h5>';
-                    acum1+="<h5>"+response.call[i].number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
+                    acum+="<h5 class='flow-text'>"+response.call[i].random_code+'</h5>'+'<h5>'+'Ci:'+response.call[i].ci_client+'<h5>';
+                    acum1+="<h5 class='flow-text'>"+response.call[i].number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
 
                     code+=response.call[i].random_code;
                     ticket+=response.call[i].number_ticket;
@@ -319,8 +319,8 @@ setTimeout(function(){
                     console.log(response.waiting[i].turn_status);
                     console.log(response.waiting[i].random_code);
 
-                    acum+="<h5 style='text-aling:right'>"+response.waiting[i].random_code+'</h5>';
-                    acum1+="<h5 style='text-aling:right'>"+response.waiting[i].clients.ci_client+'<h5>';
+                    acum+="<h5 class='flow-text' style='text-aling:right'>"+response.waiting[i].random_code+'</h5>';
+                    acum1+="<h5 class='flow-text' style='text-aling:right'>"+response.waiting[i].clients.ci_client+'<h5>';
                     // acum1+="<h5>"+response.waiting[i].tickets.number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
                 }
             }
@@ -354,8 +354,8 @@ setTimeout(function(){
                     console.log(response.attend[i].turn_status);
                     console.log(response.attend[i].random_code);
 
-                    acum+="<h5>"+response.attend[i].random_code+'</h5>'+'<h5>'+'Ci:'+response.attend[i].ci_client+'<h5>';
-                    acum1+="<h5>"+response.attend[i].number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
+                    acum+="<h5 class='flow-text'>"+response.attend[i].random_code+'</h5>'+'<h5>'+'Ci:'+response.attend[i].ci_client+'<h5>';
+                    acum1+="<h5 class='flow-text'>"+response.attend[i].number_ticket+'</h5>'+"<h5>"+" <i class='icon-face'></i> "+'</h5>';
 
                 }
                 $("#ticketAttend").html(acum1);

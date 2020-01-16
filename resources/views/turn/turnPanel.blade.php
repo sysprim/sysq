@@ -72,13 +72,22 @@
                 </div>
 
                 <div class="row">
-                    <div class="col s8 m8 grey lighten-3 marginCol" id="code_random">
-                        <div id="codeRandom"></div>
-                    </div>
-                    <div class="col s4 m4 center-align grey lighten-3 marginCol" id="ticket_number">
-                        <div id="ticketNumber"></div>
-                    </div>
-                </div>
+                    <div class="col s6 m6 grey lighten-3 marginCol">
+                            <div class="row center-align">
+                                <div class="col s12 m12" id="codeRandom">
+                            
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col s6 m6 grey lighten-3 marginCol">
+                            <div class="row center-align">
+                                <div class="col s12 m12" id="ticketNumber">
+                            
+                                </div>
+                            </div>
+                        </div>
+                 </div>
 
 
                     <div class="row marginCol">
@@ -97,11 +106,20 @@
                     </div>
 
                     <div class="row">
-                        <div class="col s8 m8 grey lighten-3 marginCol" id="code_random">
-                            <div id="codeAttend"></div>
+                        <div class="col s6 m6 grey lighten-3 marginCol">
+                            <div class="row center-align">
+                                <div class="col s12 m12" id="codeAttend">
+                            
+                                </div>
+                            </div>
                         </div>
-                        <div class="col s4 m4 center-align grey lighten-3 marginCol" id="ticket_number">
-                            <div id="ticketAttend"></div>
+
+                        <div class="col s6 m6 grey lighten-3 marginCol">
+                            <div class="row center-align">
+                                <div class="col s12 m12" id="ticketAttend">
+                            
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -122,10 +140,18 @@
 
             <div class="row">
                 <div class="col s4 m4 grey lighten-3 marginCol">
-                    <div id="codeWaiting"></div>
+                    <div class="row" >
+                        <div class="col s12 m12" id="codeWaiting">
+                            
+                        </div>
+                    </div>
                 </div>
                 <div class="col s8 m8 grey lighten-3 marginCol">
-                    <div class="right-align" id="ciWaiting"></div>
+                    <div class="row right-align">
+                        <div class="col s12 m12" id="ciWaiting">
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
 
