@@ -241,6 +241,7 @@ var consulta= $.ajax({
     $('#finalizar').click(function (e){
 
         var idTurn=$("#idTurn").val();
+        var idTicket=$("#idTicket").val();
 
         swal({
             title: "¿Quieres finalizar el servicio?",
@@ -275,12 +276,12 @@ var consulta= $.ajax({
                             $("#preloader-overlay").fadeIn('fast');
                         },
                         success: function(data) {
-                            console.log(data);
+                            var idTurn=$("#idTurn").val('0');
 
-                            $('#preLoader').hide();
-                            $('#text_llamar').html('Llamar');
-                            $("#block_llamar").removeClass();
-                            $("#block_llamar").addClass("col s12 m12 animated bounceIn");
+                            // $('#preLoader').hide();
+                            // $('#text_llamar').html('Llamar');
+                            // $("#block_llamar").removeClass();
+                            // $("#block_llamar").addClass("col s12 m12 animated bounceIn");
 
                             swal({
                                 title: "¡Se ha finalizado con exito!",
@@ -295,26 +296,28 @@ var consulta= $.ajax({
                                 },
                                 timer: 3000
 
-                            });
+                            }).then(redirect => {
+                                location.href = url + "Panel/" + idTicket;
+                        });
 
-                            //Buttons
-                            $("#preloader").hide();
-                            $("#preloader-overlay").hide();
+                            // //Buttons
+                            // $("#preloader").hide();
+                            // $("#preloader-overlay").hide();
 
-                            $('#llamar').show();
-                            $("#block_llamar").show();
+                            // $('#llamar').show();
+                            // $("#block_llamar").show();
 
-                            $('#iniciar').hide();
-                            $("#block_iniciar").hide();
+                            // $('#iniciar').hide();
+                            // $("#block_iniciar").hide();
 
-                            $('#finalizar').hide();
-                            $('#block_finalizar').hide();
+                            // $('#finalizar').hide();
+                            // $('#block_finalizar').hide();
 
-                            $('#cancelar').hide();
-                            $('#block_cancelar').hide();
+                            // $('#cancelar').hide();
+                            // $('#block_cancelar').hide();
 
-                            $("#block_llamar").removeClass();
-                            $("#block_llamar").addClass("col s12 m12 animated bounceIn");
+                            // $("#block_llamar").removeClass();
+                            // $("#block_llamar").addClass("col s12 m12 animated bounceIn");
 
                         },
                         error: function(err) {

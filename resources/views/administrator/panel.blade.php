@@ -35,6 +35,7 @@
                             <div class="row">
                                 <div class="row" style="margin-left:10px;">
                                     <div class="col s12 m12" id="infoTicket" style="margin-bottom:40px;margin-top:25px;">
+                                        <input type="hidden" value="{{$ticket->id}}" id="idTicket">
                                         <table>
                                             <tbody>
                                                 <tr>
