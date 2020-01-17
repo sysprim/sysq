@@ -17,9 +17,10 @@
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owner.css') }}">
     <link rel="stylesheet" href="{{ asset('css/turno.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font.css') }}">
     <link rel="shortcut icon" href="{{ asset('img/sysQ-icono.ico') }}" type="image/x-icon">
 </head>
-<body class="grey lighten-3">
+<body class="grey lighten-3 font-OpenSans">
 
     @include('includes.preloader')
 <main>
@@ -160,7 +161,7 @@
     </main>
 </div>
 
-<div class="row marginCol" style="width: 100%">
+<div class="row marginCol" style="width: 100%;font-family: 'OpenSans'!important;">
             <div class="col s12 m12 " style="padding:0" >
                 <div style="background-color:#1860ab;color: #fff">
                     <div class="container-fluid">
@@ -177,11 +178,11 @@
                                     <div class="Widget">
                                         <div class="Fecha">
                                             <div>
-                                            <p id="DiaSemana" class="DiaSemana"></p>
+                                                <p id="DiaSemana" class="DiaSemana"></p>
+                                                <p id="Dia" class="Dia"></p>
+                                                <p> de </p>
+                                                <p id="Mes" class="Mes"></p>
                                             </div>
-                                            <p id="Dia" class="Dia"></p>
-                                            <p> de </p>
-                                            <p id="Mes" class="Mes"></p>
                                             <p> del </p>
                                             <p id="Anio" class="Anio"></p>
                                         </div>
@@ -198,7 +199,6 @@
                                             <p>:</p>
                                             <p id="Segundos" class="Segundos"></p>
                                             <p style="font-weight:bold;font-size: 15px;" id="AM-PM" class="AM-PM"></p>
-
                                     </div>
                                 </div>
                             </div>
@@ -209,7 +209,7 @@
                                 </div>
 
                                 <div class="container">
-                                    <p style="font-size: 20px;"> © 2019 Tecnova-Ve</p>
+                                    <p style="font-size: 20px;"> © {{date('Y')}} Tecnova-Ve</p>
                                 </div>
                             </div>
 

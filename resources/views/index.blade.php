@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owner.css') }}">
     <link rel="shortcut icon" href="{{ asset('img/sysQ-icono.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ asset('css/font.css') }}">
 </head>
-<body class="grey lighten-3 font-nunito">
+<body class="grey lighten-3 font-OpenSans">
     <!-- Header -->
     @include('includes.preloader')    
     
@@ -61,47 +62,47 @@
                             </div>
                             <div class="col s4 animated bounceIn">
                                 <button type="button" class="waves-effect btnNumber btn-app white black-text" value="1">
-                                    <span>1</span>
+                                    <span class="font-OpenSans">1</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
                                 <button autofocus type="button" class="waves-effect btnNumber btn-app white black-text" value="2">
-                                    <span>2</span>
+                                    <span class="font-OpenSans">2</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
                                 <button type="button" class="waves-effect btnNumber btn-app white black-text" value="3">
-                                    <span>3</span>
+                                    <span class="font-OpenSans">3</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
                                 <button type="button" class="waves-effect btnNumber btn-app white black-text" value="4">
-                                    <span>4</span>
+                                    <span class="font-OpenSans">4</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
                                 <button type="button" class="waves-effect btnNumber btn-app white black-text" value="5">
-                                    <span>5</span>
+                                    <span class="font-OpenSans">5</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
                                 <button type="button" class="waves-effect btnNumber btn-app white black-text" value="6">
-                                    <span>6</span>
+                                    <span class="font-OpenSans">6</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
                                 <button type="button" class="waves-effect btnNumber btn-app white black-text" value="7">
-                                    <span>7</span>
+                                    <span class="font-OpenSans">7</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
                                 <button type="button" class="waves-effect btnNumber btn-app white black-text" value="8">
-                                    <span>8</span>
+                                    <span class="font-OpenSans">8</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
                                 <button type="button" class="waves-effect btnNumber btn-app white black-text" value="9">
-                                    <span>9</span>
+                                    <span class="font-OpenSans">9</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">
@@ -111,7 +112,7 @@
                             </div>
                             <div class="col s4 animated bounceIn">
                                 <button type="button" class="waves-effect btnNumber btn-app white black-text" value="0">
-                                    <span>0</span>
+                                    <span class="font-OpenSans">0</span>
                                 </button>
                             </div>
                             <div class="col s4 animated bounceIn">

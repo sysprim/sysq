@@ -66,12 +66,12 @@ var consulta= $.ajax({
             },
 
             success:function (response) {
-
+               var turn    =response.first;
                var idTurn  =response.first.id;
                var code    =response.first.random_code;
                var ci      =response.first.clients.ci_client;
 
-                if(idTurn != null){
+                if(turn != null){
                         $.ajax({
                             method:'POST',
                             url: url+"Turn/Call",
@@ -492,8 +492,3 @@ var consulta= $.ajax({
     setInterval(queryTurn, 1000);
 
 });
-
-function resetCallAttend(){
-
-
- }

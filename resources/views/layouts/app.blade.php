@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owner.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owner.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font.css') }}">
     <link rel="shortcut icon" href="{{ asset('img/sysQ icono.png') }}" type="image/x-icon">
     <style>
         @media only screen and (max-width: 992px) {
@@ -37,7 +38,7 @@
 
 </head>
 
-<body class="grey lighten-3 font-nunito">
+<body class="grey lighten-3 font-OpenSans">
     @include('includes.preloader')
     <!-- Header -->
     <header>

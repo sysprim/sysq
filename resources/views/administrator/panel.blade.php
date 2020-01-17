@@ -55,29 +55,29 @@
                                      </div>
                                 </div>
 
-                            <div class="row" style="margin-top: 20px;">
+                            <div class="row font-OpenSans" style="margin-top: 20px;">
                                 <div class="col s12 m12 animated bounceIn" id="block_llamar">
                                     <button type="button"  id="llamar" style="border:none;" class="waves-effect btn-app white black-text">
                                         <i class="fas fa-bullhorn" style="color:#ffb300"></i>
-                                        <span style="font-size: 16px;" id="text_llamar">Llamar</span>
+                                        <span style="font-size: 16px;font-family:'OpenSans'!important;" id="text_llamar">Llamar</span>
                                     </button>
                                 </div>
                                 <div class="col s12 m6 animated bounceIn" id="block_iniciar">
                                     <button type="button" id="iniciar" style="border:none;display:none;" class="waves-effect btn-app white black-text ">
                                         <i class="fas fa-play" style="color:#1860ab"></i>
-                                        <span style="font-size: 16px;">Iniciar Atención</span>
+                                        <span style="font-size: 16px;font-family:'OpenSans'!important;">Iniciar Atención</span>
                                     </button>
                                 </div>
                                 <div class="col s12 m4 animated bounceIn" id="block_cancelar">
                                     <button type="button" id="cancelar" style="border:none;display:none;" class="waves-effect btn-app white black-text">
                                         <i class="fas fa-user-times red-text"></i>
-                                        <span style="font-size: 16px;">No se presentó</span>
+                                        <span style="font-size: 16px;font-family:'OpenSans'!important;">No se presentó</span>
                                     </button>
                                 </div>
                                 <div class="col s12 m4 animated bounceIn" id="block_finalizar">
                                         <button type="button" id="finalizar" style="border:none;display:none;" class="waves-effect btn-app white black-text">
                                             <i class="fas fa-times-circle green-text"></i>
-                                            <span style="font-size: 16px;">Finalizar</span>
+                                            <span style="font-size: 16px;font-family:'OpenSans'!important;">Finalizar</span>
                                         </button>
                                 </div>
                             </div>
