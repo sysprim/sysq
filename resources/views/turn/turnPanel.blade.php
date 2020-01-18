@@ -45,7 +45,7 @@
                 </div>
 
         <div class="row">
-            <div class="col s12 m12 red">
+            <div class="col s12 m12 orange accent-4">
                 <marquee behavior="" direction=""><b id="notice" style="color: #fff; font-size: 40px">Cintillo de Noticia:</b></marquee>
             </div>
         </div>
