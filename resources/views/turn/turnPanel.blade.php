@@ -64,10 +64,10 @@
                 </div>
 
                 <div class="row">
-                    <div class="col s6 m6 center-align marginCol" style="background-color:#1860ab">
+                    <div class="col s6 m6 center-align marginCol grey lighten-2">
                         <h4 class="flow-text">Turno</h4>
                     </div>
-                    <div class="col s6 m6 center-align marginCol" style="background-color:#1860ab">
+                    <div class="col s6 m6 center-align marginCol grey lighten-2">
                         <h4 class="flow-text">Taquilla</h4>
                     </div>
                 </div>
@@ -98,10 +98,10 @@
                     </div>
 
                     <div class="row">
-                        <div class="col s6 m6 center-align marginCol" style="background-color:#1860ab">
+                        <div class="col s6 m6 center-align marginCol grey lighten-2">
                             <h4 class="flow-text">Turno</h4>
                         </div>
-                        <div class="col s6 m6 center-align marginCol" style="background-color:#1860ab">
+                        <div class="col s6 m6 center-align marginCol grey lighten-2">
                             <h4 class="flow-text">Taquilla</h4>
                         </div>
                     </div>
@@ -131,10 +131,10 @@
             </div>
 
             <div class="row">
-                <div class="col s6 m6 center-align marginCol" style="background-color:#1860ab">
+                <div class="col s6 m6 center-align marginCol grey lighten-2">
                     <h4 class="flow-text">Turno</h4>
                 </div>
-                <div class="col s6 m6 center-align marginCol" style="background-color:#1860ab">
+                <div class="col s6 m6 center-align marginCol grey lighten-2">
                     <h4 class="flow-text">Cedula</h4>
                 </div>
             </div>
