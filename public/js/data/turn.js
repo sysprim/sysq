@@ -285,7 +285,7 @@ setTimeout(function(){
                     $('.audio')[0].play();
                 }
 
-                 setTimeout($('#turnModal').modal('close'),13000);
+                 setTimeout($('#turnModal').modal('close'),15000);
 
             },error: function() {
                 console.log("No se ha podido obtener la información");

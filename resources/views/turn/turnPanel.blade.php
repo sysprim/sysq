@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
     <link rel="shortcut icon" href="{{ asset('img/sysQ-icono.ico') }}" type="image/x-icon">
 </head>
-<body class="grey lighten-3 font-OpenSans">
+<body class="grey lighten-3 font-Prototype">
 
     @include('includes.preloader')
 <main>
@@ -59,7 +59,7 @@
 
                 <div class="row marginCol">
                     <div class="col s12 m12 l12 green accent-4 center-align marginCol">
-                        <h4 class="flow-text" style="font-weight:bold;">Llamados</h4>
+                        <h4 class="flow-text">LLAMADOS</h4>
                     </div>
                 </div>
 
@@ -72,7 +72,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row font-Prototype">
                     <div class="col s6 m6 grey lighten-3 marginCol">
                             <div class="row center-align">
                                 <div class="col s12 m12" id="codeRandom">
@@ -91,9 +91,9 @@
                  </div>
 
 
-                    <div class="row marginCol">
+                    <div class="row marginCol font-Prototype">
                         <div class="col s12 m12 yellow darken-2 center-align marginCol">
-                            <h4 class="flow-text" style="font-weight:bold;">En Atención</h4>
+                            <h4 class="flow-text">EN ATENCIÓN</h4>
                         </div>
                     </div>
 
@@ -126,7 +126,7 @@
 
             <div class="row">
                 <div class="col s12 m12 red center-align marginCol">
-                    <h4 class="flow-text">En Espera</h4>
+                    <h4 class="flow-text">EN ESPERA</h4>
                 </div>
             </div>
 
@@ -135,7 +135,7 @@
                     <h4 class="flow-text">Turno</h4>
                 </div>
                 <div class="col s6 m6 center-align marginCol grey lighten-2">
-                    <h4 class="flow-text">Cedula</h4>
+                    <h4 class="flow-text">Cédula</h4>
                 </div>
             </div>
 
@@ -288,13 +288,13 @@
         </div>
 
         <div id="turnModal" class="modal">
-            <div class="modal-content center-align" style="color:#1860ab;padding: 0;">
+            <div class="modal-content center-align white-text" style="padding: 0;">
 
                 <div class="card z-depth-2" style="margin: 0;">
-                        <div class="card-header center-align" style="background-color:#1860ab">
-                            <span class="font-audiowide white-text" style="font-size: 60px;">Presentarse:</span>
+                        <div class="card-header center-align" style="color:#1860ab">
+                            <span class="font-audiowide" style="font-size: 60px;">Presentarse:</span>
                         </div>
-                        <div class="card-content center-align">
+                        <div class="card-content center-align" style="background-color:#1860ab">
                            <div class="col s12 left-align">
                              <div class="row" style="margin-left: 10px;">
                                 <div class="col s4 m4" style="font-size: 80px; font-weight: 500">

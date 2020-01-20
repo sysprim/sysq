@@ -3,6 +3,15 @@
     src: url('../fonts/CaviarDreams.ttf');
 }
 
+@font-face {
+    font-family: 'Prototype';
+    src: url('../fonts/Typographica.ttf');
+}
+
+.font-Prototype {
+    font-family: Prototype;
+}
+
 .font-OpenSans {
     font-family: OpenSans;
 }
