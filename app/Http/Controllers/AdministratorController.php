@@ -14,7 +14,7 @@ class AdministratorController extends Controller
 
     public function __construct()
     {
-         $this->middleware('auth');
+       //  $this->middleware('auth');
     }
 
    public function panel(){
@@ -39,6 +39,7 @@ class AdministratorController extends Controller
     public function firstTurn(){
         $turnFirst  = Turn::with(['clients'])->where( 'turn_status','En Espera')->first();
 
+        
         return response()->json(array('first'=>$turnFirst,));
     }
 

@@ -42,6 +42,18 @@ Route::post('/Ticket/Update', 'TicketController@update')        ->name('update.t
 Route::post('/Ticket/Delete',  'TicketController@delete')       ->name('delete.ticket');
 Route::get('/Ticket/ActDes/{id}/{status}',  'TicketController@statusTicket') ->name('status.ticket');
 
+Route::get('/Ticket/update/all', 'TicketController@clearTicket');
+
+
+
+
+//json-sysprim
+Route::get('/ticket/change-status/{id}/{status}',  'TicketController@statusTicketJson') ->name('status.ticket.json');
+Route::get('/ticket/all',  'TicketController@all') ->name('ticket.all');
+
+
+
+
 //Attention
 
 Route::post('/Attention/Save' , 'AttentionController@save'   )        ->name('save.attention');
@@ -69,6 +81,7 @@ Route::get('/Video'     ,  'VideoController@index')             ->name('index.vi
 Route::post('/Video/Delete'     ,'VideoController@delete')  ->name('delete.video');
 Route::get('/Video/Search/{id}'     ,'VideoController@search')  ->name('search.video');
 Route::get('/Video/{filename}', 'VideoController@getVideo')     ->name('view.video');
+
 
 
 

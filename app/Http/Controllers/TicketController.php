@@ -9,7 +9,7 @@ class TicketController extends Controller
 {
     public function __construct()
     {
-         $this->middleware('auth');
+         //$this->middleware('auth');
     }
 
     public function index(){
@@ -82,4 +82,44 @@ class TicketController extends Controller
 
         return redirect()->route('config')->with(['message'=>'Estado de la taquilla Actualizado']);
     }
+
+
+
+    public function statusTicketJson($id, $status){
+        $ticket = Ticket::find($id);
+        $ticket->status_ticket = $status;
+        $ticket->update();
+        return response()->json(['status'=>$status],200);
+    }
+
+
+    public function all(){
+        $ticket = Ticket::all();
+        return response()->json(['ticket'=>$ticket],200);
+    }
+
+
+
+    public function  clearTicket (){
+        $tickets=Ticket::where('status_ticket','taken')->get();
+        
+    
+    
+        foreach ($tickets as $ticket) {
+            $ticket->status_ticket='Activo';
+            $ticket->update();
+        }
+
+
+
+        return response()->json(['status'=>'sucess','message'=>'Taquillas liberadas con éxito.']);
+    }
+
+
+
+
+
+
+
+
 }
